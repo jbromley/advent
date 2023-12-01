@@ -2,6 +2,9 @@ defmodule Trebuchet do
   @moduledoc """
   Day 1 of Advent of Code 2023 - Trebuchet?!
   """
+
+  use Bakeware.Script
+
   @numbers_re ~r/(1|2|3|4|5|6|7|8|9)/
   @numbers_words_re ~r/(?=(1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine))/
   @numbers %{
@@ -16,9 +19,11 @@ defmodule Trebuchet do
     "nine" => 9
   }
 
+  @impl Bakeware.Script
   def main(_args) do
     IO.puts("Part 1: #{calculcate_code_1("input")}")
     IO.puts("Part 2: #{calculcate_code_2("input")}")
+    0
   end
 
   @doc """
