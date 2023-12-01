@@ -10,7 +10,10 @@ defmodule TrebuchetTest do
       "treb7uchet"
     ]
 
-    assert Trebuchet.calibration_code(input, &Trebuchet.extract_calibration_digits/1) == 142
+    assert Trebuchet.calibration_code(
+             input,
+             &Trebuchet.extract_calibration_number(&1, parse_words: false)
+           ) == 142
   end
 
   test "test part two with example data" do
@@ -24,6 +27,9 @@ defmodule TrebuchetTest do
       "7pqrstsixteen"
     ]
 
-    assert Trebuchet.calibration_code(input, &Trebuchet.extract_calibration_digits_words/1) == 281
+    assert Trebuchet.calibration_code(
+             input,
+             &Trebuchet.extract_calibration_number(&1, parse_words: true)
+           ) == 281
   end
 end

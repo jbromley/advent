@@ -19,15 +19,18 @@ defmodule Trebuchet do
   def calculcate_code_1(input_file) do
     input_file
     |> read_input()
-    |> calibration_code(&extract_calibration_digits(&1))
+    |> calibration_code(&extract_calibration_number(&1))
   end
 
   def calculcate_code_2(input_file) do
     input_file
     |> read_input()
-    |> calibration_code(&extract_calibration_digits_words(&1))
+    |> calibration_code(&extract_calibration_number(&1, parse_words: true))
   end
 
+  @doc """
+  Reads the file named `input_file` and returns a list of strings.
+  """
   def read_input(input_file) do
     File.read!(input_file)
     |> String.split("\n", trim: true)
@@ -44,21 +47,15 @@ defmodule Trebuchet do
   end
 
   @doc """
-  Extracts the calibration codes from a string considering only digits.
+  Extracts the calibration number from a string. This means extracting
+  the first and last number in the string and creating a number with those digits.
+  Note that the first and last digit may be the same digit, i.e. there is only
+  one digit in the string. If the option `parse_words` is `true` then any numbers
+  spelled out as words are converted to digits before the extraction.
   """
-  def extract_calibration_digits(str) do
-    extract_calibration(str, @numbers_re)
-  end
+  def extract_calibration_number(str, opts \\ [parse_words: false]) do
+    re = if Keyword.get(opts, :parse_words), do: @numbers_words_re, else: @numbers_re
 
-  @doc """
-  Extracts the calibration codes from a string considering digits and
-  numbers spelled out in words.
-  """
-  def extract_calibration_digits_words(str) do
-    extract_calibration(str, @numbers_words_re)
-  end
-
-  defp extract_calibration(str, re) do
     matches =
       Regex.scan(re, str, return: :index)
       |> List.flatten()
