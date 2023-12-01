@@ -16,21 +16,30 @@ defmodule Trebuchet do
     "nine" => 9
   }
 
+  @doc """
+  Calculates the calibration code for part 1 of the problem.
+  """
+  @spec calculcate_code_1(String.t()) :: integer()
   def calculcate_code_1(input_file) do
     input_file
     |> read_input()
-    |> calibration_code(&extract_calibration_number(&1))
+    |> calibration_code(&extract_calibration_number(&1, false))
   end
 
+  @doc """
+  Calculates the calibration code for part 2 of the problem.
+  """
+  @spec calculcate_code_2(String.t()) :: integer()
   def calculcate_code_2(input_file) do
     input_file
     |> read_input()
-    |> calibration_code(&extract_calibration_number(&1, parse_words: true))
+    |> calibration_code(&extract_calibration_number(&1, true))
   end
 
   @doc """
   Reads the file named `input_file` and returns a list of strings.
   """
+  @spec read_input(String.t()) :: list(String.t())
   def read_input(input_file) do
     File.read!(input_file)
     |> String.split("\n", trim: true)
@@ -40,6 +49,7 @@ defmodule Trebuchet do
   Takes a list of strings and an extraction function and for each string
   extracts the calibration code and then sums all of the calibration codes.
   """
+  @spec calibration_code(list(String.t()), (String.t() -> integer())) :: integer()
   def calibration_code(input, extract_fn) do
     input
     |> Enum.map(&extract_fn.(&1))
@@ -53,8 +63,9 @@ defmodule Trebuchet do
   one digit in the string. If the option `parse_words` is `true` then any numbers
   spelled out as words are converted to digits before the extraction.
   """
-  def extract_calibration_number(str, opts \\ [parse_words: false]) do
-    re = if Keyword.get(opts, :parse_words), do: @numbers_words_re, else: @numbers_re
+  @spec extract_calibration_number(String.t(), boolean()) :: integer()
+  def extract_calibration_number(str, parse_words \\ false) do
+    re = if parse_words, do: @numbers_words_re, else: @numbers_re
 
     matches =
       Regex.scan(re, str, return: :index)
@@ -67,6 +78,7 @@ defmodule Trebuchet do
     10 * first_digit + last_digit
   end
 
+  @spec match_to_digit(String.t(), {integer(), integer()}) :: integer()
   defp match_to_digit(str, {index, len}) do
     matched_str = String.slice(str, index, len)
 
