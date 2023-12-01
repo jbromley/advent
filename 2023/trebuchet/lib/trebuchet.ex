@@ -16,6 +16,11 @@ defmodule Trebuchet do
     "nine" => 9
   }
 
+  def main(_args) do
+    IO.puts("Part 1: #{calculcate_code_1("input")}")
+    IO.puts("Part 2: #{calculcate_code_2("input")}")
+  end
+
   @doc """
   Calculates the calibration code for part 1 of the problem.
   """
