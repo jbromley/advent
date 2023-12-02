@@ -8,10 +8,46 @@ defmodule CubeConundrum do
     "blue" => 14
   }
 
+  def main(_args) do
+    IO.puts("Advent of Code 2023 day 2")
+    IO.puts("Part 1: #{solve_part_1()}")
+    IO.puts("Part 2: #{solve_part_2()}")
+  end
+
   def solve_part_1() do
     "input" |> read_input() |> parse_input() |> find_possible_games()
   end
 
+  def solve_part_2 do
+    "input" |> read_input() |> parse_input() |> total_minimal_power()
+  end
+
+  @spec total_minimal_power(%{integer() => %{String.t() => integer()}}) :: integer()
+  def total_minimal_power(games) do
+    {_powers, total_power} =
+      games
+      |> Map.values()
+      |> Enum.map_reduce(0, fn game, acc ->
+        min_power = find_minimal_power(game)
+        {min_power, acc + min_power}
+      end)
+
+    total_power
+  end
+
+  @spec find_minimal_power([%{String.t() => integer()}]) :: integer()
+  def find_minimal_power(game) do
+    minimal_cubes = %{"blue" => 0, "green" => 0, "red" => 0}
+
+    game
+    |> List.foldl(minimal_cubes, fn subset, acc ->
+      Map.merge(acc, subset, fn _k, v1, v2 -> max(v1, v2) end)
+    end)
+    |> Map.values()
+    |> Enum.reduce(fn cubes, acc -> cubes * acc end)
+  end
+
+  @spec find_possible_games(%{integer() => %{String.t() => integer()}}) :: integer()
   def find_possible_games(games) do
     games
     |> Map.to_list()
