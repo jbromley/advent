@@ -11,7 +11,8 @@ defmodule Trebuchet.MixProject do
       escript: [main_module: Trebuchet],
       releases: [
         trebuchet: [
-          steps: [:assemble, &Bakeware.assemble/1]
+          steps: [:assemble, &Bakeware.assemble/1],
+          strip_beams: Mix.env() == :prod
         ]
       ]
     ]
