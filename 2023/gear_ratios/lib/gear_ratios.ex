@@ -11,6 +11,13 @@ defmodule GearRatios do
   @gear_symbols ~r/(\*)/
   @number_symbols ~r/(\d+)/
 
+  def main([input | _rest]) do
+    schematic = read_input(input)
+    IO.puts("Day 3 - Gear Ratios")
+    IO.puts("Part 1: #{sum_part_numbers(schematic)}")
+    IO.puts("Part 2: #{sum_gear_ratios(schematic)}")
+  end
+
   # Part 1 
 
   def solve_part_1(input_file) do

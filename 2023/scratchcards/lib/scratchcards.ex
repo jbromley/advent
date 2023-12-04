@@ -3,6 +3,13 @@ defmodule Scratchcards do
   Solutions for Advent of Code 2023, day 4 - Scratchcards.
   """
 
+  def main([input | _rest]) do
+    cards = read_input(input) |> parse_cards()
+    IO.puts("Day 4 - Scratchcards")
+    IO.puts("Part 1: #{count_points(cards)} points")
+    IO.puts("Part 2: #{count_cards(cards)} cards")
+  end
+
   # Part 1
 
   def solve_part_1(input_file) do

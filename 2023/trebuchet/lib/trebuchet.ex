@@ -3,8 +3,6 @@ defmodule Trebuchet do
   Day 1 of Advent of Code 2023 - Trebuchet?!
   """
 
-  use Bakeware.Script
-
   @numbers_re ~r/(1|2|3|4|5|6|7|8|9)/
   @numbers_words_re ~r/(?=(1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine))/
   @numbers %{
@@ -19,30 +17,34 @@ defmodule Trebuchet do
     "nine" => 9
   }
 
-  @impl Bakeware.Script
-  def main(_args) do
-    IO.puts("Part 1: #{calculcate_code_1("input")}")
-    IO.puts("Part 2: #{calculcate_code_2("input")}")
-    0
+  def main(args) do
+    if Enum.empty?(args) do
+      IO.puts("Usage: trebuchet input_file")
+      System.halt(1)
+    end
+
+    input = read_input(Enum.at(args, 0))
+
+    IO.puts("Day 1 - Trebuchet")
+    IO.puts("Part 1: #{calculcate_code_1(input)}")
+    IO.puts("Part 2: #{calculcate_code_2(input)}")
   end
 
   @doc """
   Calculates the calibration code for part 1 of the problem.
   """
-  @spec calculcate_code_1(String.t()) :: integer()
-  def calculcate_code_1(input_file) do
-    input_file
-    |> read_input()
+  @spec calculcate_code_1([String.t()]) :: integer()
+  def calculcate_code_1(input) do
+    input
     |> calibration_code(&extract_calibration_number(&1, false))
   end
 
   @doc """
   Calculates the calibration code for part 2 of the problem.
   """
-  @spec calculcate_code_2(String.t()) :: integer()
-  def calculcate_code_2(input_file) do
-    input_file
-    |> read_input()
+  @spec calculcate_code_2([String.t()]) :: integer()
+  def calculcate_code_2(input) do
+    input
     |> calibration_code(&extract_calibration_number(&1, true))
   end
 

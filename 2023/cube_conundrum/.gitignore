@@ -1,6 +1,9 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
 
+# Name of generated escript
+cube_conundrum
+
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
 

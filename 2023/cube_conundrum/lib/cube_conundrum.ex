@@ -8,10 +8,18 @@ defmodule CubeConundrum do
     "blue" => 14
   }
 
-  def main(_args) do
-    IO.puts("Advent of Code 2023 day 2")
-    IO.puts("Part 1: #{solve_part_1()}")
-    IO.puts("Part 2: #{solve_part_2()}")
+  def main(args) do
+    if Enum.empty?(args) do
+      IO.puts("Usage: gear_ratios input_file")
+      System.halt(1)
+    end
+
+    input = Enum.at(args, 0)
+    games = read_input(input) |> parse_input()
+
+    IO.puts("Day 2 - Cube Conundrum")
+    IO.puts("Part 1: #{find_possible_games(games)}")
+    IO.puts("Part 2: #{total_minimal_power(games)}")
   end
 
   def solve_part_1() do
