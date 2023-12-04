@@ -15,4 +15,9 @@ defmodule ScratchcardsTest do
     points = @input |> Scratchcards.parse_cards() |> Scratchcards.count_points()
     assert points == 13
   end
+
+  test "test part 2 - count scratchcards" do
+    cards = @input |> Scratchcards.parse_cards() |> Scratchcards.count_cards()
+    assert cards == 30
+  end
 end
