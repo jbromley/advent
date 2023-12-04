@@ -6,4 +6,5 @@ Advent of Code 2023
 |   1 | trebuchet      |
 |   2 | cube_conundrum |
 |   3 | gear_ratios    |
+|   4 | scratchcards   |
 
