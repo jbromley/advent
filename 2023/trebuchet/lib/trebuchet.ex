@@ -3,9 +3,8 @@ defmodule Trebuchet do
   Day 1 of Advent of Code 2023 - Trebuchet?!
   """
 
-  @numbers_re ~r/(\d)/
-  @numbers_words_re ~r/(?=(\d|one|two|three|four|five|six|seven|eight|nine))/
-  @numbers %{
+  @digits_re ~r/\d/
+  @digits %{
     "one" => 1,
     "two" => 2,
     "three" => 3,
@@ -14,7 +13,8 @@ defmodule Trebuchet do
     "six" => 6,
     "seven" => 7,
     "eight" => 8,
-    "nine" => 9
+    "nine" => 9,
+    "zero" => 0
   }
 
   def main(args) do
@@ -30,63 +30,61 @@ defmodule Trebuchet do
     IO.puts("Part 2: #{calculate_code_2(input_file)}")
   end
 
-  @doc """
-  Calculates the calibration code for part 1 of the problem.
-  """
-  @spec calculate_code_1(String.t()) :: integer()
+  # Part 1
+
+  @spec calculate_code_1(String.t()) :: non_neg_integer()
   def calculate_code_1(input_file) do
     input_file
-    |> read_input()
-    |> List.foldl(0, fn code, sum -> sum + extract_code(code, false) end)
+    |> stream_input()
+    |> Stream.map(fn line ->
+      first = run_match(@digits_re, line, & &1)
+      last = run_match(@digits_re, reverse(line), & &1)
+      join_digits([first, last])
+    end)
+    |> Enum.sum()
   end
 
-  @doc """
-  Calculates the calibration code for part 2 of the problem.
-  """
-  @spec calculate_code_2(String.t()) :: integer()
+  # Part 2
+
+  @spec calculate_code_2(String.t()) :: non_neg_integer()
   def calculate_code_2(input_file) do
+    text_re = @digits |> Map.keys() |> Enum.join("|")
+    forward_re = Regex.compile!("[[:digit:]]" <> "|" <> text_re)
+    reverse_re = Regex.compile!("[[:digit:]]" <> "|" <> reverse(text_re))
+
     input_file
-    |> read_input()
-    |> List.foldl(0, fn code, sum -> sum + extract_code(code, true) end)
+    |> stream_input()
+    |> Stream.map(fn line ->
+      first = run_match(forward_re, line, &Map.get(@digits, &1, &1))
+      last = run_match(reverse_re, reverse(line), &Map.get(@digits, reverse(&1), &1))
+      join_digits([first, last])
+    end)
+    |> Enum.sum()
   end
 
-  @doc """
-  Reads the file named `input_file` and returns a list of strings.
-  """
-  @spec read_input(String.t()) :: list(String.t())
-  def read_input(input_file) do
-    File.read!(input_file)
-    |> String.split("\n", trim: true)
+  # Common code
+
+  @spec stream_input(String.t()) :: Stream.t()
+  def stream_input(input_file) do
+    input_file
+    |> File.stream!()
+    |> Stream.map(&String.trim(&1))
+    |> Stream.filter(&(String.length(&1) > 0))
   end
 
-  @doc """
-  Extracts the calibration number from a string. This means extracting
-  the first and last number in the string and creating a number with those digits.
-  Note that the first and last digit may be the same digit, i.e. there is only
-  one digit in the string. If the option `parse_words` is `true` then any numbers
-  spelled out as words are converted to digits before the extraction.
-  """
-  @spec extract_code(String.t(), boolean()) :: integer()
-  def extract_code(str, parse_words \\ false) do
-    re = if parse_words, do: @numbers_words_re, else: @numbers_re
-
-    matches =
-      Regex.scan(re, str, return: :index, capture: :all_but_first)
-      |> List.flatten()
-
-    first_digit = List.first(matches) |> match_to_digit(str)
-    last_digit = List.last(matches) |> match_to_digit(str)
-
-    10 * first_digit + last_digit
+  @spec run_match(Regex.t(), String.t(), (any() -> String.t())) :: String.t()
+  defp run_match(re, str, fun) do
+    [match] = Regex.run(re, str)
+    fun.(match)
   end
 
-  @spec match_to_digit({integer(), integer()}, String.t()) :: integer()
-  defp match_to_digit({index, len}, str) do
-    matched_str = String.slice(str, index, len)
+  @spec join_digits([String.t()]) :: non_neg_integer()
+  defp join_digits(digits) do
+    digits |> Enum.join("") |> String.to_integer()
+  end
 
-    case len do
-      1 -> matched_str |> String.to_integer()
-      _ -> Map.get(@numbers, matched_str)
-    end
+  @spec reverse(String.t()) :: String.t()
+  defp reverse(str) do
+    String.reverse(str)
   end
 end
