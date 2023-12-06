@@ -97,27 +97,6 @@ defmodule Seeds do
     end
   end
 
-  #
-  # def trace_intervals(intervals, maps, result \\ []) do
-  #   case maps do
-  #     [] ->
-  #       result
-  #
-  #     [map | rmaps] ->
-  #       trace_intervals(result, rmaps, [])
-  #   end
-  # end
-
-  # def map_interval(intervals, map, result \\ []) do
-  #   case intervals do
-  #     [] ->
-  #       result
-  #
-  #     [interval | r_intervals] ->
-  #       {matched, unmatched} = div_interval()
-  #   end
-  # end
-
   # Common Code
 
   def read_input(input_file) do
