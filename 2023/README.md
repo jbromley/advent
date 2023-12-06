@@ -8,6 +8,8 @@
 |   2 | cube_conundrum |
 |   3 | gear_ratios    |
 |   4 | scratchcards   |
+|   5 | seeds          |
+|   6 | boat_race      |
 
 ## Running the code
 To run this code, you will need [Elixir](https://elixir-lang.org/) 1.15
