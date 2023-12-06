@@ -3,6 +3,19 @@ defmodule BoatRace do
   Solution for Advent of Code 2023 day 6 - Wait for It
   """
 
+  def main(args) do
+    if Enum.count(args) != 1 do
+      IO.puts("Usage: boat_race input_file")
+      System.halt(1)
+    end
+
+    input_file = Enum.at(args, 0)
+
+    IO.puts("Advent of Code 2023, day 6 - Wait for It")
+    IO.puts("Part 1: #{count_all_wins(input_file)}")
+    IO.puts("Part 2: #{count_long_race_wins(input_file)}")
+  end
+
   # Part 1
 
   def count_all_wins(input_file) do
