@@ -12,17 +12,11 @@ defmodule Seeds do
     seeds =
       Regex.scan(~r/(\d+)/, seed_list, capture: :all_but_first)
       |> List.flatten()
-      |> Enum.map(fn seed_str ->
-        seed = String.to_integer(seed_str)
-        {seed, seed}
-      end)
+      |> Enum.map(&String.to_integer/1)
 
     maps = parse_maps(maps_in)
 
-    {_seed, location} =
-      seeds |> Enum.map(&trace_seed(&1, maps)) |> Enum.min_by(fn t -> elem(t, 1) end)
-
-    location
+    seeds |> Enum.map(&trace_seed(&1, maps)) |> Enum.min()
   end
 
   def read_input(input_file) do
@@ -48,10 +42,10 @@ defmodule Seeds do
     end
   end
 
-  def trace_seed({seed, item}, maps) do
+  def trace_seed(item, maps) do
     case maps do
-      [] -> {seed, item}
-      [map | maps] -> trace_seed({seed, lookup(map, item)}, maps)
+      [] -> item
+      [map | maps] -> trace_seed(lookup(map, item), maps)
     end
   end
 
