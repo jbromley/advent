@@ -1,6 +1,12 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
 
+# Mix lock files
+mix.lock
+
+# Escript
+seeds
+
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
 
