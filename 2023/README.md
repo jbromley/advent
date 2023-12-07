@@ -10,6 +10,7 @@
 |   4 | scratchcards   |
 |   5 | seeds          |
 |   6 | boat_race      |
+|   7 | camel_cards    |
 
 ## Running the code
 To run this code, you will need [Elixir](https://elixir-lang.org/) 1.15
