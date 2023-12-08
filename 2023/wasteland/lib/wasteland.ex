@@ -6,12 +6,36 @@ defmodule Wasteland do
   # Part 1
 
   def navigate_map(input_file) do
-    {turns, nodes} = read_input(input_file)
+    {turns, map} = read_input(input_file)
 
     Stream.cycle(turns)
     |> Enum.reduce_while({"AAA", 0}, fn turn, {node, count} ->
-      if node == "ZZZ", do: {:halt, count}, else: {:cont, {lookup(nodes, node, turn), count + 1}}
+      if node == "ZZZ", do: {:halt, count}, else: {:cont, {lookup(map, node, turn), count + 1}}
     end)
+  end
+
+  # Part 2
+
+  def navigate_map_ghostlike(input_file) do
+    {turns, map} = read_input(input_file)
+    start_nodes = Enum.filter(Map.keys(map), fn node -> String.ends_with?(node, "A") end)
+
+    start_nodes
+    |> Enum.map(&find_path_length(map, turns, &1))
+    |> Enum.reduce(&lcm/2)
+  end
+
+  defp find_path_length(map, turns, start_node) do
+    Stream.cycle(turns)
+    |> Enum.reduce_while({start_node, 0}, fn turn, {node, count} ->
+      if String.ends_with?(node, "Z"),
+        do: {:halt, count},
+        else: {:cont, {lookup(map, node, turn), count + 1}}
+    end)
+  end
+
+  def lcm(a, b) do
+    div(a * b, Integer.gcd(a, b))
   end
 
   # Common code
@@ -25,7 +49,11 @@ defmodule Wasteland do
 
     nodes =
       nodes
-      |> Enum.map(&Regex.scan(~r/([A-Z]+) = \(([A-Z]+), ([A-Z]+)\)/, &1, capture: :all_but_first))
+      |> Enum.map(
+        &Regex.scan(~r/([A-Z|0-9]+) = \(([A-Z|0-9]+), ([A-Z|0-9]+)\)/, &1,
+          capture: :all_but_first
+        )
+      )
       |> List.flatten()
       |> Enum.chunk_every(3)
       |> List.foldl(%{}, fn [n, l, r], nodes -> Map.put(nodes, n, {l, r}) end)
@@ -33,7 +61,7 @@ defmodule Wasteland do
     {turns, nodes}
   end
 
-  def lookup(nodes, node, turn) do
+  defp lookup(nodes, node, turn) do
     turns = Map.get(nodes, node)
     if turn == "L", do: elem(turns, 0), else: elem(turns, 1)
   end
