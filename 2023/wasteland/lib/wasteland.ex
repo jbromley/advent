@@ -20,8 +20,10 @@ defmodule Wasteland do
     {turns, map} = read_input(input_file)
     start_nodes = Enum.filter(Map.keys(map), fn node -> String.ends_with?(node, "A") end)
 
-    start_nodes
-    |> Enum.map(&find_path_length(map, turns, &1))
+    # start_nodes
+    # |> Enum.map(&find_path_length(map, turns, &1))
+    # |> Enum.reduce(&lcm/2)
+    pmap(start_nodes, &find_path_length(map, turns, &1))
     |> Enum.reduce(&lcm/2)
   end
 
@@ -32,6 +34,12 @@ defmodule Wasteland do
         do: {:halt, count},
         else: {:cont, {lookup(map, node, turn), count + 1}}
     end)
+  end
+
+  def pmap(collection, fun) do
+    collection
+    |> Enum.map(&Task.async(fn -> fun.(&1) end))
+    |> Enum.map(&Task.await(&1))
   end
 
   def lcm(a, b) do
