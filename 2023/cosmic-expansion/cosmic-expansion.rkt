@@ -1,4 +1,9 @@
-#lang racket
+#lang racket/base
+(require racket/contract)
+(require racket/list)
+(require racket/match)
+(require racket/port)
+(require racket/string)
 
 ;;; Part 1
 
@@ -48,6 +53,9 @@
              [index (in-naturals)])
     (let ([new-galaxies (map (lambda (col) (cons index col)) (map (lambda (cell) (car cell)) (regexp-match-positions* #rx"#" row)))])
       (values (append galaxies new-galaxies)))))
+
+;;; Entry point
+(total-distance "input.txt")
 
 ;;; Tests
 (module+ test
