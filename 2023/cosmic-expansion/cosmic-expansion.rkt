@@ -52,7 +52,11 @@
       (append fixed (map (lambda (pos) (cons (car pos) (+ (cdr pos) (- expansion 1)))) shifted)))))
   
 ;;; Entry point
-;; (total-distance "input.txt")
+
+(printf "Day 11 - Cosmic Expansion~n")
+(printf "Total distance, expansion 2: ~a~n" (total-distance "input.txt" 2))
+(printf "Total distance, expansion 1,000,000: ~a~n" (total-distance "input.txt" 1000000))
+
 
 ;;; Tests
 (module+ test
