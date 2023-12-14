@@ -2,18 +2,23 @@
 
 ## Index
 
-| Day | Title          |
-|-----|----------------|
-|   1 | trebuchet      |
-|   2 | cube_conundrum |
-|   3 | gear_ratios    |
-|   4 | scratchcards   |
-|   5 | seeds          |
-|   6 | boat_race      |
-|   7 | camel_cards    |
-|   8 | wasteland      |
-|   9 | oasis          |
+| Day | Title            |
+|-----|------------------|
+|   1 | trebuchet        |
+|   2 | cube_conundrum   |
+|   3 | gear_ratios      |
+|   4 | scratchcards     |
+|   5 | seeds            |
+|   6 | boat_race        |
+|   7 | camel_cards      |
+|   8 | wasteland        |
+|   9 | oasis            |
+|  10 | pipe_maze        |
+|  11 | cosmic-expansion |
+|  12 | hot-springs*     |
+|  13 | mirrors          |
 
+\* incomplete
 ## Running the code
 To run this code, you will need [Elixir](https://elixir-lang.org/) 1.15
 installed. I recommend using [rtx](https://github.com/jdx/rtx) to install
