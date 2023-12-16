@@ -17,6 +17,7 @@
 |  11 | cosmic-expansion |
 |  12 | hot-springs*     |
 |  13 | mirrors          |
+|  16 | lava             |
 
 \* incomplete
 ## Running the code
