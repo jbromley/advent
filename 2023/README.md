@@ -2,25 +2,26 @@
 
 ## Index
 
-| Day | Title            |
-|-----|------------------|
-|   1 | trebuchet        |
-|   2 | cube_conundrum   |
-|   3 | gear_ratios      |
-|   4 | scratchcards     |
-|   5 | seeds            |
-|   6 | boat_race        |
-|   7 | camel_cards      |
-|   8 | wasteland        |
-|   9 | oasis            |
-|  10 | pipe_maze        |
-|  11 | cosmic-expansion |
-|  12 | hot-springs*     |
-|  13 | mirrors          |
-|  16 | lava             |
+| Day | Title            | Language |
+|-----|------------------|----------|
+|   1 | trebuchet        | Elixir   |
+|   2 | cube_conundrum   | Elixir   |
+|   3 | gear_ratios      | Elixir   |
+|   4 | scratchcards     | Elixir   |
+|   5 | seeds            | Elixir   | 
+|   6 | boat_race        | Elixir   |
+|   7 | camel_cards      | Elixir   |
+|   8 | wasteland        | Elixir   |
+|   9 | oasis            | Elixir   |
+|  10 | pipe_maze        | Elixir   |
+|  11 | cosmic-expansion | Racket   |
+|  12 | hot-springs*     | Racket   |
+|  13 | mirrors          | Racket   |
+|  15 | lens-library     | Racket   |
+|  16 | lava             | Racket   |
 
 \* incomplete
-## Running the code
+## Running the Elixir code
 To run this code, you will need [Elixir](https://elixir-lang.org/) 1.15
 installed. I recommend using [rtx](https://github.com/jdx/rtx) to install
 and use Elixir. It is a handy tool for installing different versions of a
