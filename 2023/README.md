@@ -19,6 +19,7 @@
 |  13 | mirrors          | Racket   |
 |  15 | lens-library     | Racket   |
 |  16 | lava             | Racket   |
+|  17 | clumsy-crucible  | Racket   |
 
 \* incomplete
 ## Running the Elixir code
