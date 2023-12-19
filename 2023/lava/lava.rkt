@@ -115,6 +115,8 @@
       (printf "Part 1: ~a~n" (count-activated-tiles mat))
       (printf "Part 2: ~a~n" (maximize-activated-tiles mat)))))
 
+(main)
+
 ;;; Tests
 
 (module+ test
