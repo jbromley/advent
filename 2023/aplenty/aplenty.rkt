@@ -50,6 +50,8 @@
     [#\< <]
     [#\> >]))
 
+;;; Part 1
+
 (define (eval-workflow flow part all-flows)
   (match (eval-expr (first flow) part)
     [#f (eval-workflow (rest flow) part all-flows)]
@@ -65,8 +67,6 @@
          (expr-result e)
          #f)]))
 
-;;; Part 1
-
 (define (sum-accepted flows parts)
   (define in-flow (hash-ref flows "in"))
   (for/fold ([accepted-sum 0])
@@ -80,13 +80,51 @@
                         
 ;;; Part 2
 
-(define (partition-parts part e)
-  (let ([part-range (part-cat part (expr-var e))]
-        [split-value (expr-value e)]
-        [op (expr-op e)])
-    (match op
-      [#\< (list)]
-      [#\> (list)])))
+(define all-parts (hash #\a (cons 1 4000) #\m (cons 1 4000) #\s (cons 1 4000) #\x (cons 1 4000)))
+
+(define (count-accepted-combinations flows)
+  (count-combinations (list (cons all-parts "in")) flows 0))
+
+(define (count-combinations flow-q flows combinations)
+  (cond
+    [(empty? flow-q) combinations]
+    [else
+     (match-let ([(cons part flow-id) (first flow-q)])
+       (cond
+         [(string=? flow-id "A")
+          (count-combinations (rest flow-q) flows (+ combinations
+                                                     (count-part-combinations part)))]
+         [(string=? flow-id "R")
+          (count-combinations (rest flow-q) flows combinations)]
+         [else
+          (count-combinations (append (rest flow-q) (eval-workflow-range (hash-ref flows flow-id) part))
+                              flows
+                              combinations)]))]))
+     
+(define (eval-workflow-range flow part [new-flows '()])
+  (cond
+    [(or (empty? flow) (eq? part 'none)) new-flows]
+    [else
+     (match-let ([(list matched unmatched) (eval-expr-range (first flow) part)])
+       (eval-workflow-range (rest flow) unmatched (cons matched new-flows)))]))
+    
+  
+(define (eval-expr-range e part)
+  (cond
+    [(eq? (expr-var e) 'none)
+     (list (cons part (expr-result e)) 'none)]
+    [else
+     (match-let* ([part-range (part-cat part (expr-var e))]
+                  [split-value (expr-value e)]
+                  [op (expr-op e)]
+                  [(list pass-range fail-range) (split-range part-range op split-value)])
+       (list (cons (update-part part (expr-var e) pass-range) (expr-result e))
+             (update-part part (expr-var e) fail-range)))]))
+    
+(define (update-part part var range)
+  (if (eq? range 'none)
+      'none
+      (hash-set part var range)))
 
 (define (split-range r op split)
   (match-let ([(cons lo hi) r])
@@ -99,18 +137,39 @@
       [#\>
        (cond
          [(<= hi split) (list 'none r)]
-         [(<= split lo) (list r 'none)]
-         [else (list (cons split hi) (cons lo (sub1 split)))])])))
+         [(< split lo) (list r 'none)]
+         [else (list (cons (add1 split) hi) (cons lo split))])])))
+
+(define (count-part-combinations part)
+  (for/product ([r (hash-values part)])
+    (add1 (- (cdr r) (car r)))))
       
 ;;; Entry point
-
-(define inputs (read-input "input1.txt"))
-(define workflows (first inputs))
-(define parts (second inputs))
-(define p1 (first parts))
-(define in-flow (hash-ref workflows "in"))
 
 (define (main)
   (match-let ([(list flows parts) (read-input "input.txt")])
     (printf "AoC 2023 Day 19 - Aplenty~n")
-    (printf "Part 1: ~a~n" (sum-accepted flows parts))))
+    (printf "Part 1: ~a~n" (sum-accepted flows parts))
+    (printf "Part 2: ~a~n" (count-accepted-combinations flows))))
+
+;;; Tests
+
+(module+ test
+  (require rackunit)
+
+  (check-equal? (split-range (cons 1000 1500) #\< 2000) (list (cons 1000 1500) 'none))
+  (check-equal? (split-range (cons 1000 3000) #\< 2000) (list (cons 1000 1999) (cons 2000 3000)))
+  (check-equal? (split-range (cons 2500 3000) #\< 2000) (list 'none (cons 2500 3000)))
+  (check-equal? (split-range (cons 1000 2000) #\< 2000) (list (cons 1000 1999) (cons 2000 2000)))
+  (check-equal? (split-range (cons 2000 3000) #\< 2000) (list 'none (cons 2000 3000)))
+
+  (check-equal? (split-range (cons 1000 1500) #\> 2000) (list 'none (cons 1000 1500)))
+  (check-equal? (split-range (cons 1000 3000) #\> 2000) (list (cons 2001 3000) (cons 1000 2000)))
+  (check-equal? (split-range (cons 2500 3000) #\> 2000) (list (cons 2500 3000) 'none))
+  (check-equal? (split-range (cons 1000 2000) #\> 2000) (list 'none (cons 1000 2000)))
+  (check-equal? (split-range (cons 2000 3000) #\> 2000) (list (cons 2001 3000) (cons 2000 2000)))
+
+  (match-let ([(list flows parts) (read-input "input1.txt")])
+    (check-equal? (sum-accepted flows parts) 19114)
+    (check-equal? (count-accepted-combinations flows) 167409079868000)))
+

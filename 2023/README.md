@@ -21,6 +21,7 @@
 |  16 | lava                | Racket   |
 |  17 | clumsy-crucible     | Racket   |
 |  18 | parabolic-reflector | Racket   |
+|  19 | aplenty             | Racket   |
 
 \* incomplete
 ## Running the Elixir code
