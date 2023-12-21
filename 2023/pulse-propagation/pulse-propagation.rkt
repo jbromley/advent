@@ -31,12 +31,13 @@
   [(define (name node) (flip-flop-name node))
    (define (outs node) (flip-flop-outs node))
    (define (handle-pulse node p)
-     (when (low? p)
+     (if (low? p)
        (let ([new-state (toggle (flip-flop-state node))]
              [node-name (flip-flop-name node)])
          (set-flip-flop-state! node new-state)
          (for/list ([out (flip-flop-outs node)])
-           (pulse node-name out new-state)))))])
+           (pulse node-name out new-state)))
+       (list)))])
 
 (struct conjunction [name state outs] #:mutable #:transparent
   #:methods gen:node
@@ -45,8 +46,8 @@
    (define (handle-pulse node p)
      (let* ([src (pulse-src p)]
             [new-mem (conjunction-update-memory node src p)]
-            [out-pulse (if (andmap (λ (x) x) (hash-values new-mem)) 'low 'high)])
-      (for/list ([out (outs node)]) (pulse (name node) out out-pulse))))])
+            [out-level (if (andmap (λ (x) (eq? x 'high)) (hash-values new-mem)) 'low 'high)])
+      (for/list ([out (outs node)]) (pulse (name node) out out-level))))])
 
 (define (conjunction-update-memory conj src p)
   (let* ([mem (conjunction-state conj)]
@@ -58,13 +59,18 @@
   #:methods gen:node
   [(define (name node) (broadcaster-name node))
    (define (outs node) (broadcaster-outs node))
-   (define (handle-pulse node pulse) (list node pulse))])
+   (define (handle-pulse node p)
+     (for/list ([out (outs node)]) (pulse (name node) out (pulse-level p))))])
 
 (struct sink [name] #:transparent
   #:methods gen:node
   [(define (name node) (sink-name node))
    (define (outs node) (list))
-   (define (handle-pulse node pulse) (list node pulse))])
+   (define (handle-pulse node p)
+     (if (eq? (pulse-level p) 'low) (void) (list))
+     ; (printf "sink ~a received ~a~n" (name node) p)
+     ; (list)
+     )])
 
 (define (make-flip-flop name [outs '()])
   (flip-flop name 'low outs))
@@ -134,11 +140,31 @@
                       network
                       (cons 0 0))))
 
-(define (propagate-pulses pulse-q network counts) #f)
-;;   (cond
-;;     [(queue-empty? pulse-q) counts]
-;;     [else
-;;      (let* ([pulse (dequeue! pulse-queue)]
-;;             [dst (hash-ref network
-     
+(define (propagate-pulses pulse-q network counts)
+  (cond
+    [(queue-empty? pulse-q) counts]
+    [else
+     (let* ([p (dequeue! pulse-q)]
+            [dst-node (hash-ref network (pulse-dst p))]
+            [next-pulses (handle-pulse dst-node p)])
+       (for ([next-pulse next-pulses])
+         (enqueue! pulse-q next-pulse))
+       (propagate-pulses pulse-q network (update-counts counts p)))]))
 
+(define (update-counts counts p)
+  (if (eq? (pulse-level p) 'high)
+      (cons (car counts) (add1 (cdr counts)))
+      (cons (add1 (car counts)) (cdr counts))))
+
+(define (count-pulses network presses)
+  (for/fold ([counts (cons 0 0)]
+             #:result (* (car counts) (cdr counts)))
+            ([i (in-range presses)])
+    (let ([this-counts (press-button network)])
+      (cons (+ (car counts) (car this-counts)) (+ (cdr counts) (cdr this-counts))))))
+
+;;; Entry point
+
+(define net1 (read-input "input1.txt"))
+(define net2 (read-input "input2.txt"))
+(define net (read-input "input.txt"))
