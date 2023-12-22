@@ -24,6 +24,7 @@
 |  19 | aplenty             | Racket   |
 |  20 | pulse-propagation   | Racket   |
 |  21 | step-counter        | Racket   |
+|  22 | sand-slabs          | Racket   |
 
 \* incomplete
 ## Running the Elixir code
