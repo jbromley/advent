@@ -66,11 +66,7 @@
   #:methods gen:node
   [(define (name node) (sink-name node))
    (define (outs node) (list))
-   (define (handle-pulse node p)
-     (if (eq? (pulse-level p) 'low) (void) (list))
-     ; (printf "sink ~a received ~a~n" (name node) p)
-     ; (list)
-     )])
+   (define (handle-pulse node p) (list))])
 
 (define (make-flip-flop name [outs '()])
   (flip-flop name 'low outs))
