@@ -163,8 +163,45 @@
     (let ([this-counts (press-button network)])
       (cons (+ (car counts) (car this-counts)) (+ (cdr counts) (cdr this-counts))))))
 
+;;; Part 2
+
+(define (press-button-tapped network press-count taps)
+  (let ([pulse-queue (make-queue)])
+    (enqueue! pulse-queue (pulse "button" "broadcaster" 'low))
+    (propagate-pulses-tapped pulse-queue network press-count taps)))
+
+(define (propagate-pulses-tapped pulse-q network presses taps)
+  (cond
+    [(queue-empty? pulse-q) taps]
+    [else
+     (let* ([p (dequeue! pulse-q)]
+            [dst-node (hash-ref network (pulse-dst p))]
+            [next-pulses (handle-pulse dst-node p)])
+       (for ([next-pulse next-pulses])
+         (enqueue! pulse-q next-pulse))
+       (propagate-pulses-tapped pulse-q network presses (update-taps taps p presses)))]))
+
+(define (update-taps taps p presses)
+  (let ([src-name (pulse-src p)])
+    (if (and (member src-name (hash-keys taps))
+             (zero? (hash-ref taps src-name))
+             (eq? (pulse-level p) 'high))
+      (hash-set taps (pulse-src p) presses)
+      taps)))
+
+(define (try-activate network press-count taps)
+  (cond
+    [(andmap (λ (x) (> x 0)) (hash-values taps))
+     (apply lcm (hash-values taps))]
+    [else
+     (let ([new-taps (press-button-tapped network (add1 press-count) taps)])
+       (try-activate network (add1 press-count) new-taps))]))
+
+
 ;;; Entry point
 
-(define net1 (read-input "input1.txt"))
-(define net2 (read-input "input2.txt"))
-(define net (read-input "input.txt"))
+(define (main)
+    (printf "AoC 2023 Day 20 - Pulse Propagation~n")
+    (printf "Part 1: ~a~n" (count-pulses (read-input "input.txt") 1000))
+    (printf "Part 2: ~a~n" (try-activate (read-input "input.txt") 0 (hash "mp" 0 "hn" 0 "fz" 0 "xf" 0))))
+            
