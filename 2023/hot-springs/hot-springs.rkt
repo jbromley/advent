@@ -9,47 +9,51 @@
       (for/list ([line (in-lines port)])
         (match (string-split line #px"[ ,]")
           [(cons springs groups)
-           (list springs (list->vector (map string->number groups)))])))))
+           (list (list->vector (string->list springs)) (list->vector (map string->number groups)))])))))
 
-(define (scan-groups springs spring-index groups group-index)
-  (let ([springs-len (string-length springs)]
-        [groups-len (vector-length groups)])
-    (cond
-      [(>= spring-index springs-len)
-       (if (= group-index groups-len) 1 0)]
-      [else
-       (match (string-ref springs spring-index)
-         [#\. (scan-groups springs (add1 spring-index) groups group-index)]
-         [#\# (match-group springs spring-index groups group-index)]
-         [#\? (+ (scan-groups springs (add1 spring-index) groups group-index)
-                 (match-group springs spring-index groups group-index))])])))
-
-(define (match-group springs spring-index groups group-index)
-  (let ([springs-len (string-length springs)]
-        [groups-len (vector-length groups)])
-    (cond
-      [(= group-index groups-len) 0]
-      [else
-       (let ([end-index (+ spring-index (vector-ref groups group-index))])
-         (if (and (for/and ([i (in-range spring-index end-index)])
-                    (and (< i springs-len) (not (char=? #\. (string-ref springs i)))))
-                  (or (= end-index springs-len)
-                      (not (char=? #\# (string-ref springs end-index)))))
-             (scan-groups springs (add1 spring-index) groups (add1 group-index))
-             0))])))
+(define (count-arrangements springs groups)
+  (letrec ([springs-len (vector-length springs)]
+           [groups-len (vector-length groups)]
+           [next-group
+            (λ (i-spring i-group)
+              (cond
+                [(>= i-spring springs-len)
+                 (if (= i-group groups-len) 1 0)]
+                [else
+                 (match (vector-ref springs i-spring)
+                   [#\. (next-group (add1 i-spring) i-group)]
+                   [#\# (match-group i-spring i-group)]
+                   [#\? (+ (next-group (add1 i-spring) i-group)
+                           (match-group i-spring i-group))])]))]
+           [match-group
+            (λ (i-spring i-group)
+              (cond
+                [(= i-group groups-len) 0]
+                [else
+                 (let ([i-end (+ i-spring (vector-ref groups i-group))])
+                   (if (and (for/and ([i (in-range i-spring i-end)])
+                              (and (< i springs-len)
+                                   (not (char=? #\. (vector-ref springs i)))))
+                            (or (= i-end springs-len)
+                                (not (char=? #\# (vector-ref springs i-end)))))
+                      (next-group (add1 i-end) (add1 i-group))
+                      0))]))])
+    (next-group 0 0)))
 
 ;;; Part 1
 
-(define (count-rec-arrangements rec)
-  (let* ([springs (first rec)]
-         [groups (second rec)])
-  (scan-groups springs 0 groups 0)))
-  
-(define (count-arrangements records)
+(define (count-all-arrangements records)
   (for/sum ([r records])
-    (count-rec-arrangements r)))
-  
+    (let ([springs (first r)]
+          [groups (second r)])
+     (count-arrangements springs groups))))
+
+;;; Entry point
 
 (define recs1 (read-records "input1.txt"))
 (define recs (read-records "input.txt"))
 
+(define (main)
+  (let ([records (read-records "input.txt")])
+    (printf "AoC 2023 day 12 - Hot Springs~n")
+    (printf "Part 1: ~a~n" (count-all-arrangements records))))
