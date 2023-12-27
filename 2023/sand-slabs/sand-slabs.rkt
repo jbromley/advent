@@ -13,6 +13,23 @@
 (define (brick-z-range brick)
   (in-range (vector-ref brick 2) (add1 (vector-ref brick 5))))
 
+(define (brick-down! brick)
+  (vector-set! brick 2 (sub1 (vector-ref brick 2)))
+  (vector-set! brick 5 (sub1 (vector-ref brick 5))))
+
+(define (brick-up! brick)
+  (vector-set! brick 2 (add1 (vector-ref brick 2)))
+  (vector-set! brick 5 (add1 (vector-ref brick 5))))
+
+(define (brick-hit-ground? brick)
+  (or (zero? (vector-ref brick 2))
+      (zero? (vector-ref brick 5))))
+
+(define (brick-move! space id start-pos end-pos)
+  (when (not (eq? start-pos end-pos))
+      (brick-apply start-pos (λ (x y z) (space-set! space x y z #f)))
+      (brick-apply end-pos (λ (x y z) (space-set! space x y z id)))))
+
 (define (update-dims dims brick)
   (list (max (first dims) (add1 (vector-ref brick 0)) (add1 (vector-ref brick 3)))
         (max (second dims) (add1 (vector-ref brick 1)) (add1 (vector-ref brick 4)))
@@ -58,49 +75,71 @@
     (brick-apply brick (λ (x y z) (space-set! space x y z index))))
   space)
 
-;;; Part 1
-
-(define (count-breakable-bricks bricks bricks-by-z space)
-  (let ([deps (find-bricks-supports bricks bricks-by-z space)])
-    (- (vector-length bricks) (set-count (foldl (λ (s acc) (set-union! acc s) acc) (mutable-set) (filter (λ (s) (= 1 (set-count s))) (hash-values deps)))))))
-
 (define (find-bricks-supports bricks bricks-by-z space)
-  (for/fold ([deps (hash)])
-            ([z (sort (hash-keys bricks-by-z) <)])
-    (hash-union deps
-                (for/hash ([id (hash-ref bricks-by-z z)])
-                  (let ([brick (vector-ref bricks id)])
-                    (find-brick-support brick id space))))))
+  (for*/fold ([bricks-under (hash)]
+              [bricks-on-top (hash)]
+              #:result (list bricks-under bricks-on-top))
+            ([z (sort (hash-keys bricks-by-z) <)]
+             [id (hash-ref bricks-by-z z)])
+    (let* ([brick (vector-ref bricks id)]
+           [supports (find-brick-support brick id space)])
+      (values (hash-set bricks-under id supports)
+              (update-bricks-on-top bricks-on-top id supports)))))
+
 
 (define (find-brick-support brick id space)
   (let ([orig-brick (vector-copy brick)]
-        [supporters (mutable-set)])
+        [supports (mutable-set)])
     (for ([_ (in-naturals)])
-      #:break (or (zero? (vector-ref brick 2))
-                  (zero? (vector-ref brick 5))
-                  (not (set-empty? supporters)))
-      (vector-set! brick 2 (sub1 (vector-ref brick 2)))
-      (vector-set! brick 5 (sub1 (vector-ref brick 5)))
+         #:break (or (zero? (vector-ref brick 2))
+                     (zero? (vector-ref brick 5))
+                     (not (set-empty? supports)))
+      (brick-down! brick)
       (brick-apply brick (λ (x y z)
                            (when (and (space-ref space x y z)
                                       (not (= id (space-ref space x y z))))
-                                 (set-add! supporters (space-ref space x y z))))))
-    (vector-set! brick 2 (add1 (vector-ref brick 2)))
-    (vector-set! brick 5 (add1 (vector-ref brick 5)))
-    (when (not (eq? brick orig-brick))
-      (brick-apply orig-brick (λ (x y z) (space-set! space x y z #f)))
-      (brick-apply brick (λ (x y z) (space-set! space x y z id))))
-    (values id supporters)))
-      
-      
-      
+                                 (set-add! supports (space-ref space x y z))))))
+    (brick-up! brick)
+    (brick-move! space id orig-brick brick)
+    supports))
+
+(define (update-bricks-on-top on-top id supports)
+  (for/fold ([bricks-on-top on-top])
+            ([support supports])
+    (hash-update bricks-on-top support (λ (v) (cons id v)) (list))))
+
+;;; Part 1
+
+(define (count-breakable-bricks bricks bricks-by-z space)
+  (let ([deps (first (find-bricks-supports bricks bricks-by-z space))])
+    (- (vector-length bricks)
+       (count-unbreakable-bricks deps))))
+
+(define (count-unbreakable-bricks deps-hash)
+  (let ([deps (hash-values deps-hash)])
+    (set-count (foldl (λ (s acc) (set-union! acc s) acc)
+                      (mutable-set)
+                      (filter (λ (s) (= 1 (set-count s))) deps)))))
+
+;;; Part 2
+
+(define (count-bricks-to-fall bricks bricks-by-z space)
+  (match-let ([(list bricks-under bricks-on-top)
+               (find-bricks-supports bricks bricks-by-z space)])
+    (printf "under = ~a~non top = ~a~n" bricks-under bricks-on-top)))
+    
+
+
+(define inputs (read-slabs "input1.txt"))
+(define bricks (first inputs))
+(define by-z (second inputs))
+(define space (third inputs))
+     
+(module+ main
+  (let* ([inputs (read-slabs "input.txt")]
+         [bricks (first inputs)]
+         [by-z (second inputs)]
+         [space (third inputs)])
+  (printf "AoC 2023 Day 22 - Sand Slabs~n")
+  (printf "Part 1: ~a~n" (count-breakable-bricks bricks by-z space))))
   
-    
-    
-
-;;; Entry point
-
-(define results (read-slabs "input.txt"))
-(define bricks (first results))
-(define by-z (second results))
-(define space (third results))
