@@ -75,10 +75,8 @@
 
 ;;; Entry point
 
-(define (main)
+(module+ main
   (let ([platform (read-input "input.txt")])
     (printf "AoC 2023 Day 14 - Parabolic Reflector Dish~n")
     (printf "Part 1: ~a~n" (total-north-load platform))
     (printf "Part 2: ~a~n" (total-cycle-load platform))))
-
-(main)

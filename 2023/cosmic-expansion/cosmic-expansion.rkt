@@ -53,10 +53,10 @@
   
 ;;; Entry point
 
-(printf "Day 11 - Cosmic Expansion~n")
-(printf "Total distance, expansion 2: ~a~n" (total-distance "input.txt" 2))
-(printf "Total distance, expansion 1,000,000: ~a~n" (total-distance "input.txt" 1000000))
-
+(module+ main 
+  (printf "Day 11 - Cosmic Expansion~n")
+  (printf "Total distance, expansion 2: ~a~n" (total-distance "input.txt" 2))
+  (printf "Total distance, expansion 1,000,000: ~a~n" (total-distance "input.txt" 1000000)))
 
 ;;; Tests
 (module+ test

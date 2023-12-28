@@ -115,10 +115,8 @@
 
 ;;; Entry point
 
-(define (main)
+(module+ main
   (let ([mat (read-input "input.txt")])
     (printf "AoC 2023 Day 17 - Clumsy Crucibles~n")
     (printf "Part 1: ~a~n" (minimize-heat-loss mat))
     (printf "Part 2: ~a~n" (minimize-ultra-heat-loss mat))))
-
-(main)

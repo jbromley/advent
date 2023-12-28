@@ -65,13 +65,11 @@
 
 ;;; Entry point
 
-(define (main)
+(module+ main
   (printf "AoC 2023 Day 15 - Lens Library~n")
   (let ([init-seq (read-input "input.txt")])
     (printf "Part 1: ~a~n" (sum-holiday-hashes init-seq))
     (printf "Part 2: ~a~n" (calculate-focusing-power init-seq))))
-
-(main)
 
 ;;; Tests
 

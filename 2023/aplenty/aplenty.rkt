@@ -146,7 +146,7 @@
       
 ;;; Entry point
 
-(define (main)
+(module+ main
   (match-let ([(list flows parts) (read-input "input.txt")])
     (printf "AoC 2023 Day 19 - Aplenty~n")
     (printf "Part 1: ~a~n" (sum-accepted flows parts))

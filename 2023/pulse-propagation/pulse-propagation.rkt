@@ -196,8 +196,10 @@
 
 ;;; Entry point
 
-(define (main)
+(module+ main
     (printf "AoC 2023 Day 20 - Pulse Propagation~n")
     (printf "Part 1: ~a~n" (count-pulses (read-input "input.txt") 1000))
-    (printf "Part 2: ~a~n" (try-activate (read-input "input.txt") 0 (hash "mp" 0 "hn" 0 "fz" 0 "xf" 0))))
+    (printf "Part 2: ~a~n" (try-activate (read-input "input.txt")
+                                         0
+                                         (hash "mp" 0 "hn" 0 "fz" 0 "xf" 0))))
             

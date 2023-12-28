@@ -67,7 +67,8 @@
 (define (count-reachable-tiles garden-map total-steps)
   (let* ([start (find-start garden-map)]
          [visited (explore garden-map (list (cons start 0)) (hash))])
-    (length (filter (λ (dist) (and (<= dist total-steps) (zero? (modulo dist 2)))) (hash-values visited)))))
+    (length (filter (λ (dist) (and (<= dist total-steps) (zero? (modulo dist 2))))
+                    (hash-values visited)))))
 
 ;;; Part 2
 
@@ -91,10 +92,7 @@
   
 ;;; Entry point
 
-(define mat (read-input "input.txt"))
-(define mat1 (read-input "input1.txt"))
-
-(define (main)
+(module+ main
   (let ([garden-map (read-input "input.txt")])
     (printf "AoC 2023 Day 21 - Step Counter~n")
     (printf "Part 1: ~a~n" (count-reachable-tiles garden-map 64))

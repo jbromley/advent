@@ -151,23 +151,12 @@
 
 ;;; Entry point
 
-(define inputs (read-slabs "input.txt"))
-(define bricks (first inputs))
-(define by-z (second inputs))
-(define space (third inputs))
-(define g (find-bricks-supports bricks by-z space))
-(define under (first g))
-(define on-top (second g))
-(define q (make-queue))
-(enqueue! q 1)
-(enqueue! q 2)
-
-
 (module+ main
   (let* ([inputs (read-slabs "input.txt")]
          [bricks (first inputs)]
          [by-z (second inputs)]
          [space (third inputs)])
     (printf "AoC 2023 Day 22 - Sand Slabs~n")
-    (printf "Part 1: ~a~n" (count-breakable-bricks bricks by-z space))))
+    (printf "Part 1: ~a~n" (count-breakable-bricks bricks by-z space))
+    (printf "Part 2: ~a~n" (count-all-bricks-to-fall bricks by-z space))))
 

@@ -40,3 +40,15 @@ Trebuchet, but the method is the same for all the days.
 mix escript.build
 ./trebuchet input
 ```
+
+## Running the Racket
+
+[Racket](https://racket-lang.org) is a "batteries-included" Scheme variant.
+To run the Racket code, you will need to have Racket installed. For example,
+to run the Hot Springs code, navigate into the `hot-springs` directory and 
+run the following command.
+
+```
+racket hot-springs.rkt
+```
+

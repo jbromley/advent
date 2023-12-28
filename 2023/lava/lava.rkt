@@ -73,7 +73,8 @@
             [other-rays (rest rays)]
             [tile (matrix-ref mat (ray-r r) (ray-c r))]
             [moves (hash-ref *move-table* (list tile (ray-dir r)))]
-            [next-rays (filter (lambda (r) (continue-trace? r mat visited)) (map (lambda (m) (move-ray r m)) moves))])
+            [next-rays (filter (lambda (r) (continue-trace? r mat visited))
+                               (map (lambda (m) (move-ray r m)) moves))])
        (trace-rays mat (append next-rays other-rays) (set-union visited (list->set next-rays))))]))
 
 ;;; Part 1
@@ -108,14 +109,12 @@
     
 ;;; Main entry point
 
-(define (main)
+(module+ main
   (let ([mat (read-input "input.txt")])
     (begin
       (printf "AoC 2023 Day 16 - The Floor Will Be Lava~n")
       (printf "Part 1: ~a~n" (count-activated-tiles mat))
       (printf "Part 2: ~a~n" (maximize-activated-tiles mat)))))
-
-(main)
 
 ;;; Tests
 

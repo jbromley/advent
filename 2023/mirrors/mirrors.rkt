@@ -85,14 +85,12 @@
 
 ;;; Entry point
 
-(define (main)
+(module+ main
   (let ([mirrors (read-input "input.txt")])
     (begin
      (printf "AoC 2023 Day 13 - Point of Incidence~n")
      (printf "Part 1: ~a~n" (solve mirrors 0))
      (printf "Part 2: ~a~n" (solve mirrors 1)))))
-
-(main)
 
 ;;; Tests
 (module+ test
