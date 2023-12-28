@@ -15,7 +15,7 @@
 |   9 | oasis               | Elixir   |
 |  10 | pipe_maze           | Elixir   |
 |  11 | cosmic-expansion    | Racket   |
-|  12 | hot-springs*        | Racket   |
+|  12 | hot-springs        | Racket   |
 |  13 | mirrors             | Racket   |
 |  15 | lens-library        | Racket   |
 |  16 | lava                | Racket   |
