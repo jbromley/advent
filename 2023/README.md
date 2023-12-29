@@ -15,7 +15,7 @@
 |   9 | oasis               | Elixir   |
 |  10 | pipe_maze           | Elixir   |
 |  11 | cosmic-expansion    | Racket   |
-|  12 | hot-springs        | Racket   |
+|  12 | hot-springs         | Racket   |
 |  13 | mirrors             | Racket   |
 |  15 | lens-library        | Racket   |
 |  16 | lava                | Racket   |
@@ -25,8 +25,9 @@
 |  20 | pulse-propagation   | Racket   |
 |  21 | step-counter        | Racket   |
 |  22 | sand-slabs          | Racket   |
+|  23 | long-walk           | Racket   |
+|-----|---------------------|----------|
 
-\* incomplete
 ## Running the Elixir code
 To run this code, you will need [Elixir](https://elixir-lang.org/) 1.15
 installed. I recommend using [rtx](https://github.com/jdx/rtx) to install
@@ -44,9 +45,16 @@ mix escript.build
 ## Running the Racket
 
 [Racket](https://racket-lang.org) is a "batteries-included" Scheme variant.
-To run the Racket code, you will need to have Racket installed. For example,
-to run the Hot Springs code, navigate into the `hot-springs` directory and 
-run the following command.
+To run the Racket code, you will need to have Racket installed. On Ubuntu, 
+Dr Racket (the integrated Racket runtime and IDE) can be installed by running 
+
+```
+sudo apt install racket
+```
+
+Once you have racket installed, you can run a Racket program by using 
+`racket <source-file>`. For example, to run the Hot Springs code, navigate
+into the `hot-springs` directory and run the following command.
 
 ```
 racket hot-springs.rkt
