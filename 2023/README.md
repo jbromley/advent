@@ -26,6 +26,7 @@
 |  21 | step-counter        | Racket   |
 |  22 | sand-slabs          | Racket   |
 |  23 | long-walk           | Racket   |
+|  24 | odds                | Racket   |
 |-----|---------------------|----------|
 
 ## Running the Elixir code
