@@ -20,38 +20,6 @@
     (hash-update! g v1 (lambda (edges) (cons v2 edges)) (list))
     (hash-update! g v2 (lambda (edges) (cons v1 edges)) (list))))
 
-#|
-(define (add-vertex! g v)
-  (when (not (has-vertex? g v))
-    (hash-set! g v (set))))
-
-(define (has-vertex? g v)
-  (hash-has-key? g v))
-
-(define (vertices g)
-  (sort (hash-keys g) string<=?))
-
-(define (vertex-edges g v)
-  (hash-ref g v))
-
-(define (edges g)
-  (set-map (for*/set ([v (vertices g)]
-                      [next-v (vertex-edges g v)])
-             (set v next-v))
-           set->list))
-
-(define (graphviz g out-file)
-  (let ([es (edges g)])
-    (call-with-output-file out-file
-      (lambda (port)
-        (fprintf port "graph G {~n")
-        (for ([e es])
-          (let ([v1 (first (set->list e))]
-                [v2 (second (set->list e))])
-            (fprintf port "  ~a -- ~a;~n" v1 v2)))
-        (fprintf port "}~n"))
-      #:exists 'replace)))
-|#
 (define (random-choice lst)
   (let ([n (random (length lst))])
     (first (drop lst n))))
