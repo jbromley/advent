@@ -1,0 +1,79 @@
+#lang racket/base
+(require racket/list)
+(require racket/set)
+(require racket/string)
+
+;;; Graph functions
+
+(define (make-graph)
+  (make-hash))
+
+(define (add-vertex! g v)
+  (when (not (has-vertex? g v))
+    (hash-set! g v (set))))
+
+(define (has-vertex? g v)
+  (hash-has-key? g v))
+
+(define (add-edge! g v1 v2)
+  (when (not (has-edge? g v1 v2))
+    (hash-update! g v1 (lambda (edges) (set-add edges v2)) (set))
+    (hash-update! g v2 (lambda (edges) (set-add edges v1)) (set))))
+
+(define (has-edge? g v1 v2)
+  (and (hash-has-key? g v1)
+       (hash-has-key? g v2)
+       (set-member? (hash-ref g v1) v2)))
+
+(define (vertices g)
+  (sort (hash-keys g) string<=?))
+
+(define (vertex-edges g v)
+  (hash-ref g v))
+
+(define (edges g)
+  (set-map (for*/set ([v (vertices g)]
+                      [next-v (vertex-edges g v)])
+             (set v next-v))
+           set->list))
+
+(define (graphviz g out-file)
+  (let ([es (edges g)])
+    (call-with-output-file out-file
+      (lambda (port)
+        (fprintf port "graph G {~n")
+        (for ([e es])
+          (let ([v1 (first (set->list e))]
+                [v2 (second (set->list e))])
+            (fprintf port "  ~a -- ~a;~n" v1 v2)))
+        (fprintf port "}~n"))
+      #:exists 'replace)))
+
+;;; Part 1
+
+#|
+(define (contract g t)
+  (cond
+    [(<= (length (vertices g)) t) g]
+    [else
+     (let* ([es (set->list (edges g))]
+            [n (length es)]
+            [e-index (random n)])
+       )]))
+|#
+
+;;; Read the input and build a graph
+
+(define (read-graph input-file)
+  (let ([g (make-graph)])
+    (call-with-input-file input-file
+      (lambda (port)
+        (for ([line (in-lines port)])
+          (let* ([strs (filter non-empty-string? (string-split line #rx"[: ]" #:trim? #t))]
+                 [v (first strs)]
+                 [vs (rest strs)])
+            (for ([next-v vs])
+              (add-edge! g v next-v))))))
+    g))
+
+

@@ -27,6 +27,7 @@
 |  22 | sand-slabs          | Racket   |
 |  23 | long-walk           | Racket   |
 |  24 | odds                | Racket   |
+|  25 | snowverload         | Racket   |
 |-----|---------------------|----------|
 
 ## Running the Elixir code
