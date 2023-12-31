@@ -46,20 +46,6 @@
                           [(= (pos-y v1) (pos-y v2)) (< (pos-x v1) (pos-x v2))]
                           [else (< (pos-y v1) (pos-y v2))]))))
 
-;;; Memoization
-
-
-(define-syntax-rule (memoize-fn! fn)
-  (set! fn (memoize-fn fn)))
-
-(define (memoize-fn fn)
-  (let ([cache (make-hash)]
-        [orig-fn fn])
-    (λ args
-      (when (not (hash-has-key? cache args))
-        (hash-set! cache args (apply orig-fn args)))
-      (hash-ref cache args))))
-
 ;;; Maze and graph set-up
 
 (define (valid-pos? pos maze)
