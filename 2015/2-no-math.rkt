@@ -39,7 +39,7 @@
 ;;; Entry point
 
 (module+ main
-  (printf "Aoc 205 Day 2 - I Was Told There Would Be No Math~n")
+  (printf "AoC 205 Day 2 - I Was Told There Would Be No Math~n")
   (let ([input (read-input "2.txt")])
     (printf "Part 1: ~a~n" (total-area input))
     (printf "Part 2: ~a~n" (total-ribbon-length input))))
