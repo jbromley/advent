@@ -9,8 +9,6 @@
       (let ([s (read-line port)])
         (string->list (string-trim s))))))
 
-(define input (read-input "1.txt"))
-
 ;;; Part 1
 
 (define (count-levels lst [level 0])
