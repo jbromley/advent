@@ -1,5 +1,4 @@
 #lang racket/base
-(require racket/list)
 (require racket/string)
 (require openssl/md5)
 
