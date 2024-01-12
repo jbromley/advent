@@ -1,5 +1,8 @@
 (defpackage :7-assembly
-  (:use :cl :uiop :trivia))
+  (:use :cl :uiop)
+  (:import-from :trivia #:match)
+  (:import-from :alexandria #:hash-table-keys)
+  (:export #:read-circuit))
 
 (in-package :7-assembly)
 
@@ -55,9 +58,10 @@ defaults to CHAR= (for case-sensitive comparison)."
     ((not (parse-integer (first line) :junk-allowed t))
      (match line ((list x _ rhs)
 		  (hash-update graph x (lambda (v) (cons rhs v)) '())
-		  (hash-set gates rhs (list "value" x)))))
+		  (hash-set gates rhs x))))
     (t
      (match line ((list num _ rhs)
+		  ;; (hash-update graph num (lambda (v) (cons rhs v)) '())
 		  (hash-set gates rhs (parse-integer num))))))
   (values graph gates))
 
