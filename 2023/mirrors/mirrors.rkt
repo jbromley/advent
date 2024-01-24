@@ -71,18 +71,6 @@
       [(list 'row above) (* 100 above)]
       [(list 'col left) left])))
 
-;;; Part 1
-
-(define/contract (find-reflections input-file)
-  (-> string? integer?)
-  (solve (read-input input-file) 0))
-
-;;; Part 2
-
-(define/contract (find-reflections-with-smudges input-file)
-  (-> string? integer?)
-  (solve (read-input input-file) 1))
-
 ;;; Entry point
 
 (module+ main
