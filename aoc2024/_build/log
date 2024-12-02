@@ -1,0 +1,6 @@
+# dune init project aoc2024
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /home/jay/.cache/dune/db
+# Workspace root: /home/jay/Code/advent/aoc2024
+# Auto-detected concurrency: 24
