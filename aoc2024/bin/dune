@@ -1,8 +1,8 @@
 (library
  (name aoc)
- (modules day01))
+ (modules day01 day02))
 
-(executable
- (name run01)
- (modules run01)
+(executables
+ (names run01 run02)
+ (modules run01 run02)
  (libraries aoc))

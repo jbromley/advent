@@ -1,4 +1,4 @@
 (tests
- (names test_day01)
- (modules test_day01)
+ (names test_day01 test_day02)
+ (modules test_day01 test_day02)
  (libraries aoc ounit2))
