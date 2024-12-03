@@ -5,7 +5,7 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github jbromley/advent))
 
 (authors "J. Bromley")
 
@@ -13,13 +13,13 @@
 
 (license MIT)
 
-(documentation https://url/to/documentation)
+(documentation https://github.com/jbromley/aoc2024/README.md)
 
 (package
  (name aoc2024)
  (synopsis "Solutions for Advent of Code 2024")
  (description "Solutions for the Advent of Code 2024 problems in OCaml.")
- (depends ocaml dune)
+ (depends ocaml dune ounit2)
  (tags
   (topics aoc algorithms)))
 
