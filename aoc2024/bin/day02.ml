@@ -13,7 +13,7 @@ let read_lists name : int list list =
       let l = String.split_on_char ' ' s |> (List.map (fun x -> int_of_string x)) in
       loop (l :: ll)
     | None ->
-      close_in ic; List.rev ll in
+      close_in ic; ll in
   loop []
 
 (** Determine if a report is safe. For a report to be safe, it must be all
@@ -43,14 +43,14 @@ let is_report_safe l =
 let count_safe_reports ll =
   List.map is_report_safe ll |> (List.filter_map (fun x -> if x then Some(x) else None)) |> List.length
 
-(** Give a list, generate all lists that result from dropping a single
+(** Given a list, generate all lists that result from dropping a single
     element of the original list. *)
 let generate_damped_reports lst =
   let rec loop acc prefix = function
     | [] -> acc
     | x :: xs -> loop((prefix @ xs) :: acc) (prefix @ [x]) xs
   in
-  List.rev (loop [] [] lst)
+  loop [] [] lst
 
 (** Given a failed report, generate all damped reports and test if any
     of those reports are safe. If any damped report is safe return true,
