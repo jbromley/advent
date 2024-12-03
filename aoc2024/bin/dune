@@ -1,4 +1,8 @@
-(executables
- (public_names day01 day02)
- (names day01 day02)
- (libraries aoc2024))
+(library
+ (name aoc)
+ (modules day01))
+
+(executable
+ (name run01)
+ (modules run01)
+ (libraries aoc))

@@ -17,7 +17,7 @@ let read_lists name : (int list * int list) =
 (** List sorting function using standard compare. *)
 let sort = (List.sort compare)
            
-(** Calculate the distance between two lists. *)
+(** Part 1: Calculate the distance between two lists. *)
 let list_dist l1 l2 =
   let xs = sort l1 in
   let ys = sort l2 in
@@ -37,7 +37,7 @@ let frequencies l =
   in
   List.iter update_freqs l; freqs
 
-(** Calculate the similarity of two lists. *)
+(** Part 2: Calculate the similarity of two lists. *)
 let similarity l1 l2 =
   let freqs = frequencies l2 in
   let occurrences x =
@@ -48,9 +48,10 @@ let similarity l1 l2 =
   in
   List.fold_left (+) 0 (List.map (fun x -> x * occurrences x) l1)
 
-(* Main entry point *)
-let () =
+(** Execute both parts of the soluition. *)
+let run () =
   let l1, l2 = read_lists "./input/1.txt" in
   Printf.printf "Day 1: Historian Hysteria\n";
   Printf.printf "distance = %d\n" (list_dist l1 l2);
   Printf.printf "similarity = %d\n" (similarity l1 l2)
+

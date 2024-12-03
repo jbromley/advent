@@ -6,13 +6,14 @@ maintainer: ["J. Bromley"]
 authors: ["J. Bromley"]
 license: "MIT"
 tags: ["topics" "aoc" "algorithms"]
-homepage: "https://github.com/username/reponame"
-doc: "https://url/to/documentation"
-bug-reports: "https://github.com/username/reponame/issues"
+homepage: "https://github.com/jbromley/advent"
+doc: "https://github.com/jbromley/aoc2024/README.md"
+bug-reports: "https://github.com/jbromley/advent/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.16"}
   "ounit2"
+  "aoc"
   "odoc" {with-doc}
 ]
 build: [
@@ -29,4 +30,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/username/reponame.git"
+dev-repo: "git+https://github.com/jbromley/advent.git"

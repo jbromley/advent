@@ -19,7 +19,8 @@
  (name aoc2024)
  (synopsis "Solutions for Advent of Code 2024")
  (description "Solutions for the Advent of Code 2024 problems in OCaml.")
- (depends ocaml dune ounit2)
+ (allow_empty)
+ (depends ocaml dune ounit2 aoc)
  (tags
   (topics aoc algorithms)))
 
