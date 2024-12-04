@@ -19,18 +19,33 @@ let read_string name : string =
     multiply them, and then add the results of the multiplications. *)
 let simple_multiply_add str =
     let r = Str.regexp "mul(\\([0-9][0-9]?[0-9]?\\),\\([0-9][0-9]?[0-9]?\\))" in 
-    let rec multiply acc start_pos =
+    let rec multiply mult_sum start_pos =
     try
       let _ = Str.search_forward r str start_pos in
-      let num1 = Str.matched_group 1 str in
-      let num2 = Str.matched_group 2 str in
-      multiply (int_of_string num1 * int_of_string num2 :: acc) (Str.match_end ())
-    with Not_found -> List.fold_left (+) 0 acc
+      let num1 = int_of_string(Str.matched_group 1 str) in
+      let num2 = int_of_string(Str.matched_group 2 str) in
+      multiply (mult_sum + num1 * num2) (Str.match_end ())
+    with Not_found -> mult_sum
   in
-  multiply [] 0
+  multiply 0 0
 
-let conditional_multiply_add _str =
-  -1
+let conditional_multiply_add str =
+  let r = Str.regexp "don't()\\|do()\\|mul(\\([0-9][0-9]?[0-9]?\\),\\([0-9][0-9]?[0-9]?\\))" in
+  let rec multiply mult_sum enabled start_pos =
+    try
+      let _ = Str.search_forward r str start_pos in
+      match Str.matched_string str with
+      | "don't()" -> multiply mult_sum false (Str.match_end ())
+      | "do()" -> multiply mult_sum true (Str.match_end ())
+      | _ when enabled ->
+        let num1 = int_of_string(Str.matched_group 1 str) in
+        let num2 = int_of_string(Str.matched_group 2 str) in
+        multiply (mult_sum + num1 * num2) enabled (Str.match_end ())
+      | _ ->
+        multiply mult_sum enabled (Str.match_end ())
+    with Not_found -> mult_sum
+  in
+  multiply 0 true 0
     
 let run () =
   let input = read_string "./input/3.txt" in 
