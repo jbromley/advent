@@ -61,7 +61,7 @@ let check_damped_reports r =
     | r :: rs ->
       if is_report_safe r then true else check_reports rs
   in
-  check_reports (generate_damped_reports r)
+  generate_damped_reports r |> check_reports
   
 (** Part 2: How many safe reports with damping. *)
 let count_safe_damped_reports report_list = 
