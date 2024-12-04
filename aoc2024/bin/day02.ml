@@ -55,9 +55,13 @@ let generate_damped_reports lst =
 (** Given a failed report, generate all damped reports and test if any
     of those reports are safe. If any damped report is safe return true,
     otherwise return false. *)
-let check_damped_reports report =
-  let damped_reports = generate_damped_reports report in
-  count_safe_reports damped_reports >= 1
+let check_damped_reports r =
+  let rec check_reports = function
+    | [] -> false
+    | r :: rs ->
+      if is_report_safe r then true else check_reports rs
+  in
+  check_reports (generate_damped_reports r)
   
 (** Part 2: How many safe reports with damping. *)
 let count_safe_damped_reports report_list = 
