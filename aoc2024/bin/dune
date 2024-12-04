@@ -4,6 +4,6 @@
  (libraries str))
 
 (executables
- (names run01 run02 run03)
- (modules run01 run02 run03)
+ (names all run01 run02 run03)
+ (modules all run01 run02 run03)
  (libraries str aoc))
