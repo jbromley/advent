@@ -1,2 +1,3 @@
 _build/
+input/??.txt
 aoc2024.opam
