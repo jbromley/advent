@@ -1,12 +1,14 @@
 (library
  (name aoc)
- (modules day01 day02 day03)
+ (modules day01 day02 day03 day04)
  (libraries str))
 
 (executables
- (names all run01 run02 run03)
- (modules all run01 run02 run03)
+ (names all run01 run02 run03 run04)
+ (modules all run01 run02 run03 run04)
  (libraries str aoc))
 
 (rule (write-file run01.ml "open Aoc\nlet () = Day01.run ()"))
 (rule (write-file run02.ml "open Aoc\nlet () = Day02.run ()"))
+(rule (write-file run03.ml "open Aoc\nlet () = Day03.run ()"))
+(rule (write-file run04.ml "open Aoc\nlet () = Day04.run ()"))
