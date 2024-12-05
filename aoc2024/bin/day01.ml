@@ -44,7 +44,7 @@ let similarity l1 l2 =
   in
   List.fold_left (+) 0 (List.map (fun x -> x * occurrences x) l1)
 
-(** Execute both parts of the soluition. *)
+(** Execute both parts of the solution. *)
 let run () =
   let l1, l2 = read_lists "./input/1.txt" in
   Printf.printf "Day 1: Historian Hysteria\n";
