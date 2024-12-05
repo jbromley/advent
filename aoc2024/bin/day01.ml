@@ -2,12 +2,14 @@
 
 (** Read a file with two columns and return a tuple of lists. *)
 let read_lists name : (int list * int list) =
-  let ic = open_in name in
+  let sc = Scanf.Scanning.open_in name in 
   let try_read () =
-    try Some (input_line ic) with End_of_file -> None in
+    try
+      Some (Scanf.bscanf sc "%u %u\n" (fun x1 x2 -> (x1, x2)))
+    with End_of_file -> None in
   let rec loop l1 l2 = match try_read () with
-    | Some s -> Scanf.sscanf s "%u %u\n" (fun x1 x2 -> loop (x1 :: l1) (x2 :: l2))
-    | None -> close_in ic; (l1, l2) in
+    | Some (x1, x2) -> loop (x1 :: l1) (x2 :: l2)
+    | None -> Scanf.Scanning.close_in sc; (l1, l2) in
   loop [] []
 
 (** List sorting function using standard compare. *)
