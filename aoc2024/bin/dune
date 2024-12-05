@@ -6,3 +6,7 @@
  (names run01 run02)
  (modules run01 run02)
  (libraries aoc))
+
+(rule (write-file run01.ml "open Aoc\nlet () = Day01.run ()"))
+(rule (write-file run02.ml "open Aoc\nlet () = Day02.run ()"))
+
