@@ -6,12 +6,8 @@ let read_lists name : (int list * int list) =
   let try_read () =
     try Some (input_line ic) with End_of_file -> None in
   let rec loop l1 l2 = match try_read () with
-    | Some s -> let l = String.split_on_char ' ' s |>
-                        (List.filter_map (fun elem -> if elem = "" then None else Some(int_of_string(elem)))) in
-      let x1 = List.hd l in
-      let x2 = List.nth l 1 in
-      loop (x1 :: l1) (x2 :: l2)
-    | None -> close_in ic; (List.rev l1, List.rev l2) in
+    | Some s -> Scanf.sscanf s "%u %u\n" (fun x1 x2 -> loop (x1 :: l1) (x2 :: l2))
+    | None -> close_in ic; (l1, l2) in
   loop [] []
 
 (** List sorting function using standard compare. *)
