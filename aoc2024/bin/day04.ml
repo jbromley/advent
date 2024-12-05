@@ -118,6 +118,6 @@ let count_all_mas_crosses cw =
   
 let run () =
   let input = read_string_array "./input/04.txt" in 
-  Printf.printf "Day 3: Mull It Over\n";
+  Printf.printf "Day 4: Ceres Search\n";
   Printf.printf "count \"XMAS\" = %d\n" (count_all_xmas input);
   Printf.printf "count \"MAS\" crosses = %d\n" (count_all_mas_crosses input)
