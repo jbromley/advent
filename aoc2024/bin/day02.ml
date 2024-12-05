@@ -70,7 +70,7 @@ let count_safe_damped_reports report_list =
   safe_damped |>  (List.filter_map (fun x -> if x then Some(x) else None)) |> List.length
   
 let run () =
-  let input = read_lists "./input/2.txt" in 
+  let input = read_lists "./input/02.txt" in 
   Printf.printf "Day 2: Red-Nosed Reports\n";
   Printf.printf "safe reports = %d\n" (count_safe_reports input);
   Printf.printf "safe damped reports = %d\n" (count_safe_damped_reports input);

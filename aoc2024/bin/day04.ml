@@ -117,7 +117,7 @@ let count_all_mas_crosses cw =
   count_one max_row max_col 0
   
 let run () =
-  let input = read_string_array "./input/4.txt" in 
+  let input = read_string_array "./input/04.txt" in 
   Printf.printf "Day 3: Mull It Over\n";
   Printf.printf "count \"XMAS\" = %d\n" (count_all_xmas input);
   Printf.printf "count \"MAS\" crosses = %d\n" (count_all_mas_crosses input)

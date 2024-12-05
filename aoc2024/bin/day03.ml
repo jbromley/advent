@@ -48,7 +48,7 @@ let conditional_multiply_add str =
   multiply 0 true 0
     
 let run () =
-  let input = read_string "./input/3.txt" in 
+  let input = read_string "./input/03.txt" in 
   Printf.printf "Day 3: Mull It Over\n";
   Printf.printf "simple multiply = %d\n" (simple_multiply_add input);
   Printf.printf "conditional multiply = %d\n" (conditional_multiply_add input)

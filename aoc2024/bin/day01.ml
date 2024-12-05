@@ -48,7 +48,7 @@ let similarity l1 l2 =
 
 (** Execute both parts of the solution. *)
 let run () =
-  let l1, l2 = read_lists "./input/1.txt" in
+  let l1, l2 = read_lists "./input/01.txt" in
   Printf.printf "Day 1: Historian Hysteria\n";
   Printf.printf "distance = %d\n" (list_dist l1 l2);
   Printf.printf "similarity = %d\n" (similarity l1 l2)
