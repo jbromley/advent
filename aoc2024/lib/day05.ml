@@ -71,22 +71,28 @@ module IntSet = Set.Make(Int)
     
 (** Fix an update by reordering its pages. *)
 let fix_update rules update =
-  (* change the update line to a set of numbers. While it isn't empty, find a number
-     that doesn't have to go behind any other number in the remaining numbers. Add
-     that one to the result and remove it from the set of remaining numbers. *)
-  let rec loop acc update =
+  (* Change the update to a set of numbers. While the set isn't empty, find a
+     number that goes first according to the rules. Add this number to the
+     result, remove it from the set and iterate. *)
+  let rec loop fixed_update update =
     if IntSet.cardinal update = 0 then
-      acc
+      List.rev fixed_update
     else
-      let next_set = IntSet.filter (fun n1 -> IntSet.exists (fun n2 -> IntPairSet.mem (n2, n1) rules |> not) update) update in
+      let next_set = IntSet.filter (fun n1 -> (IntSet.exists (fun n2 -> IntPairSet.mem (n2, n1) rules) update) |> not) update in
       let next = IntSet.choose next_set in
-      loop (next :: acc) (IntSet.remove next update)
+      loop (next :: fixed_update) (IntSet.remove next update)
   in
   loop [] (IntSet.of_list update)
+
+(** Part 2: Find invalid updates and fix them, then sum the middle pages. *)
+let sum_fixed_updates rules updates =
+  List.filter (fun update -> not (is_update_valid rules update)) updates |>
+  List.map (fun bad_update -> fix_update rules bad_update) |>
+  List.fold_left (fun sum update -> sum + list_nth update (List.length update / 2)) 0
     
 let run () =
   let input = read_input "./input/05.txt" in
   let rules, updates = parse_input input in
   Printf.printf "Day 5: Print Queue\n";
-  Printf.printf "safe page sum = %d\n" (sum_valid_updates rules updates);
-  (* Printf.printf "count \"MAS\" crosses = %d\n" (count_all_mas_crosses input) *)
+  Printf.printf "valid updates middle page sum = %d\n" (sum_valid_updates rules updates);
+  Printf.printf "fixed updates middle page sum = %d\n" (sum_fixed_updates rules updates)
