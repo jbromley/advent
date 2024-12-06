@@ -90,7 +90,11 @@ let parse_updates input =
   in
   parse_one input []
 
-
+(** Read and parse rules and updates. *)
+let read_parse_input name =
+  let rtxt, utxt = read_input name in
+  (parse_graph rtxt, parse_updates utxt)
+  
 (********************)
 (* Puzzle solutions *)
 (********************)
