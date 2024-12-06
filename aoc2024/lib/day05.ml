@@ -1,136 +1,92 @@
 (* Day 5: Print Queue *)
 
-(*******************************)
-(* Graph modules and functions *)
-(*******************************)
+module IntPair = struct
+  type t = int * int
+  let compare (x1, y1) (x2, y2) =
+    match compare x1 x2 with
+    | 0 -> compare y1 y2
+    | other -> other
+end
 
-(** Alias for an adjacency list graph. *)
-module Graph = Map.Make(Int)
-module IntSet = Set.Make(Int)
-
-(** Add an edge to a graph. *)
-let add_edge graph src dst =
-  let neighbors = match Graph.find_opt src graph with
-    | Some lst -> dst :: lst
-    | None -> [dst]
-  in
-  Graph.add src neighbors graph
-
-(** Get the neighbors of a node in a graph. *)
-let neighbors g node =
-  Graph.find_opt node g
-
-(** Print the edges in a graph. *)
-let print_edges g =
-  List.iter (fun (src, dst) ->
-      let dst_nodes = List.map string_of_int dst in
-      Printf.printf "%u -> [%s]\n" src (String.concat "; " dst_nodes)
-  ) (Graph.to_seq g |> List.of_seq)
-
-(** Run depth-first search to see if node dst follows node src in the graph.
-    If there is a path from src to dst, them return Some(path) where path
-    is a list of nodes in the path. If there is no path, return None. *)
-let dfs graph src dst =
-  let rec explore visited path current =
-    if current = dst then
-      Some (List.rev (current :: path)) (* Path found, reverse it to return in correct order *)
-    else if IntSet.mem current visited then
-      None (* Already visited, no path here *)
-    else
-      let visited = IntSet.add current visited in
-      let neighbors = Graph.find_opt current graph |> Option.value ~default:[] in
-      let rec try_neighbors = function
-        | [] -> None (* No neighbors lead to the destination *)
-        | neighbor :: rest -> (
-            match explore visited (current :: path) neighbor with
-            | Some path -> Some path (* Path found via this neighbor *)
-            | None -> try_neighbors rest (* Try the next neighbor *)
-          )
-      in
-      try_neighbors neighbors
-  in
-  explore IntSet.empty [] src
-
-(*****************************)
-(* Input reading and parsing *)
-(*****************************)
-
-(** Read the input text for rules and updates. *)
-let read_input name : string list * string list =
-  let ic = open_in name in 
+module IntPairSet = Set.Make(IntPair)
+    
+(** Read the input file and return a list of lines where each line is a
+    string. *)
+let read_input name =
+  let ic = open_in name in
   let try_read () = try Some(input_line ic) with End_of_file -> None in
-  let rec loop rules updates do_rules =
+  let rec read_line lines =
     match try_read () with
-    | Some s ->
-      if s = "" then loop rules updates false
-      else if do_rules then loop (s :: rules) updates true
-      else loop rules (s :: updates) false
-    | None ->
-      close_in ic; (rules, updates) in
-  loop [] [] true
-
-(** Parse the rules graph text to build a graph. *)
-let parse_graph input =
-  let rec add_node edges g =
-    match edges with
-    | [] -> g
-    | e :: es ->
-      let new_g = Scanf.sscanf e "%u|%u" (fun src dst -> add_edge g src dst) in
-      add_node es new_g
+    | Some s -> read_line (s :: lines)
+    | None -> close_in ic; List.rev lines
   in
-  add_node input Graph.empty
+  read_line []
 
-let parse_updates input =
-  let rec parse_one lines updates =
-    match lines with
-    | [] -> updates
-    | l :: ls ->
-      let update = String.split_on_char ',' l |> (List.map int_of_string) |> Array.of_list in
-      parse_one ls (update :: updates)
+(** Parse the string list input and return a set of rules and a list of
+    updates. The rules are represented as a set of integer pairs and the
+    updates are just integer lists. *)
+let parse_input input =
+  let rec get_rule rules = function
+    | [] -> raise Parsing.Parse_error
+    | "" :: lines -> (rules, lines)
+    | line :: lines ->
+      let rule = Scanf.sscanf line "%u|%u" (fun n1 n2 -> (n1, n2)) in 
+      get_rule (IntPairSet.add rule rules) lines
   in
-  parse_one input []
-
-(** Read and parse rules and updates. *)
-let read_parse_input name =
-  let rtxt, utxt = read_input name in
-  (parse_graph rtxt, parse_updates utxt)
+  let rules, lines = get_rule IntPairSet.empty input in
+  let updates = List.map (fun line -> String.split_on_char ',' line |> List.map int_of_string) lines in 
+  (rules, updates)
   
-(********************)
-(* Puzzle solutions *)
-(********************)
 
 (** Check if an update is valid. *)
-let is_update_valid update rules =
-  let update_list = Array.to_list update in
-  let rec check_node nodes src =
-    match nodes with
-    | [] -> true
-    | dst :: tail_nodes ->
-      match dfs rules src dst with
-      | Some _ -> check_node tail_nodes dst
-      | None -> false
+let is_update_valid rules update =
+  let rec get_pairs acc = function
+    | [] | _ :: []  -> acc
+    | page :: pages -> get_pairs (acc @ List.map (fun n -> (page, n)) pages) pages
   in
-  check_node (List.tl update_list) (List.hd update_list)
+  let pairs = get_pairs [] update in
+  List.for_all (fun (src, dst) -> (IntPairSet.mem (src, dst) rules)) pairs
+
+(** Get the nth element of a list. *)
+let list_nth lst index =
+  if index >= 0 && index < List.length lst then
+    let rec loop l n =
+      match n with
+      | 0 -> List.hd l
+      | _ -> loop (List.tl l) (pred n)
+    in
+    loop lst index
+  else
+    raise (Invalid_argument "list_nth: index out of range")
 
 (** Part 1: Check which updates are valid and sum the middle pages of the
     valid updates. *)
-let sum_valid_updates updates rules =
-  let rec check_update update sum =
-    match update with
-    | [] -> sum
-    | u :: us ->
-      if is_update_valid u rules then
-        check_update us (sum + u.(Array.length u / 2))
-      else
-        check_update us sum
-  in
-  check_update updates 0
+let sum_valid_updates rules updates =
+  List.fold_left (+) 0 (List.map
+                          (fun update -> if is_update_valid rules update then list_nth update (List.length update / 2) else 0)
+                          updates)
+
+(** Set of integer type. *)
+module IntSet = Set.Make(Int)
     
-  
+(** Fix an update by reordering its pages. *)
+let fix_update rules update =
+  (* change the update line to a set of numbers. While it isn't empty, find a number
+     that doesn't have to go behind any other number in the remaining numbers. Add
+     that one to the result and remove it from the set of remaining numbers. *)
+  let rec loop acc update =
+    if IntSet.cardinal update = 0 then
+      acc
+    else
+      let next_set = IntSet.filter (fun n1 -> IntSet.exists (fun n2 -> IntPairSet.mem (n2, n1) rules |> not) update) update in
+      let next = IntSet.choose next_set in
+      loop (next :: acc) (IntSet.remove next update)
+  in
+  loop [] (IntSet.of_list update)
+    
 let run () =
-  let rules_text, updates_text = read_input "./input/05.txt" in
-  let rules = parse_graph rules_text in
-  let updates = parse_updates updates_text in 
+  let input = read_input "./input/05.txt" in
+  let rules, updates = parse_input input in
   Printf.printf "Day 5: Print Queue\n";
-  Printf.printf "safe page sum = %d\n" (sum_valid_updates updates rules);
+  Printf.printf "safe page sum = %d\n" (sum_valid_updates rules updates);
   (* Printf.printf "count \"MAS\" crosses = %d\n" (count_all_mas_crosses input) *)
