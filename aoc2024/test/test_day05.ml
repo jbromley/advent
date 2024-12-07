@@ -37,11 +37,14 @@ let test_sum_valid_updates _ =
 let test_sum_fixed_updates _ =
   assert_equal 123 (Day05.sum_fixed_updates rules updates)
 
+let suite_name = "Day 05: Print Queue"
+  
 let suite =
-  "Test Day 05" >::: [
+  suite_name >::: [
     "sum valid updates middle page" >:: test_sum_valid_updates;
     "sum fixed updates middle page" >:: test_sum_fixed_updates;
   ]
 
 let () =
+  Printf.printf "Testing %s...\n" suite_name;
   run_test_tt_main suite
