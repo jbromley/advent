@@ -1,6 +1,6 @@
 (* Day 6: Guard Gallivant *)
 
-module Loc = struct
+module Pos = struct
   type t = int * int
            
   let add (r1, c1) (r2, c2) =
@@ -12,7 +12,7 @@ module Loc = struct
     | other -> other
 end
 
-module LocSet = Set.Make(Loc)
+module PosSet = Set.Make(Pos)
 
 type rotation = CW | CCW
 
@@ -41,28 +41,22 @@ module Direction = struct
     | Left -> "left"  
 end
 
-module Vec = struct
-  type t = int * int * Direction.t
+module PosDir = struct
+  type t = Pos.t * Direction.t
 
-  let compare (r1, c1, d1) (r2, c2, d2) =
-    match compare r1 r2 with
-    | 0 ->
-      begin
-      match compare c1 c2 with
-      | 0 -> compare d1 d2
-      | other -> other
-    end
+  let compare (l1, d1) (l2, d2) =
+    match compare l1 l2 with
+    | 0 -> compare d1 d2
     | other -> other
 
-  let rotate_cw (r, c, dir) =
-    (r, c, Direction.rotate_cw dir)
+  let rotate_cw (loc, dir) =
+    (loc, Direction.rotate_cw dir)
 
-  let advance (r, c, dir) =
-    let (r', c') = Loc.add (r, c) (Direction.offset dir) in
-    (r', c', dir)
+  let advance (pos, dir) =
+    (Pos.add pos (Direction.offset dir), dir)
 end
 
-module VecSet = Set.Make(Vec)
+module PosDirSet = Set.Make(PosDir)
 
 (** Type definition for a map. *)
 module Map = struct 
@@ -70,11 +64,11 @@ module Map = struct
 
   (** Get the character at the given location. Return None if the location is
       Not in the map and Some l where l is the location otherwise. *)
-  let at (m : t) ((r, c) : Loc.t) =
+  let at (m : t) ((r, c) : Pos.t) =
     try Some m.(r).(c)
     with Invalid_argument _ -> None
 
-  let set (m : t) ((r, c) : Loc.t) (ch : char) =
+  let set (m : t) ((r, c) : Pos.t) (ch : char) =
     let row = m.(r) in
     Array.set row c ch
 
@@ -117,9 +111,9 @@ let read_map (name : string) : Map.t =
     Map.find m '^' |> List.hd
 
 (** Part 1: Find the number of distinct locations the guard visits before leaving the map. *)
-let visited_locations (m : Map.t) (start_pos : Loc.t) : LocSet.t =
+let visited_locations (m : Map.t) (start_pos : Pos.t) : PosSet.t =
   let rec step locations pos dir =
-    let next_pos = Loc.add pos (Direction.offset dir) in
+    let next_pos = Pos.add pos (Direction.offset dir) in
     let cell = Map.at m next_pos in
     match cell with
     | None ->
@@ -131,51 +125,50 @@ let visited_locations (m : Map.t) (start_pos : Loc.t) : LocSet.t =
       step locations pos new_dir
     | _ ->
       (* Must be a '.' or open spot. *)
-      step (LocSet.add next_pos locations) next_pos dir
+      step (PosSet.add next_pos locations) next_pos dir
   in
-  step (LocSet.add start_pos LocSet.empty) start_pos Up
+  step (PosSet.add start_pos PosSet.empty) start_pos Up
 
 let count_visited_locations (m : Map.t) =
   let start_pos = find_start m in 
-  visited_locations m start_pos |> LocSet.cardinal
+  visited_locations m start_pos |> PosSet.cardinal
 
 (** Determine if the guard will hit a cycle in the map. *)
-let has_cycle (m : Map.t) (start : Vec.t) : bool =
+let has_cycle (m : Map.t) (start : PosDir.t) : bool =
   let rec step visited vec =
-    let r, c, dir = vec in
-    let next_pos = Loc.add (r, c) (Direction.offset dir) in
-    let cell = Map.at m next_pos in
-    match cell with
+    let pos, dir = vec in
+    let next_pos = Pos.add pos (Direction.offset dir) in
+    match Map.at m next_pos with
     | None ->
       (* We've left the map, we're done and there's no cycle. *)
       false
     | Some '#' ->
       (* We're going to hit an obstacle, turn right. *)
-      let new_vec = Vec.rotate_cw vec in
+      let new_vec = PosDir.rotate_cw vec in
       step visited new_vec
     | Some _ ->
       (* Must be an open spot ('.') or the starting location ('^'). *)
-      let new_vec = Vec.advance vec in
-      if VecSet.mem new_vec visited then
+      let new_vec = PosDir.advance vec in
+      if PosDirSet.mem new_vec visited then
         true
       else
-        step (VecSet.add new_vec visited) new_vec
+        step (PosDirSet.add new_vec visited) new_vec
   in
-  step (VecSet.add start VecSet.empty) start
+  step (PosDirSet.singleton start) start
                                      
 (** Try placing an obstacle at the given location and checking for a cycle. If
     There is a cycle return true, else return false. *)
-let try_obstacle (m : Map.t) ((r, c): Loc.t) (obs_loc: Loc.t) : bool =
+let try_obstacle (m : Map.t) (pos: Pos.t) (obs_loc: Pos.t) : bool =
   (* Maps are mutable. I'm sorry for this. *)
   Map.set m obs_loc '#';
-  let cycle = has_cycle m (r, c, Up) in
+  let cycle = has_cycle m (pos, Up) in
   Map.set m obs_loc '.'; cycle
 
 (** Part 2: Count how many places a single obstacle may be placed to cause a cycle. *)
 let count_possible_obstructions m =
   let start_pos = find_start m in
-  let visited = LocSet.remove start_pos (visited_locations m start_pos) in
-  LocSet.filter (fun loc -> try_obstacle m start_pos loc) visited |> LocSet.cardinal
+  let visited = PosSet.remove start_pos (visited_locations m start_pos) in
+  PosSet.filter (fun loc -> try_obstacle m start_pos loc) visited |> PosSet.cardinal
     
 let run () =
   let m = read_map "./input/06.txt" in 
