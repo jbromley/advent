@@ -29,60 +29,30 @@ let read_input filename f =
   in
   loop []
 
-(** In this context, the [(||)] operator concatenates two numbers. For example,
-    [12 || 34] produces the number 1234. *)
-let (||)  = fun x y -> string_of_int x ^ string_of_int y |> int_of_string
-                       
-(** Generate a list of all combinations of operators in the list [op_list]
-    of length [n]. Each operator must have the signature [int -> int -> int]. *)
-let rec generate_ops n (op_list: (int -> int -> int) list)  =
-  if n = 0 then
-    [[]]  (* Base case: there's only one combination of length 0, the empty list *)
+let concat_num x y = string_of_int x ^ string_of_int y |> int_of_string
+              
+let rec is_valid target result nums three_ops =
+  if result > target then
+    false
   else
-    let smaller_combos = generate_ops (n - 1) op_list in
-    List.concat (List.map (fun op -> List.map (fun ops -> op :: ops) smaller_combos) op_list)
-
-(** Function to combine a list of numbers and operators and evaluates the
-    resulting expression from left to right. *)
-let rec eval nums ops =
-  match nums, ops with
-  | n :: ns, op :: ops ->
-      (* Apply the first operator to the first two numbers,
-         then recursively evaluate the remaining expression *)
-      let result = op n (List.hd ns) in
-      eval (result :: List.tl ns) ops
-  | [n], [] -> n  (* Base case: when there's one number left and no operators *)
-  | _, _ -> failwith "eval: mismatched numbers and operators"
-
-(** Take an [equation] record and attempt to insert [(+)] and [( * )] operators
-    between the numbers to get the result. If any combination of operators produces
-    a true equation, then return [Some result], otherwise return [None]. *)
-let valid_equation_result eq (op_list: (int -> int -> int) list) =
-  let { result; numbers } = eq in
-  let ops = generate_ops (List.length numbers - 1) op_list in
-  if List.exists (fun ops -> eval numbers ops = result) ops then
-    Some result
-  else
-    None
+    match nums with
+    | [] -> result = target
+    | n :: ns ->
+      is_valid target (result + n) ns three_ops ||
+      is_valid target (result * n) ns three_ops ||
+      (three_ops && is_valid target (concat_num result n) ns three_ops)
 
 (** Given [eqs], a list of [equation] records, check if each one can be made true by
     inserting the correct operators out of [(+)] and [( * )]. If the equation can be
     made true, add the result to a running sum. Return the sum of the results of all
     valid equations. *)
-let sum_2_op_equations eqs =
-  let op_list = [(+); ( * )] in 
-  List.filter_map (fun eq -> valid_equation_result eq op_list) eqs |> (List.fold_left (+) 0)
-
-(** Given [eqs], a list of [equation] records, check if each one can be made
-    true by inserting the correct operators out of [(+)], [( * )], and [(||)].
-    If the equation can be made true, add the result to a running sum. Return
-    the sum of the results of all valid equations. *)
-let sum_3_op_equations eqs =
-  let op_list = [(+); ( * ); (||)] in 
-  List.filter_map (fun eq -> valid_equation_result eq op_list) eqs |> (List.fold_left (+) 0)
+let sum_equations eqs three_ops =
+  List.filter (fun eq -> let { result = target; numbers = nums } = eq in
+                is_valid target (List.hd nums) (List.tl nums) three_ops) eqs |>
+  (List.fold_left (fun acc eq -> acc + eq.result) 0)
 
 let run () =
   let eqs = read_input "./input/07.txt" parse_equation in 
   Printf.printf "Day 7: Bridge Repair\n";
-  Printf.printf "sum of valid two-op equations = %d\n" (sum_2_op_equations eqs);
-  Printf.printf "sum of valid three-op equations = %d\n" (sum_3_op_equations eqs)
+  Printf.printf "sum of valid two-op equations = %d\n" (sum_equations eqs false);
+  Printf.printf "sum of valid three-op equations = %d\n" (sum_equations eqs true)

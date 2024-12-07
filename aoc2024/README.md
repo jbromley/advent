@@ -12,7 +12,7 @@ This repo contains solutions to Advent of Code 2024 puzzles in [OCaml](https://o
 |  4  | Ceres Search       |          4.1 |
 |  5  | Print Queue        |         15.2 |
 |  6  | Guard Gallivant    |       6475.2 |
-|  7  | Bridge Repair      |       6679.9 |
+|  7  | Bridge Repair      |        480.8 |
 | --- | ------------------ | ------------ |
 
 ## Problem input 
@@ -86,10 +86,5 @@ basically brute-forced it, but maybe there is a better way.
 
 ### Day 7: Bridge Repair
 
-First-order functions made it easy to implement an evaluator. For both parts,
-generate and test every possible combination of operators and then test them
-with the numbers from the equations to see which equations could be made true.
-
-For part 2, I did the slimy thing and simply redefined OCaml's `||` operator to
-be a numeric concatenation function. This made it easy to extend the code to use
-three (or an arbitrary number of `(int -> int -> int)`) operators.
+Recursively generate results using the designated operators and bubble up the
+valid results.

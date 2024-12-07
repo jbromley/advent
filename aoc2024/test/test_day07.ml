@@ -13,10 +13,10 @@ let eqs = List.map parse_equation ["190: 10 19";
                                    "292: 11 6 16 20"]
 
 let test_sum_2_op_equations _ =
-  assert_equal 3749 (sum_2_op_equations eqs)
+  assert_equal 3749 (sum_equations eqs false)
 
 let test_sum_3_op_equations _ =
-  assert_equal 11387 (sum_3_op_equations eqs)
+  assert_equal 11387 (sum_equations eqs true)
 
 let suite_name = "Day 07: Bridge Repair"
 let suite =
