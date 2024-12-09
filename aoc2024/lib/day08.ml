@@ -64,36 +64,33 @@ let parse_map lst =
 let on_map (px, py) (max_x, max_y) =
   px >= 0 && px <=max_x && py >= 0 && py <= max_y
                 
-(** Given two antenna locations [a1] and [a2], return a list of antinode
-    locations as [(int * int) list]. *)
-let find_antinodes (a1 : Pos.t) (a2 : Pos.t) (max_pos: Pos.t) : Pos.t list =
+let find_antinodes (a1 : Pos.t) (a2 : Pos.t) (max_pos : Pos.t) (resonant : bool): Pos.t list =
   let delta = Pos.(a1 - a2) in
-  [Pos.(a1 + delta); Pos.(a2 - delta)] |> List.filter (fun pos -> on_map pos max_pos)
+  if not resonant then
+    [Pos.(a1 + delta); Pos.(a2 - delta)] |> List.filter (fun pos -> on_map pos max_pos)
+  else
+    let delta' = Pos.(Pos.zero - delta) in 
+    let rec loop a d =
+      if not (on_map a max_pos) then []
+      else a :: loop Pos.(a + d) d
+    in
+    loop a1 delta @ loop a2 delta'
 
-let rec find_list_antinodes ant_list max_pos f =
+let rec find_list_antinodes ant_list max_pos resonant =
   match ant_list with
   | [] -> []
   | a :: other_as ->
-    let pairs = List.map (fun a2 -> f a a2 max_pos) other_as |> List.flatten in
-    pairs @ find_list_antinodes other_as max_pos f
+    let pairs = List.map (fun a2 -> find_antinodes a a2 max_pos resonant) other_as |> List.flatten in
+    pairs @ find_list_antinodes other_as max_pos resonant
 
-let count_antinodes (m, max_pos) f =
+let count_antinodes (m, max_pos) resonant =
   let antinodes = CharMap.fold
-      (fun _freq antennas antinodes -> find_list_antinodes antennas max_pos f |>
+      (fun _freq antennas antinodes -> find_list_antinodes antennas max_pos resonant |>
                                        (List.fold_left (fun antinodes a -> PosSet.add a antinodes) antinodes)) m PosSet.empty in
   antinodes |> PosSet.cardinal
-
-let find_resonant_antinodes (a1 : Pos.t) (a2 : Pos.t) (max_pos : Pos.t): Pos.t list =
-  let delta = Pos.(a1 - a2) in
-  let delta' = Pos.(Pos.zero - delta) in 
-  let rec loop a d =
-    if not (on_map a max_pos) then []
-    else a :: loop Pos.(a + d) d
-  in
-  loop a1 delta @ loop a2 delta'
 
 let run () =
   let antenna_map = read_input "./input/08.txt" |> parse_map in
   Printf.printf "Day 8: Resonant Collinearity\n";
-  Printf.printf "number of antinodes = %d\n" (count_antinodes antenna_map find_antinodes);
-  Printf.printf "number of resonant antinodes = %d\n" (count_antinodes antenna_map find_resonant_antinodes)
+  Printf.printf "number of antinodes = %d\n" (count_antinodes antenna_map false);
+  Printf.printf "number of resonant antinodes = %d\n" (count_antinodes antenna_map true)

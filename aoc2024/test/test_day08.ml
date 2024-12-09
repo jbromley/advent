@@ -15,18 +15,15 @@ let map = parse_map ["............";
                      "............";
                      "............"]
 
-let test_count_antinodes _ = assert_equal 14 (count_antinodes map)
+let test_count_antinodes _ = assert_equal 14 (count_antinodes map false)
 
-(*
-let test_sum_3_op_equations _ =
-  assert_equal 11387 (sum_equations eqs true)
-*)
+let test_count_resonant_antinodes _ = assert_equal 34 (count_antinodes map true)
 
 let suite_name = "Day 8: Resonant Collinearity"
 let suite =
   suite_name >::: [
     "count antinodes" >:: test_count_antinodes;
-    (* "sum valid 3-op equations" >:: test_sum_3_op_equations; *)
+    "count resonant antinodes" >:: test_count_resonant_antinodes;
   ]
 
 let () =
