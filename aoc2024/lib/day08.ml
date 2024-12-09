@@ -5,20 +5,21 @@ module CharMap = Map.Make(Char)
 module Pos = struct
   type t = int * int
 
-  (* let add (r1, c1) (r2, c2) = *)
-  (*   (r1 + r2, c1 + c2) *)
-  (*  *)
-  (* let sub (r1, c1) (r2, c2) = *)
-  (*   (r1 - r2, c1 - c2) *)
+  let make r c : t = (r, c)
+
+  let zero : t = (0, 0)
+                    
+  let ( + ) (r1, c1) (r2, c2) : t = (r1 + r2, c1 + c2)
+  
+  let ( - ) (r1, c1) (r2, c2) : t = (r1 - r2, c1 - c2)
   
   let compare (x1, y1) (x2, y2) =
-    match (compare x1 x2, compare y1 y2) with
-    | (-1, -1) | (-1, 0) | (0, -1) -> -1
-    | (0, 0) -> 0
-    | (1, _) | (_, 1) -> 1
-    | _ -> failwith "Pos.compare: invalid comparison"
-end
+    match compare x1 x2 with
+    | 0 -> compare y1 y2
+    | other -> other
 
+end
+    
 module PosSet = Set.Make(Pos)
 
 (** Read the input file and return [string list]. *)
@@ -60,30 +61,39 @@ let parse_map lst =
   (m, (List.length lst - 1, String.length (List.hd lst) - 1))
 
 (** Determine if a given position is on the map and return a [bool]. *)
-let on_map (x, y) (max_x, max_y) =
-  x >= 0 && x <= max_x && y >=0 && y <= max_y
+let on_map (px, py) (max_x, max_y) =
+  px >= 0 && px <=max_x && py >= 0 && py <= max_y
                 
 (** Given two antenna locations [a1] and [a2], return a list of antinode
     locations as [(int * int) list]. *)
-let find_pair_antinodes (x1, y1) (x2, y2) max_pos =
-  let dx, dy = (x1 - x2, y1 - y2) in
-  [(x1 + dx, y1 + dy); (x2 - dx, y2 - dy)] |> List.filter (fun pos -> on_map pos max_pos)
+let find_antinodes (a1 : Pos.t) (a2 : Pos.t) (max_pos: Pos.t) : Pos.t list =
+  let delta = Pos.(a1 - a2) in
+  [Pos.(a1 + delta); Pos.(a2 - delta)] |> List.filter (fun pos -> on_map pos max_pos)
 
-let rec find_list_antinodes ant_list max_pos =
+let rec find_list_antinodes ant_list max_pos f =
   match ant_list with
   | [] -> []
   | a :: other_as ->
-    let pairs = List.map (fun a2 -> find_pair_antinodes a a2 max_pos) other_as |> List.flatten in
-    pairs @ find_list_antinodes other_as max_pos
+    let pairs = List.map (fun a2 -> f a a2 max_pos) other_as |> List.flatten in
+    pairs @ find_list_antinodes other_as max_pos f
 
-let count_antinodes (m, max_pos) =
+let count_antinodes (m, max_pos) f =
   let antinodes = CharMap.fold
-      (fun _freq antennas antinodes -> find_list_antinodes antennas max_pos |>
+      (fun _freq antennas antinodes -> find_list_antinodes antennas max_pos f |>
                                        (List.fold_left (fun antinodes a -> PosSet.add a antinodes) antinodes)) m PosSet.empty in
   antinodes |> PosSet.cardinal
+
+let find_resonant_antinodes (a1 : Pos.t) (a2 : Pos.t) (max_pos : Pos.t): Pos.t list =
+  let delta = Pos.(a1 - a2) in
+  let delta' = Pos.(Pos.zero - delta) in 
+  let rec loop a d =
+    if not (on_map a max_pos) then []
+    else a :: loop Pos.(a + d) d
+  in
+  loop a1 delta @ loop a2 delta'
 
 let run () =
   let antenna_map = read_input "./input/08.txt" |> parse_map in
   Printf.printf "Day 8: Resonant Collinearity\n";
-  Printf.printf "number of antinodes = %d\n" (count_antinodes antenna_map);
-  (* Printf.printf "sum of valid three-op equations = %d\n" (sum_equations eqs true) *)
+  Printf.printf "number of antinodes = %d\n" (count_antinodes antenna_map find_antinodes);
+  Printf.printf "number of resonant antinodes = %d\n" (count_antinodes antenna_map find_resonant_antinodes)
