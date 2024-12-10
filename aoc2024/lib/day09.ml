@@ -1,70 +1,100 @@
 (* Day 9: Disk Fragmenter *)
 
-module IntMap = Map.Make(Char)
+module Inode = struct
+  type t = { id: int; start: int; len: int }
+  let make id s l = {id = id; start = s; len = l}
+  let compare {id = id1; start = s1; len = _} {id = id2; start = s2; len = _} =
+    match compare s1 s2 with
+    | 0 -> compare id1 id2
+    | other -> other
+end
 
-(** Take the [int list] and build the file map. The file map is a list of blocks.
-    of form [(int * int) array] containing the ID and the size. A block is [(int * int)]
-    of the form (id, size). If a block is free, it's ID is [-1]. *)
-let build_block_map lst =
-  let make_blocks id size = List.init size (fun _ -> (id, 1)) in
-  let rec loop id acc l =
+module InodeSet = Set.Make(Inode)
+
+module FreeBlock = struct
+  type t = { start: int; len: int }
+  let make s l = {start = s; len = l}
+  let compare {start = s1; len = _} {start = s2; len = _} =
+    compare s1 s2
+end
+
+module FreeBlockSet = Set.Make(FreeBlock)
+
+(** Take the [int list] and build the filesystem descriptio. Returns
+    [(InodeSet.t, FreeBlockSet.t)]. *)
+let build_block_maps lst =
+  let rec loop id offset fs free_blks l =
     match l with
-    | [] -> acc
-    | [blocks] -> make_blocks id blocks @ acc
+    | [] -> (fs, free_blks)
+    | [blocks] -> (InodeSet.add (Inode.make id offset blocks) fs, free_blks)
     | file :: free :: others ->
-      let new_acc = make_blocks (-1) free @ make_blocks id file @ acc in
-      loop (id + 1) new_acc others
+        let new_fs = InodeSet.add (Inode.make id offset file) fs in
+        let new_free_blks = FreeBlockSet.add (FreeBlock.make (offset + file) free) free_blks in 
+        loop (id + 1) (offset + file + free) new_fs new_free_blks others
   in
-  let block_list = loop 0 [] lst in
-  block_list |> List.rev |> List.to_seq |> Array.of_seq
+  loop 0 0 InodeSet.empty FreeBlockSet.empty lst
 
-(** Read the input file with name [filename] and return a the string as
-    a [char list]. *)
+(** Read the input file with name [filename] and return a filesystem
+    ([InodeSet.t]) and a free block list [FreeBlockSet.t]. *)
 let read_input filename =
   let ic = open_in filename in
   let line = input_line ic in
   close_in ic;
-  String.to_seq line |> List.of_seq |> List.map (fun ch -> Char.code ch - Char.code '0') |> build_block_map
+  String.to_seq line |> List.of_seq |> List.map (fun ch -> Char.code ch - Char.code '0') |> build_block_maps
+  
+let update_fs fs free_blks (file : Inode.t) (free : FreeBlock.t) =
+  match compare file.len free.len with
+  | -1 -> 
+    let new_fs =
+      InodeSet.remove file fs |>
+      InodeSet.add (Inode.make file.id free.start file.len) in
+    let new_free_blks = 
+      FreeBlockSet.remove free free_blks |> 
+      FreeBlockSet.add (FreeBlock.make file.start file.len) |>
+      FreeBlockSet.add (FreeBlock.make (free.start + file.len) (free.len - file.len)) in
+    (new_fs, new_free_blks)
+  | 0 ->
+    let new_fs = InodeSet.remove file fs |> InodeSet.add (Inode.make file.id free.start file.len) in
+    let new_free_blks = FreeBlockSet.remove free free_blks |> FreeBlockSet.add (FreeBlock.make file.start file.len) in
+    (new_fs, new_free_blks)
+  | _ ->
+    let new_fs = 
+      InodeSet.remove file fs |> 
+      InodeSet.add (Inode.make file.id free.start free.len) |>
+      InodeSet.add (Inode.make file.id file.start (file.len - free.len)) in
+    let new_free_blks = 
+      FreeBlockSet.remove free free_blks |>
+      FreeBlockSet.add (FreeBlock.make (file.start + file.len - free.len) free.len) in
+    (new_fs, new_free_blks)
 
-(** Find the first element of the array that satisfies the predicate and return
-    the index. *)
-let find_index pred arr =
-  let len = Array.length arr in
-  let rec loop i =
-    if i >= len then None
-    else if pred arr.(i) then Some i
-    else loop (i + 1)
-  in
-  loop 0
-    
 (** Take a block array [(int * int) array]) with the id and size of blocks and
     defragment it. *)
-let defragment block_map =
-  let rec loop ilo i =
-    match i with
-    | 0 -> block_map
-    | i ->
-      let this_id, this_size = block_map.(i) in
-      if this_id = -1 then loop ilo (pred i)
-      else 
-        let free_block = find_index (fun (id, size) ->id = (-1) && this_size <= size) (Array.sub block_map ilo (i - ilo)) in
-        match free_block with
-        | Some(j) ->
-          Array.set block_map (ilo + j) (this_id, this_size);
-          Array.set block_map i ((-1), this_size);
-          loop (j + 1) (pred i)
-        | None ->
-          (* loop (pred i) *)
-          block_map
+let defragment (fs : InodeSet.t) (free_blks : FreeBlockSet.t) =
+  let rec loop fs free_blks =
+    let file = InodeSet.find_last (fun _ -> true) fs in
+    let free = FreeBlockSet.find_first (fun _ -> true) free_blks in
+    if file.start < free.start then
+      fs
+    else
+      let (new_fs, new_free_blks) = update_fs fs free_blks file free in
+      loop new_fs new_free_blks
   in
-  loop 0 (Array.length block_map - 1)
+  loop fs free_blks
 
-(** Calculate the checksum of a block map. *)
-let checksum block_map =
-  Array.mapi (fun i (id, _) -> if id = (-1) then 0 else i * id) block_map |> (Array.fold_left ( + ) 0)
+(** Return a [Seq] that contains the integers starting from [s] and including 
+    [len] numbers. *)
+let range s len =
+  Seq.init len (fun i -> s + i)
 
+(** Calculate the checksum of a the filesystem [fs]. *)
+let checksum fs =
+  let node_checksum id start len = range start len |> (Seq.fold_left ( + ) 0) |> (( * ) id) in
+  InodeSet.fold (fun {id = id; start = s; len = l} checksum -> checksum + node_checksum id s l) fs 0
+
+(*
 let run () =
-  let block_map = read_input "./input/09.txt" in
+  let (fs, free_blks) = read_input "./input/09.txt" in
   Printf.printf "Day 9: Disk Fragmenter\n";
-  Printf.printf " checksum = %d\n" (defragment block_map |> checksum);
+  Printf.printf " checksum = %d\n" (defragment fs free_blks |> checksum);
   (* Printf.printf "number of resonant antinodes = %d\n" (count_antinodes antenna_map true) *)
+*)
