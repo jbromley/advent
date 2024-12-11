@@ -14,15 +14,24 @@ module InodeSet = Set.Make(Inode)
 module FreeBlock = struct
   type t = { start: int; len: int }
   let make s l = {start = s; len = l}
-  let compare {start = s1; len = _} {start = s2; len = _} =
-    compare s1 s2
+  let compare {start = s1; len = l1} {start = s2; len = l2} =
+    match compare s1 s2 with
+    | 0 -> compare l1 l2
+    | others -> others
 end
 
 module FreeBlockSet = Set.Make(FreeBlock)
 
+let print_fs (inodes, free_blks) =
+  let inodes_lst = InodeSet.to_list inodes |> List.map (fun (i : Inode.t) -> (i.id, i.start, i.len)) in
+  let free_blks_lst = FreeBlockSet.to_list free_blks |> List.map (fun (b : FreeBlock.t) -> (-1, b.start, b.len)) in
+  let blks = (inodes_lst @ free_blks_lst) |> List.sort (fun (_, s1, _) (_, s2, _) -> compare s1 s2) in
+  List.iter (fun (i, _s, l) -> Printf.printf "%s" (String.init l (fun _ -> if i = -1 then '.' else Char.chr (Char.code '0' + i)))) blks;
+  print_endline ""
+
 (** Take the [int list] and build the filesystem descriptio. Returns
     [(InodeSet.t, FreeBlockSet.t)]. *)
-let build_block_maps lst =
+let build_fs lst =
   let rec loop id offset inodes free_blks l =
     match l with
     | [] -> (inodes, free_blks)
@@ -40,9 +49,9 @@ let read_input filename =
   let ic = open_in filename in
   let line = input_line ic in
   close_in ic;
-  String.to_seq line |> List.of_seq |> List.map (fun ch -> Char.code ch - Char.code '0') |> build_block_maps
+  String.to_seq line |> List.of_seq |> List.map (fun ch -> Char.code ch - Char.code '0') |> build_fs
   
-let update_fs inodes free_blks (inode : Inode.t) (free : FreeBlock.t) =
+let update_fs (inodes, free_blks) (inode : Inode.t) (free : FreeBlock.t) by_blocks =
   match compare inode.len free.len with
   | -1 -> 
     let new_inodes =
@@ -55,25 +64,41 @@ let update_fs inodes free_blks (inode : Inode.t) (free : FreeBlock.t) =
     let new_inodes = InodeSet.(remove inode inodes |> add (Inode.make inode.id free.start inode.len)) in
     let new_free_blks = FreeBlockSet.(remove free free_blks |> add (FreeBlock.make inode.start inode.len)) in
     (new_inodes, new_free_blks)
-  | _ ->
+  | _ when by_blocks->
     let new_inodes = 
       InodeSet.(remove inode inodes |> add (Inode.make inode.id free.start free.len) |>
                 add (Inode.make inode.id inode.start (inode.len - free.len))) in
     let new_free_blks = 
       FreeBlockSet.(remove free free_blks |> add (FreeBlock.make (inode.start + inode.len - free.len) free.len)) in
     (new_inodes, new_free_blks)
+  | _ -> (inodes, free_blks)
+
+let find_free_block free_blks start len by_blocks =
+  FreeBlockSet.fold
+    (fun blk acc ->
+       match by_blocks, Option.is_some acc with
+       | true, true -> acc
+       | true, false -> if blk.start < start then Some blk else None
+       | false, false -> if blk.len >= len && blk.start < start then Some blk else None
+       | false, true -> acc)
+    free_blks
+    None
 
 (** Take a file system [(InodeSet.t * FreeBlockSet.t)]) and defragment it. *)
-let defragment fs =
-  let rec loop (inodes, free_blks) =
-    let inode = InodeSet.find_last (fun _ -> true) inodes in
-    let free = FreeBlockSet.find_first (fun _ -> true) free_blks in
-    if inode.start < free.start then
-      (inodes, free_blks)
-    else
-      loop (update_fs inodes free_blks inode free)
+let defragment fs ?(by_blocks = true) () =
+  let rec loop (inodes, free_blks) processed nodes_to_process =
+    let inode = InodeSet.find_last (fun ino -> by_blocks || not (InodeSet.mem ino processed)) inodes in
+    let free = find_free_block free_blks inode.start inode.len by_blocks in
+    match free with
+    | None ->
+      if by_blocks || InodeSet.cardinal processed = nodes_to_process then (inodes, free_blks)
+      else loop (inodes, free_blks) (InodeSet.add inode processed) nodes_to_process
+    | Some free ->
+      if InodeSet.cardinal processed = nodes_to_process then (inodes, free_blks)
+      else loop (update_fs (inodes, free_blks) inode free by_blocks) (InodeSet.add inode processed) nodes_to_process
   in
-  loop fs
+  let inodes, _ = fs in
+  loop fs InodeSet.empty (InodeSet.cardinal inodes - 1)
 
 (** Return a [Seq] that contains the integers starting from [s] and including 
     [len] numbers. *)
@@ -88,6 +113,7 @@ let checksum (inodes, _) =
 let run () =
   let fs = read_input "./input/09.txt" in
   Printf.printf "Day 9: Disk Fragmenter\n";
-  Printf.printf " checksum = %d\n" (defragment fs |> checksum);
-  (* Printf.printf "number of resonant antinodes = %d\n" (count_antinodes antenna_map true) *)
+  Printf.printf "checksum, block defrag = %d\n" (defragment fs ~by_blocks:true () |> checksum);
+  Printf.printf "checksum, files defrag = %d\n" (defragment fs ~by_blocks:false () |> checksum)
+
 
