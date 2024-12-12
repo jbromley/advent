@@ -19,7 +19,7 @@ let test_count_visited_locations _ =
 let test_count_possible_obstructions _ =
   assert_equal 6 (count_possible_obstructions m)
 
-let suite_name = "Day 06: Gallivanting Guard"
+let suite_name = "Day 6: Gallivanting Guard"
 let suite =
   suite_name >::: [
     "count visited locations" >:: test_count_visited_locations;

@@ -18,7 +18,7 @@ let test_sum_2_op_equations _ =
 let test_sum_3_op_equations _ =
   assert_equal 11387 (sum_equations eqs true)
 
-let suite_name = "Day 07: Bridge Repair"
+let suite_name = "Day 7: Bridge Repair"
 let suite =
   suite_name >::: [
     "sum valid 2-op equations" >:: test_sum_2_op_equations;

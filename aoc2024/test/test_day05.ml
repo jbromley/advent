@@ -37,7 +37,7 @@ let test_sum_valid_updates _ =
 let test_sum_fixed_updates _ =
   assert_equal 123 (Day05.sum_fixed_updates rules updates)
 
-let suite_name = "Day 05: Print Queue"
+let suite_name = "Day 5: Print Queue"
   
 let suite =
   suite_name >::: [

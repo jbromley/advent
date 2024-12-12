@@ -23,8 +23,10 @@ let test_count_all_xmas input =
 let test_count_all_mas_crosses input =
   assert_equal 9 (Day04.count_all_mas_crosses input)
 
+let suite_name = "Day 4: Ceres Search "
+  
 let suite =
-  "Test Day 04" >::: [
+  suite_name >::: [
     "count all \"XMAS\"" >:: (fun test_ctxt -> let input = bracket setup teardown test_ctxt in
                                test_count_all_xmas input);
     "count all \"MAS\" crosses" >:: (fun test_ctxt -> let input = bracket setup teardown test_ctxt in
@@ -32,5 +34,6 @@ let suite =
   ]
 
 let () =
+  Printf.printf "Testing %s...\n" suite_name;
   run_test_tt_main suite
               

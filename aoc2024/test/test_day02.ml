@@ -19,12 +19,15 @@ let test_count_safe_reports input =
 let test_count_safe_damped_reports input =
   assert_equal 4 (Day02.count_safe_damped_reports input)
 
+let suite_name = "Day 2: Red-Nosed Reports"
+  
 let suite =
-  "Test Day 02" >::: [
+  suite_name>::: [
     "test safe reports" >:: (fun test_ctxt -> let input = bracket setup teardown test_ctxt in test_count_safe_reports input);
     "test safe damped reports" >:: (fun test_ctxt -> let input = bracket setup teardown test_ctxt in test_count_safe_damped_reports input)
   ]
 
 let () =
+  Printf.printf "Testing %s...\n" suite_name;
   run_test_tt_main suite
               

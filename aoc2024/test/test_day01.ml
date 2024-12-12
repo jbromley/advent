@@ -15,13 +15,15 @@ let test_distance (l1, l2) =
 let test_similarity (l1, l2) =
   assert_equal 31 (Day01.similarity l1 l2)
 
+let suite_name = "Day 1: Historian Hysteria"
 let suite =
-  "Test Day 01" >::: [
+  suite_name >::: [
     "test distance" >:: (fun test_ctxt -> let ls = bracket setup teardown test_ctxt in test_distance ls);
     "test similarity" >:: (fun test_ctxt -> let ls = bracket setup teardown test_ctxt in test_similarity ls)
   ]
 
 let () =
+  Printf.printf "Testing %s...\n" suite_name;
   run_test_tt_main suite
   
           

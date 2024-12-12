@@ -18,8 +18,10 @@ let test_simple_multiply_add input =
 let test_conditional_multiply_add input =
   assert_equal 48 (Day03.conditional_multiply_add input)
 
+let suite_name = "Day 3: Mull It Over"
+ 
 let suite =
-  "Test Day 03" >::: [
+  suite_name >::: [
     "test simple multiply" >:: (fun test_ctxt -> let input = bracket setup1 teardown test_ctxt in
                                  test_simple_multiply_add input);
     "test conditional multiply" >:: (fun test_ctxt -> let input = bracket setup2 teardown test_ctxt in
@@ -27,5 +29,6 @@ let suite =
   ]
 
 let () =
+  Printf.printf "Testing %s...\n" suite_name;
   run_test_tt_main suite
               
