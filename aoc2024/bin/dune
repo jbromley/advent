@@ -1,6 +1,6 @@
 (executables
- (names all run01 run02 run03 run04 run05 run06 run07 run08 run09 run10)
- (modules all run01 run02 run03 run04 run05 run06 run07 run08 run09 run10)
+ (names all run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11)
+ (modules all run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11)
  (libraries str aoc))
 
 (rule (write-file run01.ml "open Aoc\nlet () = Day01.run ()"))
@@ -13,3 +13,4 @@
 (rule (write-file run08.ml "open Aoc\nlet () = Day08.run ()"))
 (rule (write-file run09.ml "open Aoc\nlet () = Day09.run ()"))
 (rule (write-file run10.ml "open Aoc\nlet () = Day10.run ()"))
+(rule (write-file run11.ml "open Aoc\nlet () = Day11.run ()"))
