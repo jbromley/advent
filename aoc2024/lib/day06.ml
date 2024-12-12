@@ -111,27 +111,27 @@ let read_map (name : string) : Map.t =
     Map.find m '^' |> List.hd
 
 (** Part 1: Find the number of distinct locations the guard visits before leaving the map. *)
-let visited_locations (m : Map.t) (start_pos : Pos.t) : PosSet.t =
-  let rec step locations pos dir =
+let visited_locations (m : Map.t) (start_pos : Pos.t) =
+  let rec step locations steps pos dir =
     let next_pos = Pos.add pos (Direction.offset dir) in
     let cell = Map.at m next_pos in
     match cell with
     | None ->
       (* We've left the map, we're done. *)
-      locations
+      (locations, List.rev steps)
     | Some '#' ->
       (* We're going to hit an obstacle, turn right. *)
       let new_dir = Direction.rotate_cw dir in
-      step locations pos new_dir
+      step locations steps pos new_dir
     | _ ->
       (* Must be a '.' or open spot. *)
-      step (PosSet.add next_pos locations) next_pos dir
+      let next_steps = if not (PosSet.mem next_pos locations) then (next_pos, dir) :: steps else steps in 
+      step (PosSet.add next_pos locations) next_steps next_pos dir
   in
-  step (PosSet.add start_pos PosSet.empty) start_pos Up
+  step (PosSet.add start_pos PosSet.empty) [] start_pos Up
 
-let count_visited_locations (m : Map.t) =
-  let start_pos = find_start m in 
-  visited_locations m start_pos |> PosSet.cardinal
+let count_visited_locations (locations: PosSet.t) =
+  PosSet.cardinal locations
 
 (** Determine if the guard will hit a cycle in the map. *)
 let has_cycle (m : Map.t) (start : PosDir.t) : bool =
@@ -158,20 +158,28 @@ let has_cycle (m : Map.t) (start : PosDir.t) : bool =
                                      
 (** Try placing an obstacle at the given location and checking for a cycle. If
     There is a cycle return true, else return false. *)
-let try_obstacle (m : Map.t) (pos: Pos.t) (obs_loc: Pos.t) : bool =
+let try_obstacle (m : Map.t) (pos: Pos.t) (dir: Direction.t) (obs_loc: Pos.t) : bool =
   (* Maps are mutable. I'm sorry for this. *)
   Map.set m obs_loc '#';
-  let cycle = has_cycle m (pos, Up) in
+  let cycle = has_cycle m (pos, dir) in
   Map.set m obs_loc '.'; cycle
 
 (** Part 2: Count how many places a single obstacle may be placed to cause a cycle. *)
-let count_possible_obstructions m =
+let count_possible_obstructions m steps =
   let start_pos = find_start m in
-  let visited = PosSet.remove start_pos (visited_locations m start_pos) in
-  PosSet.filter (fun loc -> try_obstacle m start_pos loc) visited |> PosSet.cardinal
-    
+  let rec loop steps last_pos last_dir cycles =
+    match steps with
+    | [] -> cycles
+    | (obs, dir) :: ss ->
+      if try_obstacle m last_pos last_dir obs then loop ss obs dir (cycles + 1)
+      else loop ss obs dir cycles
+  in
+  loop steps start_pos Up 0
+
 let run () =
-  let m = read_map "./input/06.txt" in 
+  let m = read_map "./input/06.txt" in
+  let start_pos = find_start m in
+  let visited, steps = visited_locations m start_pos in
   Printf.printf "Day 6: Guard Gallivant\n";
-  Printf.printf "locations visited = %d\n" (count_visited_locations m);
-  Printf.printf "count possible obstructions = %d\n" (count_possible_obstructions m)
+  Printf.printf "locations visited = %d\n" (count_visited_locations visited);
+  Printf.printf "count possible obstructions = %d\n" (count_possible_obstructions m steps)

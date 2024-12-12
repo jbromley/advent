@@ -13,11 +13,15 @@ let m = [|[|'.'; '.'; '.'; '.'; '#'; '.'; '.'; '.'; '.'; '.'|];
           [|'#'; '.'; '.'; '.'; '.'; '.'; '.'; '.'; '.'; '.'|];
           [|'.'; '.'; '.'; '.'; '.'; '.'; '#'; '.'; '.'; '.'|]|]
 
+let start_pos = find_start m
+
 let test_count_visited_locations _ =
-  assert_equal 41 (count_visited_locations m)
+  let visited, _ = visited_locations m start_pos in
+  assert_equal 41 (count_visited_locations visited)
 
 let test_count_possible_obstructions _ =
-  assert_equal 6 (count_possible_obstructions m)
+  let _, steps = visited_locations m start_pos in 
+  assert_equal 6 (count_possible_obstructions m steps)
 
 let suite_name = "Day 6: Gallivanting Guard"
 let suite =
