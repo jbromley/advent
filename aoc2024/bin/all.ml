@@ -14,5 +14,4 @@ let () =
   Day10.run ();
   Day10.run ();
   Day11.run ();
-
-  
+  Day12.run ();

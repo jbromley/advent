@@ -14,3 +14,4 @@
 (rule (write-file run09.ml "open Aoc\nlet () = Day09.run ()"))
 (rule (write-file run10.ml "open Aoc\nlet () = Day10.run ()"))
 (rule (write-file run11.ml "open Aoc\nlet () = Day11.run ()"))
+(rule (write-file run12.ml "open Aoc\nlet () = Day12.run ()"))
