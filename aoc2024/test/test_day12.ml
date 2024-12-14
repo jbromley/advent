@@ -17,7 +17,6 @@ let map = [ "RRRRIICCFF";
 let test_calculate_fence_cost _ = assert_equal 1930 (calculate_fence_cost map)
 
 (* let test_count_stones_fast _ = assert_equal 55312 (count_stones input 25) *)
-
          
 let suite_name = "Day 12: Garden Groups"
 let suite =
