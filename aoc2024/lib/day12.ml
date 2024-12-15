@@ -68,23 +68,23 @@ let generate_neighbors map (r, c) group =
     Queue.push (row, col) q;
     loop q (PosSet.singleton (row, col)) 0 0 PosSet.empty
 
-let calculate_fence_cost map =
-  let rec loop q visited total_cost =
-    match Queue.take_opt q with
-    | None -> total_cost
-    | Some (r,c) ->
-      if visited.(r).(c) then loop q visited total_cost
-      else
-        let cost, others = explore_region map (r, c) visited in
-        List.iter
-          (fun (nr, nc) -> if not visited.(nr).(nc) then Queue.push (nr, nc) q)
-          others;
-        loop q visited (total_cost + cost)
-  in
-  let rows, cols = dims map in
-  let visited = Array.make_matrix rows cols false in 
-  let q = Queue.create () in Queue.push (0, 0) q;
-  loop q visited 0
+  let calculate_fence_cost map =
+    let rec loop q visited total_cost =
+      match Queue.take_opt q with
+      | None -> total_cost
+      | Some (r,c) ->
+         if visited.(r).(c) then loop q visited total_cost
+         else
+           let cost, others = explore_region map (r, c) visited in
+           List.iter
+             (fun (nr, nc) -> if not visited.(nr).(nc) then Queue.push (nr, nc) q)
+             others;
+           loop q visited (total_cost + cost)
+    in
+    let rows, cols = dims map in
+    let visited = Array.make_matrix rows cols false in 
+    let q = Queue.create () in Queue.push (0, 0) q;
+                               loop q visited 0
 
 let run () =                   
   let map = read_map "./input/12.txt" |> parse_map in
