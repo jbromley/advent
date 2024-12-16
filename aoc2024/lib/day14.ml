@@ -78,7 +78,7 @@ let in_tree robots =
 let find_tree robots map_size =
   let rec loop robots steps =
     if in_tree robots then steps
-    else (print_int steps; loop (step_robots robots 1 map_size) (steps + 1))
+    else loop (step_robots robots 1 map_size) (steps + 1)
   in
   loop robots 0
         
