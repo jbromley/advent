@@ -2,6 +2,7 @@
 open Utils
 
 module CoordSet = Set.Make(Coord)
+module CoordMap = Map.Make(Coord)
     
 type tile = Empty | Box | Wall
 
@@ -94,6 +95,135 @@ module Warehouse = struct
                |> Array.to_list
     in
     String.concat "\n" rows
+
+  let sum_all_gps (warehouse, dir_list) =
+    step_all warehouse dir_list |> sum_gps_coords
+end
+
+module Warehouse2 = struct
+  type t = { walls : CoordSet.t;
+             boxes : Coord.t CoordMap.t;
+             pos: Coord.t }
+
+  let at { walls; boxes; _ } pos =
+    if CoordSet.mem pos walls then Wall
+    else if CoordMap.mem pos boxes then Box
+    else Empty
+
+  let list_fold_lefti (f : int -> 'acc -> 'a -> 'acc) (init : 'acc) (l : 'a list) : 'acc =
+    let rec aux index acc = function
+      | [] -> acc
+      | x :: xs -> aux (index + 1) (f index acc x) xs
+    in 
+    aux 0 init l
+
+  let of_string s =
+    let s =
+      String.split_on_char '\n' s |>
+      List.map (fun s -> String.to_seq s |> List.of_seq) |>
+      List.map
+        (fun line ->
+           List.map (function
+               | '#' -> ['#'; '#']
+               | 'O' -> ['['; ']']
+               | '.' -> ['.'; '.']
+               | '@' -> ['@'; '.']
+               | _ -> failwith "of_string: invalid character") line |> List.concat)
+    in
+    let walls, boxes, pos =
+      list_fold_lefti
+        (fun y acc line ->
+           list_fold_lefti
+             (fun x (ws, bs, pos) ch ->
+                match ch with
+                | '#' -> (CoordSet.add (x, y) ws, bs, pos)
+                | '@' -> (ws, bs, (x, y))
+                | '[' ->
+                  let l = (x, y) in
+                  let r = (x + 1, y) in
+                  (ws, CoordMap.add l r bs |> CoordMap.add r l, pos)
+                | '.' | ']' -> (ws, bs, pos)
+                | _ -> failwith "of_string: invalid character")
+             acc
+             line)
+        (CoordSet.empty, CoordMap.empty, (0, 0))
+        s
+    in
+    { walls; boxes; pos }
+
+  let to_string { boxes; walls; pos = (x, y) } =
+    let xmax, ymax =
+      CoordSet.fold (fun (x, y) (xmin, ymin) -> (max x xmin, max y ymin)) walls (min_int, min_int)
+    in
+    let board = Array.make_matrix (ymax + 1) (xmax + 1) '.' in
+    board.(y).(x) <- '@';
+    CoordSet.iter (fun (x, y) -> board.(y).(x) <- '#') walls;
+    CoordMap.iter
+      (fun (x, y) (xn, _) ->
+         let xleft = if x < xn then x else xn in
+         board.(y).(xleft) <- '[';
+         board.(y).(xleft + 1) <- ']')
+      boxes;
+    Board.to_string board
+    
+  let move_boxes ({ walls; boxes; pos } as t) dir =
+    let rec get_moved_boxes cur_level prev_boxes depth =
+      let next_positions = CoordSet.map (fun pos -> Coord.add pos dir) cur_level in
+      let possible_boxes =
+        CoordSet.fold (fun pos acc ->
+            match CoordMap.find_opt pos boxes with
+            | Some other -> CoordSet.union acc (CoordSet.of_list [pos; other])
+            | None -> CoordSet.add pos acc
+          ) next_positions CoordSet.empty
+      in
+      let valid_positions =
+        CoordSet.filter (fun pos -> not (CoordSet.mem pos prev_boxes)) possible_boxes
+      in
+      let reachable_boxes =
+        CoordSet.filter (fun pos -> match at t pos with | Empty -> false | _ -> true) valid_positions
+      in
+      if CoordSet.is_empty reachable_boxes then Some prev_boxes
+      else get_moved_boxes reachable_boxes (CoordSet.union reachable_boxes prev_boxes) (depth + 1)
+    in 
+    let initial_boxes = (* Find initial set of moving boxes *)
+      CoordSet.of_list [Coord.add pos dir; CoordMap.find (Coord.add pos dir) boxes]
+    in
+    match get_moved_boxes initial_boxes initial_boxes 0 with
+    | None -> t (* No valid move *)
+    | Some moved_boxes ->
+      let updated_boxes =
+        CoordMap.fold
+          (fun pos neighbor acc ->
+             if CoordSet.mem pos moved_boxes then
+               let new_pos = Coord.add pos dir in
+               let new_neighbor = Coord.add neighbor dir in
+               CoordMap.(add new_pos new_neighbor (add new_neighbor new_pos acc))
+             else CoordMap.add pos neighbor acc
+          ) boxes CoordMap.empty
+      in
+      { walls; boxes = updated_boxes; pos = Coord.add pos dir }  
+
+  let step ({ pos; _ } as t) dir =
+    let next_pos = Coord.add pos dir in
+    match at t next_pos with
+    | Empty -> { t with pos = next_pos }
+    | Wall -> t
+    | Box -> move_boxes t dir
+
+  let step_all t dir_list =
+    List.fold_left step t dir_list
+
+  let sum_gps_coords { boxes; _ } =
+    CoordMap.fold
+      (fun (x1, y1) (x2, y2) acc ->
+         let x, y = if x1 < x2 then (x1, y1) else (x2, y2) in
+         acc + (100 * y + x) / 2)
+      boxes
+      0
+
+  let sum_all_gps (warehouse, dir_list) =
+    step_all warehouse dir_list |> sum_gps_coords
+  
 end
 
 let parse_dir_list s =
@@ -108,17 +238,17 @@ let parse_dir_list s =
       | _ -> failwith "parse_dir_list: bad character") |>
   List.of_seq
     
-let parse_warehouse_and_dir_list s =
+let parse_warehouse_and_dir_list s of_string =
   let ss = Str.global_replace (Str.regexp_string "\n\n") "\030" s |> String.split_on_char '\030' in
   let board_str = List.nth ss 0 in
   let dir_str = List.nth ss 1 in
-  (Warehouse.of_string board_str, parse_dir_list dir_str)
-
-let sum_all_gps (warehouse, dir_list) =
-  Warehouse.step_all warehouse dir_list |> Warehouse.sum_gps_coords
+  (of_string board_str, parse_dir_list dir_str)
 
 let run () =
-  let input = Io.read_file "./input/15.txt" |> parse_warehouse_and_dir_list in
+  let s = Io.read_file "./input/15.txt" in
+  let input1 = parse_warehouse_and_dir_list s Warehouse.of_string in
+  let input2 = parse_warehouse_and_dir_list s Warehouse2.of_string in
   Printf.printf "Day 15: Warehouse Woes\n";
-  Printf.printf "sum of GPS coordinates  = %d\n" (sum_all_gps input);
-  (* Printf.printf "find tree = %d\n" (find_tree robots map_size) *)
+  Printf.printf "sum of GPS coordinates = %d\n" (Warehouse.sum_all_gps input1);
+  Printf.printf "sum of GPS coordinates (doubled map) = %d\n" (Warehouse2.sum_all_gps input2);
+

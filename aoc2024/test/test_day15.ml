@@ -13,9 +13,9 @@ let input_small =
 ########
 
 <^^>>>vv<v>>v<<
-|} |> parse_warehouse_and_dir_list
+|} |> (fun w -> parse_warehouse_and_dir_list w Warehouse.of_string)
                   
-let input_large =
+let input_large_str =
   {|##########
 #..O..O.O#
 #......O.#
@@ -37,18 +37,22 @@ vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v
 <><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>
 ^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>
 v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
-|} |> parse_warehouse_and_dir_list
+|}
+
+let input_large = parse_warehouse_and_dir_list input_large_str Warehouse.of_string
+let input_large_2 = parse_warehouse_and_dir_list input_large_str Warehouse2.of_string
   
     
-let test_sum_coords_small _ = assert_equal 2028 (sum_all_gps input_small)
-let test_sum_coords_large _ = assert_equal 10092 (sum_all_gps input_large)
-(* let test_count_stones_fast _ = assert_equal 55312 (count_stones input 25) *)
+let test_sum_coords_small _ = assert_equal 2028 (Warehouse.sum_all_gps input_small)
+let test_sum_coords_large _ = assert_equal 10092 (Warehouse.sum_all_gps input_large)
+let test_sum_coords_doubled _ = assert_equal 9021 (Warehouse2.sum_all_gps input_large_2)
          
 let suite_name = "Day 15: Warehouse Woes"
 let suite =
   suite_name >::: [
     "test sum coordinates (small input)" >:: test_sum_coords_small;
     "test sum coordinates (large input)" >:: test_sum_coords_large;
+    "test sum coordinates (doubled map)" >:: test_sum_coords_doubled
   ]
 
 let () =
