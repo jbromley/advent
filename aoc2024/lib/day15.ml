@@ -165,44 +165,72 @@ module Warehouse2 = struct
          board.(y).(xleft + 1) <- ']')
       boxes;
     Board.to_string board
-    
-  let move_boxes ({ walls; boxes; pos } as t) dir =
-    let rec get_moved_boxes cur_level prev_boxes depth =
-      let next_positions = CoordSet.map (fun pos -> Coord.add pos dir) cur_level in
-      let possible_boxes =
-        CoordSet.fold (fun pos acc ->
-            match CoordMap.find_opt pos boxes with
-            | Some other -> CoordSet.union acc (CoordSet.of_list [pos; other])
-            | None -> CoordSet.add pos acc
-          ) next_positions CoordSet.empty
-      in
-      let valid_positions =
-        CoordSet.filter (fun pos -> not (CoordSet.mem pos prev_boxes)) possible_boxes
-      in
-      let reachable_boxes =
-        CoordSet.filter (fun pos -> match at t pos with | Empty -> false | _ -> true) valid_positions
-      in
-      if CoordSet.is_empty reachable_boxes then Some prev_boxes
-      else get_moved_boxes reachable_boxes (CoordSet.union reachable_boxes prev_boxes) (depth + 1)
-    in 
-    let initial_boxes = (* Find initial set of moving boxes *)
-      CoordSet.of_list [Coord.add pos dir; CoordMap.find (Coord.add pos dir) boxes]
-    in
-    match get_moved_boxes initial_boxes initial_boxes 0 with
-    | None -> t (* No valid move *)
-    | Some moved_boxes ->
-      let updated_boxes =
-        CoordMap.fold
-          (fun pos neighbor acc ->
-             if CoordSet.mem pos moved_boxes then
-               let new_pos = Coord.add pos dir in
-               let new_neighbor = Coord.add neighbor dir in
-               CoordMap.(add new_pos new_neighbor (add new_neighbor new_pos acc))
-             else CoordMap.add pos neighbor acc
-          ) boxes CoordMap.empty
-      in
-      { walls; boxes = updated_boxes; pos = Coord.add pos dir }  
 
+  let coord_set_to_string s =
+    let coords =
+      List.map
+        (fun elt -> Printf.sprintf "%s" (Coord.to_string elt))
+        (CoordSet.to_list s)
+    in
+    Printf.sprintf "{ %s }" (String.concat "; " coords)
+      
+  let move_boxes ({ walls; boxes; pos } as t) dir =
+    let rec get_moved_boxes cur_level prev_boxes =
+      (* Get the next boxes in the direction we are moving. *)
+      let next_positions = CoordSet.map (fun pos -> Coord.add pos dir) cur_level
+      in
+      Printf.printf "next positions = %s\n" (coord_set_to_string next_positions);
+      let next_boxes =
+        CoordSet.fold
+          (fun pos acc ->
+             match CoordMap.find_opt pos boxes with
+             | Some other -> CoordSet.union acc (CoordSet.of_list [pos; other])
+             | None -> CoordSet.add pos acc)
+          next_positions
+          CoordSet.empty
+        |> CoordSet.filter (fun pos -> not (CoordSet.mem pos prev_boxes))
+        |> CoordSet.filter (fun pos -> match at t pos with | Empty -> true | _ -> false);
+      in
+      Printf.printf "next boxes = %s\n" (coord_set_to_string next_boxes);
+      let next_level =
+        CoordSet.fold
+          (fun pos acc ->
+             match (acc, at t pos) with
+             | None, _ -> None
+             | _, Wall -> None
+             | Some acc, Box -> Some (CoordSet.add pos acc)
+             | _, _ -> None)
+          next_boxes
+          (Some CoordSet.empty)
+      in
+      Printf.printf "next level = %s\n" (coord_set_to_string (Option.value next_level ~default:CoordSet.empty));
+      match next_level with
+      | None -> None
+      | Some next_level ->
+        if CoordSet.cardinal next_level = 0 then Some prev_boxes
+        else get_moved_boxes next_level (CoordSet.union next_level prev_boxes)
+    in
+    let next_pos = Coord.add pos dir in
+    Printf.printf "next pos = %s\n" (Coord.to_string next_pos);
+    let initial_boxes = CoordSet.of_list [next_pos; CoordMap.find next_pos boxes]
+    in
+    Printf.printf "initial boxes = %s\n" (coord_set_to_string initial_boxes);
+    match get_moved_boxes initial_boxes initial_boxes with
+    | None -> t
+    | Some moved_boxes ->
+      let boxes =
+        CoordMap.mapi
+          (fun pos neighbor ->
+             if CoordSet.mem pos moved_boxes then Coord.add neighbor dir
+             else neighbor)
+          boxes
+        |> CoordMap.map
+          (fun pos ->
+             if CoordSet.mem pos moved_boxes then next_pos
+             else pos)
+      in
+      { walls; boxes; pos = next_pos }
+    
   let step ({ pos; _ } as t) dir =
     let next_pos = Coord.add pos dir in
     match at t next_pos with
