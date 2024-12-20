@@ -33,8 +33,6 @@ module Warehouse = struct
     if 0 <= x && x < w && 0 <= y && y < h then Some b.(y).(x)
     else None
 
-  let set b (x, y) cell = b.(y).(x) <- cell
-
   let move_boxes ( { board; pos } as t) dir =
     let rec find_empty_cell board pos =
       match at board pos with
@@ -46,8 +44,8 @@ module Warehouse = struct
     match find_empty_cell board next_pos with
     | None -> t
     | Some empty_cell ->
-      set board next_pos Empty;
-      set board empty_cell Box;
+      Board.set board next_pos Empty;
+      Board.set board empty_cell Box;
       { board; pos = next_pos }
 
   let step ({ board; pos } as t) dir =
@@ -148,18 +146,18 @@ module Warehouse2 = struct
     in
     { walls; boxes; pos }
 
-  let to_string { boxes; walls; pos = (x, y) } =
+  let to_string { boxes; walls; pos } =
     let xmax, ymax =
       Coord.Set.fold (fun (x, y) (xmin, ymin) -> (max x xmin, max y ymin)) walls (min_int, min_int)
     in
     let board = Array.make_matrix (ymax + 1) (xmax + 1) '.' in
-    board.(y).(x) <- '@';
-    Coord.Set.iter (fun (x, y) -> board.(y).(x) <- '#') walls;
+    Board.set board pos '@';
+    Coord.Set.iter (fun (x, y) -> Board.set board (x, y) '#') walls;
     Coord.Map.iter
       (fun (x, y) (xn, _) ->
          let xleft = if x < xn then x else xn in
-         board.(y).(xleft) <- '[';
-         board.(y).(xleft + 1) <- ']')
+         Board.set board (xleft, y) '[';
+         Board.set board (xleft + 1, y) ']')
       boxes;
     Board.to_string board
 

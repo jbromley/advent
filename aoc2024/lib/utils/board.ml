@@ -15,6 +15,8 @@ let at_opt b (x, y) =
   if 0 <= x && x < w && 0 <= y && y < h then Some b.(y).(x)
   else None
 
+let set b (x, y) data = b.(y).(x) <- data
+
 let to_string b =
   Array.fold_left
     (fun acc row -> (Array.to_seq row |> String.of_seq) :: acc)
