@@ -13,6 +13,7 @@ module Coord = struct
   let hash = Hashtbl.hash
 
   let neighbors (x, y) = [(x + 1, y); (x, y + 1); (x - 1, y); (x, y - 1)]
+  let offsets = neighbors (0, 0)
 
   let rotate_cw (x, y) = (-y, x)
   let rotate_180 (x, y) = (-x, -y)
