@@ -1,9 +1,6 @@
 (* Day 15: Warehouse Woes *)
 open Utils
 
-module CoordSet = Set.Make(Coord)
-module CoordMap = Map.Make(Coord)
-    
 type tile = Empty | Box | Wall
 
 module Warehouse = struct
@@ -101,13 +98,13 @@ module Warehouse = struct
 end
 
 module Warehouse2 = struct
-  type t = { walls : CoordSet.t;
-             boxes : Coord.t CoordMap.t;
+  type t = { walls : Coord.Set.t;
+             boxes : Coord.t Coord.Map.t;
              pos: Coord.t }
 
   let at { walls; boxes; _ } pos =
-    if CoordSet.mem pos walls then Wall
-    else if CoordMap.mem pos boxes then Box
+    if Coord.Set.mem pos walls then Wall
+    else if Coord.Map.mem pos boxes then Box
     else Empty
 
   let list_fold_lefti (f : int -> 'acc -> 'a -> 'acc) (init : 'acc) (l : 'a list) : 'acc =
@@ -136,29 +133,29 @@ module Warehouse2 = struct
            list_fold_lefti
              (fun x (ws, bs, pos) ch ->
                 match ch with
-                | '#' -> (CoordSet.add (x, y) ws, bs, pos)
+                | '#' -> (Coord.Set.add (x, y) ws, bs, pos)
                 | '@' -> (ws, bs, (x, y))
                 | '[' ->
                   let l = (x, y) in
                   let r = (x + 1, y) in
-                  (ws, CoordMap.add l r bs |> CoordMap.add r l, pos)
+                  (ws, Coord.Map.add l r bs |> Coord.Map.add r l, pos)
                 | '.' | ']' -> (ws, bs, pos)
                 | _ -> failwith "of_string: invalid character")
              acc
              line)
-        (CoordSet.empty, CoordMap.empty, (0, 0))
+        (Coord.Set.empty, Coord.Map.empty, (0, 0))
         s
     in
     { walls; boxes; pos }
 
   let to_string { boxes; walls; pos = (x, y) } =
     let xmax, ymax =
-      CoordSet.fold (fun (x, y) (xmin, ymin) -> (max x xmin, max y ymin)) walls (min_int, min_int)
+      Coord.Set.fold (fun (x, y) (xmin, ymin) -> (max x xmin, max y ymin)) walls (min_int, min_int)
     in
     let board = Array.make_matrix (ymax + 1) (xmax + 1) '.' in
     board.(y).(x) <- '@';
-    CoordSet.iter (fun (x, y) -> board.(y).(x) <- '#') walls;
-    CoordMap.iter
+    Coord.Set.iter (fun (x, y) -> board.(y).(x) <- '#') walls;
+    Coord.Map.iter
       (fun (x, y) (xn, _) ->
          let xleft = if x < xn then x else xn in
          board.(y).(xleft) <- '[';
@@ -166,64 +163,57 @@ module Warehouse2 = struct
       boxes;
     Board.to_string board
 
-  let coord_set_to_string s =
-    let coords =
-      List.map
-        (fun elt -> Printf.sprintf "%s" (Coord.to_string elt))
-        (CoordSet.to_list s)
-    in
-    Printf.sprintf "{ %s }" (String.concat "; " coords)
-
-  let rec update_boxes boxes moved_boxes dir =
-    if CoordSet.cardinal moved_boxes = 0 then boxes
+  let update_boxes boxes moved_cells dir =
+    if Coord.Set.cardinal moved_cells = 0 then boxes
     else
-      let pos = CoordSet.choose moved_boxes in
-      let neighbor = CoordMap.find pos boxes in 
-      let m' = CoordMap.remove pos boxes 
-               |> CoordMap.remove neighbor
-               |> CoordMap.add (Coord.add pos dir) (Coord.add neighbor dir)
-               |> CoordMap.add (Coord.add neighbor dir) (Coord.add pos dir) in 
-      update_boxes m' (CoordSet.remove pos moved_boxes |> CoordSet.remove neighbor) dir
-    
+      let unmoved, moved =
+        Coord.Map.partition (fun cell _neighbor -> Coord.Set.mem cell moved_cells) boxes
+      in
+      Coord.Map.fold
+        (fun cell neighbor acc ->
+           Coord.Map.add (Coord.add cell dir) (Coord.add neighbor dir) acc)
+        unmoved
+        moved
+
   let move_boxes ({ walls; boxes; pos } as t) dir =
     let rec get_moved_boxes new_boxes moved_boxes =
       (* Check if the new boxes can be moved. *)
-      let next_cells = CoordSet.map (fun cell -> Coord.add cell dir) new_boxes
-                     |> CoordSet.filter (fun cell -> not (CoordSet.mem cell new_boxes)) in
-      Printf.printf "next_cells = %s\n" (coord_set_to_string next_cells);
-      if CoordSet.exists (fun cell -> at t cell = Wall) next_cells then
+      let next_cells =
+        Coord.Set.map (fun cell -> Coord.add cell dir) new_boxes
+        |> Coord.Set.filter (fun cell -> not (Coord.Set.mem cell new_boxes)) in
+      if Coord.Set.exists (fun cell -> at t cell = Wall) next_cells then
         (* Wall in the way, no boxes can move. *)
         None
-      else if CoordSet.for_all (fun cell -> at t cell = Empty) next_cells then
+      else if Coord.Set.for_all (fun cell -> at t cell = Empty) next_cells then
         (* Free path and no more boxes, move all the boxes. *)
-        Some (CoordSet.union moved_boxes new_boxes)
+        Some (Coord.Set.union moved_boxes new_boxes)
       else
         (* Check for another layer of boxes. Look at all next cells and
            if it is a box, add them to new boxes for next recursion. *)
         let next_boxes =
-          CoordSet.fold
+          Coord.Set.fold
             (fun cell acc ->
-               match CoordMap.find_opt cell boxes with
+               match Coord.Map.find_opt cell boxes with
                | None -> acc
-               | Some neighbor -> CoordSet.union acc (CoordSet.of_list [cell; neighbor]))
+               | Some neighbor -> Coord.Set.union acc (Coord.Set.of_list [cell; neighbor]))
             next_cells
-            CoordSet.empty
+            Coord.Set.empty
         in
-        Printf.printf "next boxes = %s\n" (coord_set_to_string next_boxes);
-        get_moved_boxes next_boxes (CoordSet.union moved_boxes new_boxes)
+        get_moved_boxes next_boxes (Coord.Set.union moved_boxes new_boxes)
     in
     let next_pos = Coord.add pos dir in
-    let initial_boxes = CoordSet.of_list [next_pos; CoordMap.find next_pos boxes]
+    let initial_boxes = Coord.Set.of_list [next_pos; Coord.Map.find next_pos boxes]
     in
-    Printf.printf "initial boxes = %s\n" (coord_set_to_string initial_boxes);
-    let moved_boxes = get_moved_boxes initial_boxes CoordSet.empty in
-    Printf.printf "moved boxes = %s\n" (coord_set_to_string (Option.value moved_boxes ~default:CoordSet.empty));
+    let moved_boxes = get_moved_boxes initial_boxes Coord.Set.empty in
     match moved_boxes with
     | None -> t
     | Some moved_boxes ->
       let boxes = update_boxes boxes moved_boxes dir in
       { walls; boxes; pos = next_pos }
-    
+
+  let print_warehouse w =
+    Printf.printf "%s\n" (to_string w)
+      
   let step ({ pos; _ } as t) dir =
     let next_pos = Coord.add pos dir in
     match at t next_pos with
@@ -235,12 +225,15 @@ module Warehouse2 = struct
     List.fold_left step t dir_list
 
   let sum_gps_coords { boxes; _ } =
-    CoordMap.fold
-      (fun (x1, y1) (x2, y2) acc ->
-         let x, y = if x1 < x2 then (x1, y1) else (x2, y2) in
-         acc + (100 * y + x) / 2)
-      boxes
-      0
+    let sum2 =
+      Coord.Map.fold
+        (fun (x1, y1) (x2, y2) acc ->
+           let x, y = if x1 < x2 then (x1, y1) else (x2, y2) in
+           acc + (100 * y + x))
+        boxes
+        0
+    in
+    sum2 / 2
 
   let sum_all_gps (warehouse, dir_list) =
     step_all warehouse dir_list |> sum_gps_coords
