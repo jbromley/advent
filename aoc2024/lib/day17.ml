@@ -136,5 +136,5 @@ let find_quine ({ program; _ } as comp) =
 let run () =
   let input = Io.read_file "./input/17.txt" |> of_string in
   Printf.printf "Day 17: Chronospatial Computer\n";
-  Printf.printf "output (part 1) = %s\n" (debug input);
+  Printf.printf "output (part 1) = %s\n" (run input);
   (* Printf.printf "tiles on best path = %d\n" (count_path_tiles maze) *)
