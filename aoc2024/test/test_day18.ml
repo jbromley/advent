@@ -30,13 +30,13 @@ let drops =
 2,0|} |> of_string
 
 let test_minimum_steps_12 _ = assert_equal 22 (minimum_steps drops (6, 6) 12)
-(* let test_find_quine _ = assert_equal 117440 (find_quine input2) *)
+let test_find_path_blocker _ = assert_equal (6, 1) (find_path_blocker drops (6, 6))
     
 let suite_name = "Day 18: RAM Run"
 let suite =
   suite_name >::: [
     "test minimum steps (12 ns)" >:: test_minimum_steps_12;
-    (* "test finding quine" >:: test_find_quine *)
+    "test blocking drop" >:: test_find_path_blocker
   ]
 
 let () =
