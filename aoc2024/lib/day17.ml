@@ -91,7 +91,7 @@ let step ({program; ip; _} as c) =
   let opcode = program.(ip) in
   decode opcode c
                  
-let run comp =
+let exec comp =
   let rec aux c =
     if c.ip = Array.length c.program then
       List.rev c.output |> List.map string_of_int |> String.concat ","
@@ -103,38 +103,11 @@ let run comp =
 let range first last =
   List.init (last - first + 1) (fun i -> i)
     
-let find_quine ({ program; _ } as comp) =
-    let loop c =
-      List.fold_left
-        (fun acc _ -> match acc with None -> None | Some c -> Some (step c))
-        (Some c)
-        (range 0 8)
-    in
-    let get_as start end_b =
-      Printf.printf "get_as %d %d\n" start end_b;
-      List.filter
-        (fun a ->
-           let comp = loop { comp with a } in
-           match comp with
-           | Some comp -> comp.b mod 8 = end_b
-           | None -> false)
-        (range start (start + 8))
-    in
-    let rec aux prev_a step_num =
-      Printf.printf "step number %d\n" step_num;
-      if step_num = -1 then Some prev_a
-      else
-        let goal = program.(step_num) in
-        let temp = get_as (prev_a * 8) goal in
-        Printf.printf "goal = %d\n" goal;
-        List.find_map
-          (fun a -> match aux a (step_num - 1) with None -> None | Some a -> Some a)
-          temp
-    in
-    aux 0 5 |> Option.value ~default:0
+(* let find_quine ({ program; _ } as comp) = *)
+(*   () *)
   
 let run () =
   let input = Io.read_file "./input/17.txt" |> of_string in
   Printf.printf "Day 17: Chronospatial Computer\n";
-  Printf.printf "output (part 1) = %s\n" (debug input);
+  Printf.printf "output (part 1) = %s\n" (exec input);
   (* Printf.printf "tiles on best path = %d\n" (count_path_tiles maze) *)
