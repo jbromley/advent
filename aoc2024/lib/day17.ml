@@ -85,7 +85,7 @@ let decode = function
   | 5 -> out
   | 6 -> bdv
   | 7 -> cdv
-  | n -> failwith ("step: bad opcode " ^ string_of_int n)
+  | n -> failwith ("decode: bad opcode " ^ string_of_int n)
 
 let step ({program; ip; _} as c) =
   let opcode = program.(ip) in
@@ -94,20 +94,51 @@ let step ({program; ip; _} as c) =
 let exec comp =
   let rec aux c =
     if c.ip = Array.length c.program then
-      List.rev c.output |> List.map string_of_int |> String.concat ","
+      List.rev c.output
     else
       aux (step c)
   in
   aux comp
 
+let exec_to_string comp =
+  let output = exec comp in
+  List.map string_of_int output |> String.concat ","
+
 let range first last =
   List.init (last - first + 1) (fun i -> i)
-    
-(* let find_quine ({ program; _ } as comp) = *)
-(*   () *)
+
+let rec take n l =
+  match l, n with
+  | _, 0 -> []
+  | [], _ -> []
+  | x :: xs, _ -> x :: take (n - 1) xs
+
+let find_quine ({ program; _ } as comp) =
+  let goal = Array.to_list program |> List.rev in
+  let goal_length = List.length goal in 
+  let rec aux q poss =
+    if Queue.is_empty q then
+      List.fold_left (fun x acc -> if x < acc then x else acc) max_int poss
+    else
+      let outputs, r = Queue.pop q in
+      if outputs <= goal_length then
+        let next_as =
+          Seq.map (fun a -> (outputs + 1, (r lsl 3) lor a)) (Seq.init 8 (fun i -> i))
+          |> Seq.filter (fun (_, a') -> List.rev (exec { comp with a = a' }) = (take outputs goal))
+        in
+        Queue.add_seq q next_as;
+        aux q poss
+      else if List.rev (exec { comp with a = r }) = goal then
+        aux q (r :: poss)
+      else
+        aux q poss
+  in
+  let q = Queue.create () in
+  Queue.push (1, 0) q;
+  aux q []
   
 let run () =
   let input = Io.read_file "./input/17.txt" |> of_string in
   Printf.printf "Day 17: Chronospatial Computer\n";
-  Printf.printf "output (part 1) = %s\n" (exec input);
-  (* Printf.printf "tiles on best path = %d\n" (count_path_tiles maze) *)
+  Printf.printf "output (part 1) = %s\n" (exec_to_string input);
+  Printf.printf "quine when a = %d\n" (find_quine input)
