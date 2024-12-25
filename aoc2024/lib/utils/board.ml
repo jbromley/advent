@@ -9,6 +9,10 @@ let of_string s =
 let size b =
   (Array.length b.(0), Array.length b)
 
+let contains b (x, y) =
+  let width, height = size b in
+  0 <= x && x < width && 0 <= y && y < height
+                                   
 let at b (x, y) =  b.(y).(x)
 
 let at_opt b (x, y) =
