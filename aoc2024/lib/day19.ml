@@ -16,17 +16,28 @@ let chop_prefix prefix s =
     None
     
 let is_design_possible patterns design =
-  let rec aux design =
-    if String.length design = 0 then true
+  let rec aux design memo =
+    let len = String.length design in
+    if len = 0 then true
     else
-      List.exists
-        (fun pattern ->
-           match chop_prefix pattern design with
-           | Some design' -> aux design'
-           |None -> false)
-        patterns
+      match memo.(len) with
+      | -1 -> false
+      | 1 -> true
+      | _ ->
+        List.exists
+          (fun pattern ->
+             match chop_prefix pattern design with
+             | Some design' ->
+               if aux design' memo then
+                 (memo.(len) <- 1; true)
+               else
+                 (memo.(len) <- -1; false)
+             | None ->
+               memo.(len) <- -1;
+               false)
+          patterns
   in
-  aux design
+  aux design (Array.make (String.length design + 1) 0)
 
 let count_possible_designs patterns designs =
   List.filter
