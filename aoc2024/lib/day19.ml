@@ -44,10 +44,43 @@ let count_possible_designs patterns designs =
     (fun design -> is_design_possible patterns design)
     designs
   |> List.length
+
+let possible_arrangements patterns design =
+  let rec aux design memo =
+    let len = String.length design in
+    (* Printf.printf "len = %d, design = \"%s\"\n" len design; *)
+    (* Printf.printf "memo = %s\n" (Debug.int_array_to_string memo); *)
+    match memo.(len) with
+    | -1 -> 0
+    | n when n > 0 -> n
+    | _ ->
+      List.fold_left
+        (fun acc pattern ->
+           match chop_prefix pattern design with
+           | Some design' ->
+             let acc' = acc + aux design' memo in
+             (* Printf.printf "acc' = %d\n" acc'; *)
+             memo.(len) <- acc';
+             acc'
+           | None ->
+             memo.(len) <- if acc = 0 then -1 else acc;
+             acc
+        )
+        0
+        patterns
+  in
+  let memo = Array.make (String.length design + 1) 0 in
+  memo.(0) <- 1;
+  aux design memo
+    
+let count_arrangements patterns designs =
+  List.fold_left
+    (fun acc design -> acc + possible_arrangements patterns design)
+    0
+    designs
         
 let run () =                   
   let patterns, designs = Io.read_file "./input/19.txt" |> of_string in
   Printf.printf "Day 19: Linen Layout\n";
   Printf.printf "possible designs = %d\n" (count_possible_designs patterns designs);
-  (* let x, y = find_path_blocker drops (70, 70) in *)
-  (* Printf.printf "path blocking drop = (%d, %d)\n" x y; *)
+  Printf.printf "different arrangements = %d\n" (count_arrangements patterns designs)

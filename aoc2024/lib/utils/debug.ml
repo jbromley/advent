@@ -13,3 +13,8 @@ let int_list_to_string l =
 let int_int_list_to_string l =
   let ls = List.map (fun (x, y) -> Printf.sprintf "(%d, %d)" x y) l in
   "[" ^ String.concat "; " ls ^ "]"
+
+let int_array_to_string a =
+  Array.map string_of_int a
+  |> Array.to_list
+  |> (fun l -> "[|" ^ String.concat "; " l ^ "|]")

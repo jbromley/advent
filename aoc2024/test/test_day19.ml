@@ -15,13 +15,13 @@ brgr
 bbrgwb|} |> of_string
 
 let test_count_possible_designs _ = assert_equal 6 (count_possible_designs patterns designs)
-(* let test_find_path_blocker _ = assert_equal (6, 1) (find_path_blocker drops (6, 6)) *)
+let test_count_arrangements _ = assert_equal 16 (count_arrangements patterns designs)
     
 let suite_name = "Day 19: Linen Layout"
 let suite =
   suite_name >::: [
     "test count possible designs" >:: test_count_possible_designs;
-    (* "test blocking drop" >:: test_find_path_blocker *)
+    "test count arrangements" >:: test_count_arrangements
   ]
 
 let () =
