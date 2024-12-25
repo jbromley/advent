@@ -46,8 +46,10 @@ let find_path_blocker drops finish =
     let mid = (lo + hi) / 2 in
     if exists_path drops mid finish then
       if not (exists_path drops (mid + 1) finish) then mid
+      (* This number of drops and one more still have a path, search over more drops. *)
       else binary_search (mid + 1) hi
     else
+      (* No path, need to check a lesser number of drops. *)
       binary_search lo (mid - 1)
   in
   let index = binary_search 0 (List.length drops) in
