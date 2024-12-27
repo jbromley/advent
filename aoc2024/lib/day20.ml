@@ -10,58 +10,41 @@ let of_string s =
   {board; start; finish}
 
 let mark_path {board; start; finish} =
-  let rec aux pos distance path =
-    Hashtbl.add path pos distance;
-    if pos = finish then path
+  let rec aux pos last_pos distance path =
+    let path' = (pos, distance) :: path in 
+    if pos = finish then List.rev path'
     else
       let next_cell =
         Coord.neighbors pos
-        |> List.filter (fun pos -> Board.at board pos <> '#' && not (Hashtbl.mem path pos))
+        |> List.filter (fun pos -> Board.at board pos <> '#' && pos <> last_pos)
         |> List.hd
       in
-      aux next_cell (distance + 1) path
+      aux next_cell pos (distance + 1) path'
   in
-  let distances = Hashtbl.create 1000 in
-  aux start 0 distances
+  aux start (-1, -1) 0 []
 
 let manhattan (x1, y1) (x2, y2) =
   abs (x1 - x2) + abs (y1 - y2)
 
-let cheats_in_radius path start radius =
-  let start_dist = Hashtbl.find path start in
-  Hashtbl.fold
-    (fun finish finish_dist acc ->
-       if manhattan start finish <= radius && finish_dist - start_dist > 0 then
-         finish :: acc
+let cheats_in_radius (start, start_dist) path radius min_cheat =
+  List.fold_left 
+    (fun acc (finish, finish_dist) ->
+       let mdist = manhattan start finish in 
+       if mdist <= radius && finish_dist - start_dist - mdist >= min_cheat then
+         acc + 1
        else
          acc)
+    0
     path
-    []
-
-let find_cheats track radius min_cheat =
-  let path = mark_path track in
-  let cheats = Hashtbl.create (Hashtbl.length path) in
-  Hashtbl.iter
-    (fun pos dist ->
-       List.iter
-         (fun shortcut ->
-            let d = Hashtbl.find path shortcut - dist - manhattan pos shortcut in
-            if d >= min_cheat then 
-              match Hashtbl.find_opt cheats d with
-              | Some count -> Hashtbl.replace cheats d (count + 1)
-              | None -> Hashtbl.add cheats d 1)
-         (cheats_in_radius path pos radius))
-    path;
-  cheats
 
 let count_cheats track radius min_cheat =
-  let cheats = find_cheats track radius min_cheat in 
-  Hashtbl.fold
-    (fun d count acc ->
-       if d >= min_cheat then acc + count
-       else acc)
-    cheats
-    0
+  let rec aux path cheats =
+    match path with
+    | [] -> cheats
+    | start :: rest_path ->
+      aux rest_path (cheats + cheats_in_radius start rest_path radius min_cheat)
+  in
+  aux (mark_path track) 0
 
 let run () =                   
   let track = Io.read_file "./input/20.txt" |> of_string in
