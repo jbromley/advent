@@ -24,37 +24,41 @@ let mark_path {board; start; finish} =
   let distances = Hashtbl.create 1000 in
   aux start 0 distances
 
-let cheats_in_radius {board; _} path pos r =
-  List.filter_map
-    (fun offset ->
-       let neighbor = Coord.add pos offset in
-       let target = Coord.(add pos (mul r offset)) in
-       if Board.at board neighbor = '#' && Hashtbl.mem path target then
-         Some target
-       else
-         None)
-    Coord.offsets
+let manhattan (x1, y1) (x2, y2) =
+  abs (x1 - x2) + abs (y1 - y2)
 
-let count_cheats track =
+let cheats_in_radius path start radius =
+  let start_dist = Hashtbl.find path start in
+  Hashtbl.fold
+    (fun finish finish_dist acc ->
+       if manhattan start finish <= radius && finish_dist - start_dist > 0 then
+         finish :: acc
+       else
+         acc)
+    path
+    []
+
+let find_cheats track radius min_cheat =
   let path = mark_path track in
   let cheats = Hashtbl.create (Hashtbl.length path) in
   Hashtbl.iter
-    (fun pos dpos ->
+    (fun pos dist ->
        List.iter
          (fun shortcut ->
-            let d = Hashtbl.find path shortcut - dpos - 2 in
-            if d > 0 then 
+            let d = Hashtbl.find path shortcut - dist - manhattan pos shortcut in
+            if d >= min_cheat then 
               match Hashtbl.find_opt cheats d with
               | Some count -> Hashtbl.replace cheats d (count + 1)
               | None -> Hashtbl.add cheats d 1)
-         (cheats_in_radius track path pos 2))
+         (cheats_in_radius path pos radius))
     path;
   cheats
 
-let count_long_cheats distance cheats =
+let count_cheats track radius min_cheat =
+  let cheats = find_cheats track radius min_cheat in 
   Hashtbl.fold
     (fun d count acc ->
-       if d >= distance then acc + count
+       if d >= min_cheat then acc + count
        else acc)
     cheats
     0
@@ -62,5 +66,5 @@ let count_long_cheats distance cheats =
 let run () =                   
   let track = Io.read_file "./input/20.txt" |> of_string in
   Printf.printf "Day 20: Race Condition\n";
-  Printf.printf "long cheats = %d\n" (count_cheats track |> count_long_cheats 100);
-  (* Printf.printf "different arrangements = %d\n" (count_arrangements patterns designs) *)
+  Printf.printf "cheats (radius = 2) = %d\n" (count_cheats track 2 100);
+  Printf.printf "cheats (radius = 20) = %d\n" (count_cheats track 20 100);
