@@ -4,8 +4,6 @@ open Utils
 let of_string s =
   String.trim s |> String.split_on_char '\n'
 
-let string_of_char = String.make 1
-    
 let code_to_int (code : string) : int =
   String.to_seq code
   |> Seq.filter (fun ch -> '0' <= ch && ch <= '9')
@@ -23,9 +21,6 @@ let make_key_map s =
          row)
     seq;
   map
-
-let num_pad_cells = make_key_map "789\n456\n123\n 0A"
-let dir_pad_cells = make_key_map " ^A\n<v>"
 
 let generate_moves start finish vert_first =
   let dx, dy = Coord.sub finish start in
@@ -58,6 +53,7 @@ let generate_move_cache cells f_gen =
   cache
 
 let get_num_pad_moves =
+  let num_pad_cells = make_key_map "789\n456\n123\n 0A" in 
   let cache = generate_move_cache num_pad_cells generate_num_pad_moves in
   let rec build_moves last_key keys moves =
     match keys with
@@ -81,6 +77,7 @@ let split_moves s =
   aux [] 0
 
 let get_dir_pad_moves =
+  let dir_pad_cells = make_key_map " ^A\n<v>" in
   let cache = generate_move_cache dir_pad_cells generate_dir_pad_moves in
   let rec build_moves last_key keys moves =
     match keys with
@@ -104,8 +101,7 @@ let count_steps =
       else
         let total_steps =
           List.fold_left
-            (fun acc m ->
-               acc + count (get_dir_pad_moves m) (dir_pads - 1))
+            (fun acc m -> acc + count (get_dir_pad_moves m) (dir_pads - 1))
             0
             (split_moves c)
         in
