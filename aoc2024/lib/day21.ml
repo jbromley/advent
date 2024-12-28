@@ -2,10 +2,16 @@
 open Utils
 
 let of_string s =
-  String.split_on_char '\n' s
+  String.trim s |> String.split_on_char '\n'
 
 let string_of_char = String.make 1
     
+let code_to_int (code : string) : int =
+  String.to_seq code
+  |> Seq.filter (fun ch -> '0' <= ch && ch <= '9')
+  |> String.of_seq
+  |> int_of_string
+
 let make_key_map s =
   let seq = String.split_on_char '\n' s |> List.to_seq |> Seq.map String.to_seq in
   let map = Hashtbl.create (String.length s) in
@@ -13,138 +19,113 @@ let make_key_map s =
     (fun y row ->
        Seq.iteri
          (fun x ch ->
-            Hashtbl.add map ch (x, y))
+            if ch <> ' ' then Hashtbl.add map ch (x, y))
          row)
     seq;
   map
 
-let num_pad = Board.of_string "789\n456\n123\n 0A"
-let num_pad_dict = make_key_map "789\n456\n123\n 0A"
+let num_pad_cells = make_key_map "789\n456\n123\n 0A"
+let dir_pad_cells = make_key_map " ^A\n<v>"
 
-let dir_pad = Board.of_string " ^A\n<v>"
-let dir_pad_dict = make_key_map " ^A\n<v>"
-
-let path_to_dirs path = 
-  let rec aux p1 path dirs =
-    match path with
-    | [] -> String.concat "" (List.rev dirs)
-    | p2 :: ps ->
-      let dir =
-        match Coord.sub p2 p1 with
-        | (1, 0) -> ">"
-        | (-1, 0) -> "<"
-        | (0, 1) -> "v"
-        | (0, -1) -> "^"
-        | _ -> failwith "path_to_dirs: invalid move"
-      in
-      aux p2 ps (dir :: dirs)
+let generate_moves start finish vert_first =
+  let dx, dy = Coord.sub finish start in
+  let aux delta ch_inc ch_dec moves =
+    moves ^ String.init (abs delta) (fun _ -> if delta > 0 then ch_dec else ch_inc)
   in
-  aux (List.hd path) (List.tl path) []
+  if vert_first then aux dy '^' 'v' "" |> aux dx '<' '>' |> fun s -> s ^ "A"
+  else aux dx '<' '>' "" |> aux dy '^' 'v' |> fun s -> s ^ "A"
 
-let code_to_int (code : string) : int =
-  String.to_seq code
-  |> Seq.filter (fun ch -> '0' <= ch && ch <= '9')
-  |> String.of_seq
-  |> int_of_string
+let generate_num_pad_moves ((x0, y0) as start) ((x1, y1) as finish) =
+  let vert_first = (y0 = 3 && x1 = 0) || ((not (x0 = 0 && y1 = 3)) && x0 <= x1) in
+  generate_moves start finish vert_first
 
-let bfs_all_paths (grid : char Board.t) ((xs, ys) : Coord.t) ((xf, yf) : Coord.t) : (int * int) list list =
-  let width, height = Board.size grid in
-  let distances = Array.make_matrix height width max_int in
-  let predecessors = Array.make_matrix height width [] in
-  let rec bfs q =
-    if Queue.is_empty q then
-      if distances.(yf).(xf) = max_int then None
-      else Some predecessors
+let generate_dir_pad_moves ((x0, y0) as start) ((x1, y1) as finish) =
+  let vert_first = (y0 = 0 && x1 = 0) || ((not (x0 = 0 && y1 = 0)) && x0 <= x1) in
+  generate_moves start finish vert_first
+
+let generate_move_cache cells f_gen =
+  let keys = Hashtbl.to_seq_keys cells |> List.of_seq in
+  let num_cells = List.length keys in
+  let cache = Hashtbl.create (num_cells * num_cells) in
+  List.iter
+    (fun start_key ->
+       List.iter
+         (fun end_key ->
+            let moves = f_gen (Hashtbl.find cells start_key) (Hashtbl.find cells end_key) in
+            Hashtbl.add cache (start_key, end_key) moves)
+         keys)
+    keys;
+  cache
+
+let get_num_pad_moves =
+  let cache = generate_move_cache num_pad_cells generate_num_pad_moves in
+  let rec build_moves last_key keys moves =
+    match keys with
+    | [] -> List.rev moves |> String.concat ""
+    | key :: other_keys ->
+      let new_moves = Hashtbl.find cache (last_key, key) in
+      build_moves key other_keys (new_moves :: moves)
+  in
+  fun code ->
+    let keys = List.init (String.length code) (String.get code) in 
+    build_moves 'A' keys []
+
+let split_moves s =
+  let rec aux acc start =
+    if start >= String.length s then List.rev acc
     else
-      let x, y = Queue.pop q in
-      let current_distance = distances.(y).(x) in
-      (* Printf.printf "(%d, %d), distance %d\n" x y current_distance; *)
-      List.iter
-        (fun (dx, dy) ->
-           let xn, yn = Coord.add (x, y) (dx, dy) in
-           if Board.contains grid (xn, yn) && Board.at grid (xn, yn) <> ' ' then
-             let new_distance = current_distance + 1 in
-             (* Printf.printf "  (%d, %d), distance %d\n" xn yn new_distance; *)
-             if new_distance < distances.(yn).(xn) then (
-               distances.(yn).(xn) <- new_distance;
-               predecessors.(yn).(xn) <- [(x, y)];
-               Queue.add (xn, yn) q)
-             else if new_distance = distances.(y).(x) then
-               let prev_preds = predecessors.(y).(x) in
-               predecessors.(yn).(xn) <- (x, y) :: prev_preds)
-        [(0, 1); (1, 0); (-1, 0); (0, -1)];
-      (* Printf.printf "  queue length = %d\n" (Queue.length q); *)
-      bfs q
+      match String.index_from_opt s start 'A' with
+      | Some i -> aux (String.sub s start (i - start + 1) :: acc) (i + 1)
+      | None -> failwith "split_moves: move without terminating 'A'"
   in
-  let rec build_paths ((x, y) as pos) predecessors =
-    if pos = (xs, ys) then
-      [[(xs, ys)]]
-    else
-      List.fold_left
-        (fun acc predecessor ->
-           List.fold_left
-             (fun acc path ->
-                (path @ [(x, y)]) :: acc)
-             acc
-             (build_paths predecessor predecessors))
-        []
-        predecessors.(y).(x)
+  aux [] 0
+
+let get_dir_pad_moves =
+  let cache = generate_move_cache dir_pad_cells generate_dir_pad_moves in
+  let rec build_moves last_key keys moves =
+    match keys with
+    | [] -> List.rev moves |> String.concat ""
+    | key :: other_keys ->
+      let new_moves = Hashtbl.find cache (last_key, key) in
+      build_moves key other_keys (new_moves :: moves)
   in
-  let q = Queue.create () in 
-  Queue.add (xs, ys) q;
-  distances.(ys).(xs) <- 0;
-  match bfs q with
-  | None -> []
-  | Some predecessors -> build_paths (xf, yf) predecessors
+  fun dir_moves ->
+    let keys = List.init (String.length dir_moves) (String.get dir_moves) in
+    build_moves 'A' keys []
     
-let find_button_sequence_length (code : string)  (robots : int) : int =
-  (code_to_int code) * robots
-  
-  (* (\* Build up the sequence of number and direction pads to be used. *\) *)
-  (* let pad_last_pos = Array.make (robots + 1) (fun i -> if i = 0 then Hashtbl.find num_pad_dict 'A' *)
-  (*                                              else Hashtbl.find dir_pad_dict 'A') in *)
-  (* let pads = Array.make (robots + 1) (fun i -> if i = 0 then num_pad else dir_pad) in *)
-  (* let pad_dicts = Array.make (robots + 1) (fun i -> if i = 0 then num_pad_dict else dir_pad_dict) in *)
-  (* let seq_cache = Hashtbl.create 128 in *)
-  (* let rec find_sequence_length code phase = *)
-  (*   if Hashtbl.mem seq_cache (code, phase) then Hashtbl.find seq_cache (code, phase) *)
-  (*   else *)
-  (*     let best_path_len =  *)
-  (*       String.fold_left *)
-  (*         (fun path_len ch -> *)
-  (*            path_len + *)
-  (*            List.fold_left *)
-  (*              (fun acc path -> *)
-  (*                 pad_last_pos.(phase) <- new_pos; *)
-  (*                 let cur_path_len = List.length path in *)
-  (*                 if phase < robots then *)
-  (*                   cur_path_len = find_sequence_length path (phase + 1) *)
-  (*                 else *)
-  (*                   min cur_path_len acc) *)
-  (*              max_int *)
-  (*              (bfs_all_paths_as_dirs *)
-  (*                 (if phase = 0 then 0 else 1) *)
-  (*                 pads.(phase) *)
-  (*                 pad_last_pos.(phase) *)
-  (*                 Hashtbl.find pad_dicts.(phase) ch)) *)
-  (*         0 *)
-  (*         code *)
-  (*     in *)
-  (*     Hashtbl.add seq_cache (code, phase) best_path_len; *)
-  (* in *)
-  (* find_sequence_length code 0 *)
-  
-let compute_complexity (codes : string list) : int =
+let count_steps =
+  let move_cache = Hashtbl.create 128 in
+  let rec count c dir_pads =
+    if dir_pads = 0 then String.length c
+    else if c = "A" then 1
+    else
+      let key = (dir_pads, c) in
+      if Hashtbl.mem move_cache key then Hashtbl.find move_cache key
+      else
+        let total_steps =
+          List.fold_left
+            (fun acc m ->
+               acc + count (get_dir_pad_moves m) (dir_pads - 1))
+            0
+            (split_moves c)
+        in
+        Hashtbl.add move_cache key total_steps;
+        total_steps
+  in
+  fun moves dir_pads -> count moves dir_pads
+
+let compute_complexity (codes : string list) (num_dir_pads : int) : int =
   List.fold_left
     (fun acc code ->
-       let seq_len = find_button_sequence_length code 2 in
+       let seq_len = count_steps (get_num_pad_moves code) num_dir_pads in
        let code_int = code_to_int code in
        acc + seq_len * code_int)
     0
     codes
 
 let run () =                   
-  let _codes = Io.read_file "./input/21.txt" |> of_string in
-  Printf.printf "Day 21: Keypad Conundrum";
-  (* Printf.printf "cheats (radius = 2) = %d\n" (count_cheats track 2 100); *)
-  (* Printf.printf "cheats (radius = 20) = %d\n" (count_cheats track 20 100); *)
+  let codes = Io.read_file "./input/21.txt" |> of_string in
+  Printf.printf "Day 21: Keypad Conundrum\n";
+  Printf.printf "complexity (2 direction pads) = %d\n" (compute_complexity codes 2);
+  Printf.printf "complexity (25 direction pads) = %d\n" (compute_complexity codes 25);
+
