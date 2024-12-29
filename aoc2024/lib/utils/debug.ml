@@ -18,3 +18,7 @@ let int_array_to_string a =
   Array.map string_of_int a
   |> Array.to_list
   |> (fun l -> "[|" ^ String.concat "; " l ^ "|]")
+
+let tuple4_to_string t =
+  match t with
+  | (t1, t2, t3, t4) -> Printf.sprintf "(%d, %d, %d, %d)" t1 t2 t3 t4
