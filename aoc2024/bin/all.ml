@@ -24,5 +24,6 @@ let () =
   Day19.run ();
   Day20.run ();
   Day21.run ();
-  Day22.run ()
+  Day22.run ();
+  Day23.run ()
  

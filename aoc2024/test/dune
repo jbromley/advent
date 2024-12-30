@@ -3,10 +3,10 @@
         test_day06 test_day07 test_day08 test_day09 test_day10
         test_day11 test_day12 test_day13 test_day14 test_day15
         test_day16 test_day17 test_day18 test_day19 test_day20
-        test_day21 test_day22)
+        test_day21 test_day22 test_day23)
  (modules test_day01 test_day02 test_day03 test_day04 test_day05
           test_day06 test_day07 test_day08 test_day09 test_day10
           test_day11 test_day12 test_day13 test_day14 test_day15
           test_day16 test_day17 test_day18 test_day19 test_day20
-          test_day21 test_day22)
+          test_day21 test_day22 test_day23)
  (libraries aoc ounit2))
