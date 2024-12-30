@@ -57,10 +57,16 @@ let count_3_cliques g =
   find_3_cliques g |> VertexSet.cardinal
 
 let all_connected g vertices =
-  match vertices with
-  | u :: vs ->
-    List.for_all (fun v -> List.mem v (G.find u g)) vs
-  | _ -> false
+  let rec aux vs connected =
+    if not connected then false
+    else
+      match vs with 
+      | [] -> connected
+      | u :: vs ->
+        let connected' = List.for_all (fun v -> List.mem v (G.find u g)) vs in
+        aux vs (connected && connected')
+  in
+  aux vertices true
 
 let rec combinations lst r =
   if r = 0 then [[]]
@@ -75,16 +81,15 @@ let maximal_connected_subgraph g =
   let longer_list lst1 lst2 =
     if List.length lst1 >= List.length lst2 then lst1 else lst2
   in
-  let rec aux vertices best =
-    match vertices with
-    | [] -> List.sort compare best
-    | (v, neighbors) :: vs ->
-      let len_neighbors = List.length neighbors in
-      for i = len_neighbors downto 2 do
-        if i < List.length best then aux vs best
+  let rec find_largest_combo v neighbors best =
+      match neighbors with
+      | [] -> best
+      | _ ->
+        if List.length neighbors < List.length best then
+          best
         else
-          let combos = combinations neighbors i in
-          let best' = 
+          let combos = combinations neighbors (List.length neighbors) in
+          let best' =
             List.fold_left
               (fun acc combo ->
                  if all_connected g combo then
@@ -95,20 +100,20 @@ let maximal_connected_subgraph g =
               best
               combos
           in
-          aux vs best'
-      done
+          find_largest_combo v (List.tl neighbors) best'
   in
-  aux (G.to_list g) []
+  G.fold
+    (fun v neighbors best -> find_largest_combo v neighbors best)
+    g
+    []
+
+let find_password g =
+  maximal_connected_subgraph g |> List.sort compare |> String.concat ","
     
-
-
-      
-  
-                        
 let run () =                   
   let g = Io.read_file "./input/23.txt" |> of_string in
   Printf.printf "Day 23: LAN Party\n";
   Printf.printf "number of 3-cliques with ts = %d\n" (count_3_cliques g);
-  (* Printf.printf "maximum bananas = %d\n" (maximize_bananas 2000 secrets); *)
+  Printf.printf "password = %s\n" (find_password g);
 
  

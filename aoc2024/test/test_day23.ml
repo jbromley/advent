@@ -36,12 +36,13 @@ tb-vc
 td-yn|} |> of_string
 
 let test_count_3_cliques _ = assert_equal 7 (count_3_cliques g)
+let test_find_password _ = assert_equal "co,de,ka,ta" (find_password g)
   
 let suite_name = "Day 23: LAN Party"
 let suite =
   suite_name >::: [
     "test count 3-cliques" >:: test_count_3_cliques;
-    (* "test maximize bananas" >:: test_maximize_bananas *)
+    "test find password" >:: test_find_password
   ]
 
 let () =
