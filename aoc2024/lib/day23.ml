@@ -55,6 +55,55 @@ let find_3_cliques g =
 
 let count_3_cliques g =
   find_3_cliques g |> VertexSet.cardinal
+
+let all_connected g vertices =
+  match vertices with
+  | u :: vs ->
+    List.for_all (fun v -> List.mem v (G.find u g)) vs
+  | _ -> false
+
+let rec combinations lst r =
+  if r = 0 then [[]]
+  else match lst with
+    | [] -> []
+    | x :: xs ->
+        let with_x = List.map (fun comb -> x :: comb) (combinations xs (r - 1)) in
+        let without_x = combinations xs r in
+        with_x @ without_x
+
+let maximal_connected_subgraph g =
+  let longer_list lst1 lst2 =
+    if List.length lst1 >= List.length lst2 then lst1 else lst2
+  in
+  let rec aux vertices best =
+    match vertices with
+    | [] -> List.sort compare best
+    | (v, neighbors) :: vs ->
+      let len_neighbors = List.length neighbors in
+      for i = len_neighbors downto 2 do
+        if i < List.length best then aux vs best
+        else
+          let combos = combinations neighbors i in
+          let best' = 
+            List.fold_left
+              (fun acc combo ->
+                 if all_connected g combo then
+                   let group = v :: combo in
+                   longer_list group best
+                 else
+                   acc)
+              best
+              combos
+          in
+          aux vs best'
+      done
+  in
+  aux (G.to_list g) []
+    
+
+
+      
+  
                         
 let run () =                   
   let g = Io.read_file "./input/23.txt" |> of_string in
