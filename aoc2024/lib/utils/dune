@@ -1,4 +1,4 @@
 (library
  (name utils)
- (modules io coord board debug)
+ (modules io coord board tuple debug)
  (libraries str))
