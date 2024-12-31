@@ -12,14 +12,14 @@
 <!-- pwm -->
 <g id="node1" class="node">
 <title>pwm</title>
-<ellipse fill="none" stroke="black" cx="707.36" cy="-5501.02" rx="36.12" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="707.36" cy="-5501.02" rx="36.12" ry="26.74"/>
 <text text-anchor="middle" x="707.36" y="-5504.82" font-family="Times,serif" font-size="14.00">pwm</text>
 <text text-anchor="middle" x="707.36" y="-5489.82" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
 <!-- hwg -->
 <g id="node96" class="node">
 <title>hwg</title>
-<ellipse fill="none" stroke="black" cx="708.36" cy="-5411.28" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="708.36" cy="-5411.28" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="708.36" y="-5415.08" font-family="Times,serif" font-size="14.00">hwg</text>
 <text text-anchor="middle" x="708.36" y="-5400.08" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -32,7 +32,7 @@
 <!-- z14 -->
 <g id="node303" class="node">
 <title>z14</title>
-<ellipse fill="none" stroke="black" cx="795.36" cy="-5411.28" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="795.36" cy="-5411.28" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="795.36" y="-5415.08" font-family="Times,serif" font-size="14.00">z14</text>
 <text text-anchor="middle" x="795.36" y="-5400.08" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -45,7 +45,7 @@
 <!-- hrk -->
 <g id="node2" class="node">
 <title>hrk</title>
-<ellipse fill="none" stroke="black" cx="564.36" cy="-5590.76" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="564.36" cy="-5590.76" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="564.36" y="-5594.56" font-family="Times,serif" font-size="14.00">hrk</text>
 <text text-anchor="middle" x="564.36" y="-5579.56" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -58,7 +58,7 @@
 <!-- rnb -->
 <g id="node3" class="node">
 <title>rnb</title>
-<ellipse fill="none" stroke="black" cx="730.36" cy="-5680.5" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="730.36" cy="-5680.5" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="730.36" y="-5684.3" font-family="Times,serif" font-size="14.00">rnb</text>
 <text text-anchor="middle" x="730.36" y="-5669.3" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -71,14 +71,14 @@
 <!-- jbk -->
 <g id="node4" class="node">
 <title>jbk</title>
-<ellipse fill="none" stroke="black" cx="195.36" cy="-7116.34" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="195.36" cy="-7116.34" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="195.36" y="-7120.14" font-family="Times,serif" font-size="14.00">jbk</text>
 <text text-anchor="middle" x="195.36" y="-7105.14" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- z05 -->
 <g id="node132" class="node">
 <title>z05</title>
-<ellipse fill="none" stroke="black" cx="406.36" cy="-7026.6" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="406.36" cy="-7026.6" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="406.36" y="-7030.4" font-family="Times,serif" font-size="14.00">z05</text>
 <text text-anchor="middle" x="406.36" y="-7015.4" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -91,7 +91,7 @@
 <!-- tcw -->
 <g id="node225" class="node">
 <title>tcw</title>
-<ellipse fill="none" stroke="black" cx="171.36" cy="-7026.6" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="171.36" cy="-7026.6" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="171.36" y="-7030.4" font-family="Times,serif" font-size="14.00">tcw</text>
 <text text-anchor="middle" x="171.36" y="-7015.4" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -104,7 +104,7 @@
 <!-- x05 -->
 <g id="node5" class="node">
 <title>x05</title>
-<ellipse fill="none" stroke="black" cx="115.36" cy="-7206.08" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="115.36" cy="-7206.08" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="115.36" y="-7202.38" font-family="Times,serif" font-size="14.00">x05</text>
 </g>
 <!-- x05&#45;&gt;jbk -->
@@ -116,7 +116,7 @@
 <!-- gvh -->
 <g id="node226" class="node">
 <title>gvh</title>
-<ellipse fill="none" stroke="black" cx="108.36" cy="-7116.34" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="108.36" cy="-7116.34" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="108.36" y="-7120.14" font-family="Times,serif" font-size="14.00">gvh</text>
 <text text-anchor="middle" x="108.36" y="-7105.14" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -129,7 +129,7 @@
 <!-- y05 -->
 <g id="node6" class="node">
 <title>y05</title>
-<ellipse fill="none" stroke="black" cx="189.36" cy="-7206.08" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="189.36" cy="-7206.08" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="189.36" y="-7202.38" font-family="Times,serif" font-size="14.00">y05</text>
 </g>
 <!-- y05&#45;&gt;jbk -->
@@ -147,14 +147,14 @@
 <!-- z31 -->
 <g id="node7" class="node">
 <title>z31</title>
-<ellipse fill="none" stroke="black" cx="1108.36" cy="-2360.11" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1108.36" cy="-2360.11" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1108.36" y="-2363.91" font-family="Times,serif" font-size="14.00">z31</text>
 <text text-anchor="middle" x="1108.36" y="-2348.91" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- hbc -->
 <g id="node8" class="node">
 <title>hbc</title>
-<ellipse fill="none" stroke="black" cx="1189.36" cy="-2449.85" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1189.36" cy="-2449.85" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1189.36" y="-2453.65" font-family="Times,serif" font-size="14.00">hbc</text>
 <text text-anchor="middle" x="1189.36" y="-2438.65" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -167,7 +167,7 @@
 <!-- qvp -->
 <g id="node182" class="node">
 <title>qvp</title>
-<ellipse fill="none" stroke="black" cx="1195.36" cy="-2360.11" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1195.36" cy="-2360.11" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1195.36" y="-2363.91" font-family="Times,serif" font-size="14.00">qvp</text>
 <text text-anchor="middle" x="1195.36" y="-2348.91" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -180,7 +180,7 @@
 <!-- hnr -->
 <g id="node9" class="node">
 <title>hnr</title>
-<ellipse fill="none" stroke="black" cx="1108.36" cy="-2449.85" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1108.36" cy="-2449.85" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="1108.36" y="-2453.65" font-family="Times,serif" font-size="14.00">hnr</text>
 <text text-anchor="middle" x="1108.36" y="-2438.65" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -199,14 +199,14 @@
 <!-- qck -->
 <g id="node10" class="node">
 <title>qck</title>
-<ellipse fill="none" stroke="black" cx="1247.36" cy="-1911.41" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1247.36" cy="-1911.41" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1247.36" y="-1915.21" font-family="Times,serif" font-size="14.00">qck</text>
 <text text-anchor="middle" x="1247.36" y="-1900.21" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- bjg -->
 <g id="node190" class="node">
 <title>bjg</title>
-<ellipse fill="none" stroke="black" cx="1247.36" cy="-1821.67" rx="27.65" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1247.36" cy="-1821.67" rx="27.65" ry="26.74"/>
 <text text-anchor="middle" x="1247.36" y="-1825.47" font-family="Times,serif" font-size="14.00">bjg</text>
 <text text-anchor="middle" x="1247.36" y="-1810.47" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -219,7 +219,7 @@
 <!-- fcd -->
 <g id="node11" class="node">
 <title>fcd</title>
-<ellipse fill="none" stroke="black" cx="1406.36" cy="-2001.15" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1406.36" cy="-2001.15" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1406.36" y="-2004.95" font-family="Times,serif" font-size="14.00">fcd</text>
 <text text-anchor="middle" x="1406.36" y="-1989.95" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -232,7 +232,7 @@
 <!-- z34 -->
 <g id="node297" class="node">
 <title>z34</title>
-<ellipse fill="none" stroke="black" cx="1408.36" cy="-1911.41" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1408.36" cy="-1911.41" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1408.36" y="-1915.21" font-family="Times,serif" font-size="14.00">z34</text>
 <text text-anchor="middle" x="1408.36" y="-1900.21" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -245,7 +245,7 @@
 <!-- mgc -->
 <g id="node12" class="node">
 <title>mgc</title>
-<ellipse fill="none" stroke="black" cx="1271.36" cy="-2001.15" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1271.36" cy="-2001.15" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1271.36" y="-2004.95" font-family="Times,serif" font-size="14.00">mgc</text>
 <text text-anchor="middle" x="1271.36" y="-1989.95" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -264,14 +264,14 @@
 <!-- fhn -->
 <g id="node13" class="node">
 <title>fhn</title>
-<ellipse fill="none" stroke="black" cx="440.36" cy="-3885.7" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="440.36" cy="-3885.7" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="440.36" y="-3889.5" font-family="Times,serif" font-size="14.00">fhn</text>
 <text text-anchor="middle" x="440.36" y="-3874.5" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- jbj -->
 <g id="node107" class="node">
 <title>jbj</title>
-<ellipse fill="none" stroke="black" cx="466.36" cy="-3706.21" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="466.36" cy="-3706.21" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="466.36" y="-3710.01" font-family="Times,serif" font-size="14.00">jbj</text>
 <text text-anchor="middle" x="466.36" y="-3695.01" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -284,7 +284,7 @@
 <!-- x23 -->
 <g id="node14" class="node">
 <title>x23</title>
-<ellipse fill="none" stroke="black" cx="446.36" cy="-3975.44" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="446.36" cy="-3975.44" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="446.36" y="-3971.74" font-family="Times,serif" font-size="14.00">x23</text>
 </g>
 <!-- x23&#45;&gt;fhn -->
@@ -296,7 +296,7 @@
 <!-- hvv -->
 <g id="node143" class="node">
 <title>hvv</title>
-<ellipse fill="none" stroke="black" cx="527.36" cy="-3885.7" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="527.36" cy="-3885.7" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="527.36" y="-3889.5" font-family="Times,serif" font-size="14.00">hvv</text>
 <text text-anchor="middle" x="527.36" y="-3874.5" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -309,7 +309,7 @@
 <!-- y23 -->
 <g id="node15" class="node">
 <title>y23</title>
-<ellipse fill="none" stroke="black" cx="523.36" cy="-3975.44" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="523.36" cy="-3975.44" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="523.36" y="-3971.74" font-family="Times,serif" font-size="14.00">y23</text>
 </g>
 <!-- y23&#45;&gt;fhn -->
@@ -327,14 +327,14 @@
 <!-- rmv -->
 <g id="node16" class="node">
 <title>rmv</title>
-<ellipse fill="none" stroke="black" cx="609.36" cy="-3078.03" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="609.36" cy="-3078.03" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="609.36" y="-3081.83" font-family="Times,serif" font-size="14.00">rmv</text>
 <text text-anchor="middle" x="609.36" y="-3066.83" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- ntn -->
 <g id="node173" class="node">
 <title>ntn</title>
-<ellipse fill="none" stroke="black" cx="664.36" cy="-2988.29" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="664.36" cy="-2988.29" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="664.36" y="-2992.09" font-family="Times,serif" font-size="14.00">ntn</text>
 <text text-anchor="middle" x="664.36" y="-2977.09" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -347,7 +347,7 @@
 <!-- dkb -->
 <g id="node17" class="node">
 <title>dkb</title>
-<ellipse fill="none" stroke="black" cx="635.36" cy="-3167.77" rx="30.31" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="635.36" cy="-3167.77" rx="30.31" ry="26.74"/>
 <text text-anchor="middle" x="635.36" y="-3171.57" font-family="Times,serif" font-size="14.00">dkb</text>
 <text text-anchor="middle" x="635.36" y="-3156.57" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -360,7 +360,7 @@
 <!-- z27 -->
 <g id="node70" class="node">
 <title>z27</title>
-<ellipse fill="none" stroke="black" cx="770.36" cy="-3078.03" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="770.36" cy="-3078.03" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="770.36" y="-3081.83" font-family="Times,serif" font-size="14.00">z27</text>
 <text text-anchor="middle" x="770.36" y="-3066.83" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -373,7 +373,7 @@
 <!-- rvf -->
 <g id="node18" class="node">
 <title>rvf</title>
-<ellipse fill="none" stroke="black" cx="745.36" cy="-3167.77" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="745.36" cy="-3167.77" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="745.36" y="-3171.57" font-family="Times,serif" font-size="14.00">rvf</text>
 <text text-anchor="middle" x="745.36" y="-3156.57" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -392,14 +392,14 @@
 <!-- stm -->
 <g id="node19" class="node">
 <title>stm</title>
-<ellipse fill="none" stroke="black" cx="1255.36" cy="-2180.63" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1255.36" cy="-2180.63" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1255.36" y="-2184.43" font-family="Times,serif" font-size="14.00">stm</text>
 <text text-anchor="middle" x="1255.36" y="-2169.43" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- rfd -->
 <g id="node68" class="node">
 <title>rfd</title>
-<ellipse fill="none" stroke="black" cx="1406.36" cy="-2090.89" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1406.36" cy="-2090.89" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="1406.36" y="-2094.69" font-family="Times,serif" font-size="14.00">rfd</text>
 <text text-anchor="middle" x="1406.36" y="-2079.69" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -412,7 +412,7 @@
 <!-- hhc -->
 <g id="node20" class="node">
 <title>hhc</title>
-<ellipse fill="none" stroke="black" cx="1340.36" cy="-2270.37" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1340.36" cy="-2270.37" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1340.36" y="-2274.17" font-family="Times,serif" font-size="14.00">hhc</text>
 <text text-anchor="middle" x="1340.36" y="-2259.17" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -425,7 +425,7 @@
 <!-- z32 -->
 <g id="node298" class="node">
 <title>z32</title>
-<ellipse fill="none" stroke="black" cx="1342.36" cy="-2180.63" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1342.36" cy="-2180.63" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1342.36" y="-2184.43" font-family="Times,serif" font-size="14.00">z32</text>
 <text text-anchor="middle" x="1342.36" y="-2169.43" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -438,7 +438,7 @@
 <!-- knm -->
 <g id="node21" class="node">
 <title>knm</title>
-<ellipse fill="none" stroke="black" cx="1255.36" cy="-2270.37" rx="33.47" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1255.36" cy="-2270.37" rx="33.47" ry="26.74"/>
 <text text-anchor="middle" x="1255.36" y="-2274.17" font-family="Times,serif" font-size="14.00">knm</text>
 <text text-anchor="middle" x="1255.36" y="-2259.17" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -457,14 +457,14 @@
 <!-- z43 -->
 <g id="node22" class="node">
 <title>z43</title>
-<ellipse fill="none" stroke="black" cx="1473.36" cy="-296.09" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1473.36" cy="-296.09" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1473.36" y="-299.89" font-family="Times,serif" font-size="14.00">z43</text>
 <text text-anchor="middle" x="1473.36" y="-284.89" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- vcd -->
 <g id="node23" class="node">
 <title>vcd</title>
-<ellipse fill="none" stroke="black" cx="1445.36" cy="-385.83" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1445.36" cy="-385.83" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="1445.36" y="-389.63" font-family="Times,serif" font-size="14.00">vcd</text>
 <text text-anchor="middle" x="1445.36" y="-374.63" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -477,7 +477,7 @@
 <!-- tvw -->
 <g id="node176" class="node">
 <title>tvw</title>
-<ellipse fill="none" stroke="black" cx="1312.36" cy="-296.09" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1312.36" cy="-296.09" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1312.36" y="-299.89" font-family="Times,serif" font-size="14.00">tvw</text>
 <text text-anchor="middle" x="1312.36" y="-284.89" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -490,7 +490,7 @@
 <!-- vbv -->
 <g id="node24" class="node">
 <title>vbv</title>
-<ellipse fill="none" stroke="black" cx="1336.36" cy="-385.83" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1336.36" cy="-385.83" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1336.36" y="-389.63" font-family="Times,serif" font-size="14.00">vbv</text>
 <text text-anchor="middle" x="1336.36" y="-374.63" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -509,14 +509,14 @@
 <!-- z22 -->
 <g id="node25" class="node">
 <title>z22</title>
-<ellipse fill="none" stroke="black" cx="693.36" cy="-3975.44" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="693.36" cy="-3975.44" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="693.36" y="-3979.24" font-family="Times,serif" font-size="14.00">z22</text>
 <text text-anchor="middle" x="693.36" y="-3964.24" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- prd -->
 <g id="node26" class="node">
 <title>prd</title>
-<ellipse fill="none" stroke="black" cx="689.36" cy="-4065.18" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="689.36" cy="-4065.18" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="689.36" y="-4068.98" font-family="Times,serif" font-size="14.00">prd</text>
 <text text-anchor="middle" x="689.36" y="-4053.98" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -529,7 +529,7 @@
 <!-- jcw -->
 <g id="node203" class="node">
 <title>jcw</title>
-<ellipse fill="none" stroke="black" cx="606.36" cy="-3975.44" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="606.36" cy="-3975.44" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="606.36" y="-3979.24" font-family="Times,serif" font-size="14.00">jcw</text>
 <text text-anchor="middle" x="606.36" y="-3964.24" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -542,7 +542,7 @@
 <!-- ggg -->
 <g id="node27" class="node">
 <title>ggg</title>
-<ellipse fill="none" stroke="black" cx="606.36" cy="-4065.18" rx="31.23" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="606.36" cy="-4065.18" rx="31.23" ry="26.74"/>
 <text text-anchor="middle" x="606.36" y="-4068.98" font-family="Times,serif" font-size="14.00">ggg</text>
 <text text-anchor="middle" x="606.36" y="-4053.98" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -561,14 +561,14 @@
 <!-- cgh -->
 <g id="node28" class="node">
 <title>cgh</title>
-<ellipse fill="none" stroke="black" cx="728.36" cy="-5859.98" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="728.36" cy="-5859.98" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="728.36" y="-5863.78" font-family="Times,serif" font-size="14.00">cgh</text>
 <text text-anchor="middle" x="728.36" y="-5848.78" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
 <!-- z12 -->
 <g id="node134" class="node">
 <title>z12</title>
-<ellipse fill="none" stroke="black" cx="805.36" cy="-5770.24" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="805.36" cy="-5770.24" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="805.36" y="-5774.04" font-family="Times,serif" font-size="14.00">z12</text>
 <text text-anchor="middle" x="805.36" y="-5759.04" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -581,7 +581,7 @@
 <!-- mpw -->
 <g id="node144" class="node">
 <title>mpw</title>
-<ellipse fill="none" stroke="black" cx="569.36" cy="-5770.24" rx="36.12" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="569.36" cy="-5770.24" rx="36.12" ry="26.74"/>
 <text text-anchor="middle" x="569.36" y="-5774.04" font-family="Times,serif" font-size="14.00">mpw</text>
 <text text-anchor="middle" x="569.36" y="-5759.04" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -594,7 +594,7 @@
 <!-- hbd -->
 <g id="node29" class="node">
 <title>hbd</title>
-<ellipse fill="none" stroke="black" cx="719.36" cy="-5949.72" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="719.36" cy="-5949.72" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="719.36" y="-5953.52" font-family="Times,serif" font-size="14.00">hbd</text>
 <text text-anchor="middle" x="719.36" y="-5938.52" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -607,7 +607,7 @@
 <!-- cst -->
 <g id="node30" class="node">
 <title>cst</title>
-<ellipse fill="none" stroke="black" cx="782.36" cy="-6039.46" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="782.36" cy="-6039.46" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="782.36" y="-6043.26" font-family="Times,serif" font-size="14.00">cst</text>
 <text text-anchor="middle" x="782.36" y="-6028.26" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -620,7 +620,7 @@
 <!-- ncf -->
 <g id="node31" class="node">
 <title>ncf</title>
-<ellipse fill="none" stroke="black" cx="627.36" cy="-4244.66" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="627.36" cy="-4244.66" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="627.36" y="-4248.46" font-family="Times,serif" font-size="14.00">ncf</text>
 <text text-anchor="middle" x="627.36" y="-4233.46" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -633,7 +633,7 @@
 <!-- x21 -->
 <g id="node32" class="node">
 <title>x21</title>
-<ellipse fill="none" stroke="black" cx="539.36" cy="-4334.4" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="539.36" cy="-4334.4" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="539.36" y="-4330.7" font-family="Times,serif" font-size="14.00">x21</text>
 </g>
 <!-- x21&#45;&gt;ncf -->
@@ -645,7 +645,7 @@
 <!-- krw -->
 <g id="node116" class="node">
 <title>krw</title>
-<ellipse fill="none" stroke="black" cx="540.36" cy="-4244.66" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="540.36" cy="-4244.66" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="540.36" y="-4248.46" font-family="Times,serif" font-size="14.00">krw</text>
 <text text-anchor="middle" x="540.36" y="-4233.46" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -658,7 +658,7 @@
 <!-- y21 -->
 <g id="node33" class="node">
 <title>y21</title>
-<ellipse fill="none" stroke="black" cx="701.36" cy="-4334.4" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="701.36" cy="-4334.4" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="701.36" y="-4330.7" font-family="Times,serif" font-size="14.00">y21</text>
 </g>
 <!-- y21&#45;&gt;ncf -->
@@ -676,14 +676,14 @@
 <!-- nmp -->
 <g id="node34" class="node">
 <title>nmp</title>
-<ellipse fill="none" stroke="black" cx="1203.36" cy="-924.27" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1203.36" cy="-924.27" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1203.36" y="-928.07" font-family="Times,serif" font-size="14.00">nmp</text>
 <text text-anchor="middle" x="1203.36" y="-913.07" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- jct -->
 <g id="node147" class="node">
 <title>jct</title>
-<ellipse fill="none" stroke="black" cx="1265.36" cy="-744.79" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1265.36" cy="-744.79" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="1265.36" y="-748.59" font-family="Times,serif" font-size="14.00">jct</text>
 <text text-anchor="middle" x="1265.36" y="-733.59" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -696,7 +696,7 @@
 <!-- y40 -->
 <g id="node35" class="node">
 <title>y40</title>
-<ellipse fill="none" stroke="black" cx="1210.36" cy="-1014.01" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1210.36" cy="-1014.01" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1210.36" y="-1010.31" font-family="Times,serif" font-size="14.00">y40</text>
 </g>
 <!-- y40&#45;&gt;nmp -->
@@ -708,7 +708,7 @@
 <!-- grr -->
 <g id="node241" class="node">
 <title>grr</title>
-<ellipse fill="none" stroke="black" cx="1290.36" cy="-924.27" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1290.36" cy="-924.27" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1290.36" y="-928.07" font-family="Times,serif" font-size="14.00">grr</text>
 <text text-anchor="middle" x="1290.36" y="-913.07" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -721,7 +721,7 @@
 <!-- x40 -->
 <g id="node36" class="node">
 <title>x40</title>
-<ellipse fill="none" stroke="black" cx="1284.36" cy="-1014.01" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1284.36" cy="-1014.01" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1284.36" y="-1010.31" font-family="Times,serif" font-size="14.00">x40</text>
 </g>
 <!-- x40&#45;&gt;nmp -->
@@ -739,14 +739,14 @@
 <!-- z29 -->
 <g id="node37" class="node">
 <title>z29</title>
-<ellipse fill="none" stroke="black" cx="899.36" cy="-2719.07" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="899.36" cy="-2719.07" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="899.36" y="-2722.87" font-family="Times,serif" font-size="14.00">z29</text>
 <text text-anchor="middle" x="899.36" y="-2707.87" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- scf -->
 <g id="node38" class="node">
 <title>scf</title>
-<ellipse fill="none" stroke="black" cx="893.36" cy="-2808.81" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="893.36" cy="-2808.81" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="893.36" y="-2812.61" font-family="Times,serif" font-size="14.00">scf</text>
 <text text-anchor="middle" x="893.36" y="-2797.61" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -759,7 +759,7 @@
 <!-- mfv -->
 <g id="node187" class="node">
 <title>mfv</title>
-<ellipse fill="none" stroke="black" cx="812.36" cy="-2719.07" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="812.36" cy="-2719.07" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="812.36" y="-2722.87" font-family="Times,serif" font-size="14.00">mfv</text>
 <text text-anchor="middle" x="812.36" y="-2707.87" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -772,7 +772,7 @@
 <!-- ksv -->
 <g id="node39" class="node">
 <title>ksv</title>
-<ellipse fill="none" stroke="black" cx="812.36" cy="-2808.81" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="812.36" cy="-2808.81" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="812.36" y="-2812.61" font-family="Times,serif" font-size="14.00">ksv</text>
 <text text-anchor="middle" x="812.36" y="-2797.61" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -791,14 +791,14 @@
 <!-- z07 -->
 <g id="node40" class="node">
 <title>z07</title>
-<ellipse fill="none" stroke="black" cx="332.36" cy="-6667.64" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="332.36" cy="-6667.64" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="332.36" y="-6671.44" font-family="Times,serif" font-size="14.00">z07</text>
 <text text-anchor="middle" x="332.36" y="-6656.44" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- pmd -->
 <g id="node41" class="node">
 <title>pmd</title>
-<ellipse fill="none" stroke="black" cx="195.36" cy="-6757.38" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="195.36" cy="-6757.38" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="195.36" y="-6761.18" font-family="Times,serif" font-size="14.00">pmd</text>
 <text text-anchor="middle" x="195.36" y="-6746.18" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -811,7 +811,7 @@
 <!-- bdf -->
 <g id="node61" class="node">
 <title>bdf</title>
-<ellipse fill="none" stroke="black" cx="171.36" cy="-6667.64" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="171.36" cy="-6667.64" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="171.36" y="-6671.44" font-family="Times,serif" font-size="14.00">bdf</text>
 <text text-anchor="middle" x="171.36" y="-6656.44" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -824,7 +824,7 @@
 <!-- tqd -->
 <g id="node42" class="node">
 <title>tqd</title>
-<ellipse fill="none" stroke="black" cx="276.36" cy="-6757.38" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="276.36" cy="-6757.38" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="276.36" y="-6761.18" font-family="Times,serif" font-size="14.00">tqd</text>
 <text text-anchor="middle" x="276.36" y="-6746.18" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -843,14 +843,14 @@
 <!-- fpf -->
 <g id="node43" class="node">
 <title>fpf</title>
-<ellipse fill="none" stroke="black" cx="1206.36" cy="-1193.49" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1206.36" cy="-1193.49" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1206.36" y="-1197.29" font-family="Times,serif" font-size="14.00">fpf</text>
 <text text-anchor="middle" x="1206.36" y="-1182.29" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- wgr -->
 <g id="node185" class="node">
 <title>wgr</title>
-<ellipse fill="none" stroke="black" cx="1173.36" cy="-1103.75" rx="31.23" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1173.36" cy="-1103.75" rx="31.23" ry="26.74"/>
 <text text-anchor="middle" x="1173.36" y="-1107.55" font-family="Times,serif" font-size="14.00">wgr</text>
 <text text-anchor="middle" x="1173.36" y="-1092.55" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -863,7 +863,7 @@
 <!-- tnp -->
 <g id="node44" class="node">
 <title>tnp</title>
-<ellipse fill="none" stroke="black" cx="1230.36" cy="-1283.23" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1230.36" cy="-1283.23" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1230.36" y="-1287.03" font-family="Times,serif" font-size="14.00">tnp</text>
 <text text-anchor="middle" x="1230.36" y="-1272.03" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -876,7 +876,7 @@
 <!-- z38 -->
 <g id="node193" class="node">
 <title>z38</title>
-<ellipse fill="none" stroke="black" cx="1367.36" cy="-1193.49" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1367.36" cy="-1193.49" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1367.36" y="-1197.29" font-family="Times,serif" font-size="14.00">z38</text>
 <text text-anchor="middle" x="1367.36" y="-1182.29" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -889,7 +889,7 @@
 <!-- rft -->
 <g id="node45" class="node">
 <title>rft</title>
-<ellipse fill="none" stroke="black" cx="1333.36" cy="-1283.23" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1333.36" cy="-1283.23" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="1333.36" y="-1287.03" font-family="Times,serif" font-size="14.00">rft</text>
 <text text-anchor="middle" x="1333.36" y="-1272.03" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -908,7 +908,7 @@
 <!-- gkb -->
 <g id="node46" class="node">
 <title>gkb</title>
-<ellipse fill="none" stroke="black" cx="695.36" cy="-6039.46" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="695.36" cy="-6039.46" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="695.36" y="-6043.26" font-family="Times,serif" font-size="14.00">gkb</text>
 <text text-anchor="middle" x="695.36" y="-6028.26" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -921,7 +921,7 @@
 <!-- z11 -->
 <g id="node305" class="node">
 <title>z11</title>
-<ellipse fill="none" stroke="black" cx="558.36" cy="-5949.72" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="558.36" cy="-5949.72" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="558.36" y="-5953.52" font-family="Times,serif" font-size="14.00">z11</text>
 <text text-anchor="middle" x="558.36" y="-5938.52" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -934,7 +934,7 @@
 <!-- y11 -->
 <g id="node47" class="node">
 <title>y11</title>
-<ellipse fill="none" stroke="black" cx="779.36" cy="-6129.2" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="779.36" cy="-6129.2" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="779.36" y="-6125.5" font-family="Times,serif" font-size="14.00">y11</text>
 </g>
 <!-- y11&#45;&gt;cst -->
@@ -952,7 +952,7 @@
 <!-- x11 -->
 <g id="node48" class="node">
 <title>x11</title>
-<ellipse fill="none" stroke="black" cx="699.36" cy="-6129.2" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="699.36" cy="-6129.2" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="699.36" y="-6125.5" font-family="Times,serif" font-size="14.00">x11</text>
 </g>
 <!-- x11&#45;&gt;cst -->
@@ -970,14 +970,14 @@
 <!-- dgf -->
 <g id="node49" class="node">
 <title>dgf</title>
-<ellipse fill="none" stroke="black" cx="108.36" cy="-6757.38" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="108.36" cy="-6757.38" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="108.36" y="-6761.18" font-family="Times,serif" font-size="14.00">dgf</text>
 <text text-anchor="middle" x="108.36" y="-6746.18" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- dsq -->
 <g id="node151" class="node">
 <title>dsq</title>
-<ellipse fill="none" stroke="black" cx="170.36" cy="-6577.9" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="170.36" cy="-6577.9" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="170.36" y="-6581.7" font-family="Times,serif" font-size="14.00">dsq</text>
 <text text-anchor="middle" x="170.36" y="-6566.7" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -990,7 +990,7 @@
 <!-- y07 -->
 <g id="node50" class="node">
 <title>y07</title>
-<ellipse fill="none" stroke="black" cx="115.36" cy="-6847.12" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="115.36" cy="-6847.12" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="115.36" y="-6843.42" font-family="Times,serif" font-size="14.00">y07</text>
 </g>
 <!-- y07&#45;&gt;pmd -->
@@ -1008,7 +1008,7 @@
 <!-- x07 -->
 <g id="node51" class="node">
 <title>x07</title>
-<ellipse fill="none" stroke="black" cx="189.36" cy="-6847.12" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="189.36" cy="-6847.12" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="189.36" y="-6843.42" font-family="Times,serif" font-size="14.00">x07</text>
 </g>
 <!-- x07&#45;&gt;pmd -->
@@ -1026,14 +1026,14 @@
 <!-- qdr -->
 <g id="node52" class="node">
 <title>qdr</title>
-<ellipse fill="none" stroke="black" cx="528.36" cy="-5321.54" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="528.36" cy="-5321.54" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="528.36" y="-5325.34" font-family="Times,serif" font-size="14.00">qdr</text>
 <text text-anchor="middle" x="528.36" y="-5310.34" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- bnc -->
 <g id="node91" class="node">
 <title>bnc</title>
-<ellipse fill="none" stroke="black" cx="590.36" cy="-5142.06" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="590.36" cy="-5142.06" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="590.36" y="-5145.86" font-family="Times,serif" font-size="14.00">bnc</text>
 <text text-anchor="middle" x="590.36" y="-5130.86" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1046,7 +1046,7 @@
 <!-- y15 -->
 <g id="node53" class="node">
 <title>y15</title>
-<ellipse fill="none" stroke="black" cx="611.36" cy="-5411.28" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="611.36" cy="-5411.28" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="611.36" y="-5407.58" font-family="Times,serif" font-size="14.00">y15</text>
 </g>
 <!-- y15&#45;&gt;qdr -->
@@ -1058,7 +1058,7 @@
 <!-- jtv -->
 <g id="node141" class="node">
 <title>jtv</title>
-<ellipse fill="none" stroke="black" cx="615.36" cy="-5321.54" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="615.36" cy="-5321.54" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="615.36" y="-5325.34" font-family="Times,serif" font-size="14.00">jtv</text>
 <text text-anchor="middle" x="615.36" y="-5310.34" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1071,7 +1071,7 @@
 <!-- x15 -->
 <g id="node54" class="node">
 <title>x15</title>
-<ellipse fill="none" stroke="black" cx="534.36" cy="-5411.28" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="534.36" cy="-5411.28" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="534.36" y="-5407.58" font-family="Times,serif" font-size="14.00">x15</text>
 </g>
 <!-- x15&#45;&gt;qdr -->
@@ -1089,14 +1089,14 @@
 <!-- pwv -->
 <g id="node55" class="node">
 <title>pwv</title>
-<ellipse fill="none" stroke="black" cx="317.36" cy="-6398.42" rx="32.55" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="317.36" cy="-6398.42" rx="32.55" ry="26.74"/>
 <text text-anchor="middle" x="317.36" y="-6402.22" font-family="Times,serif" font-size="14.00">pwv</text>
 <text text-anchor="middle" x="317.36" y="-6387.22" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
 <!-- kqj -->
 <g id="node256" class="node">
 <title>kqj</title>
-<ellipse fill="none" stroke="black" cx="317.36" cy="-6308.68" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="317.36" cy="-6308.68" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="317.36" y="-6312.48" font-family="Times,serif" font-size="14.00">kqj</text>
 <text text-anchor="middle" x="317.36" y="-6297.48" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1109,7 +1109,7 @@
 <!-- z09 -->
 <g id="node290" class="node">
 <title>z09</title>
-<ellipse fill="none" stroke="black" cx="404.36" cy="-6308.68" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="404.36" cy="-6308.68" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="404.36" y="-6312.48" font-family="Times,serif" font-size="14.00">z09</text>
 <text text-anchor="middle" x="404.36" y="-6297.48" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1122,7 +1122,7 @@
 <!-- nbj -->
 <g id="node56" class="node">
 <title>nbj</title>
-<ellipse fill="none" stroke="black" cx="339.36" cy="-6577.9" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="339.36" cy="-6577.9" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="339.36" y="-6581.7" font-family="Times,serif" font-size="14.00">nbj</text>
 <text text-anchor="middle" x="339.36" y="-6566.7" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1135,7 +1135,7 @@
 <!-- tqv -->
 <g id="node57" class="node">
 <title>tqv</title>
-<ellipse fill="none" stroke="black" cx="170.36" cy="-6488.16" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="170.36" cy="-6488.16" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="170.36" y="-6491.96" font-family="Times,serif" font-size="14.00">tqv</text>
 <text text-anchor="middle" x="170.36" y="-6476.96" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1148,14 +1148,14 @@
 <!-- fgp -->
 <g id="node58" class="node">
 <title>fgp</title>
-<ellipse fill="none" stroke="black" cx="172.36" cy="-7385.56" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="172.36" cy="-7385.56" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="172.36" y="-7389.36" font-family="Times,serif" font-size="14.00">fgp</text>
 <text text-anchor="middle" x="172.36" y="-7374.36" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- fnv -->
 <g id="node195" class="node">
 <title>fnv</title>
-<ellipse fill="none" stroke="black" cx="134.36" cy="-7295.82" rx="27.65" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="134.36" cy="-7295.82" rx="27.65" ry="26.74"/>
 <text text-anchor="middle" x="134.36" y="-7299.62" font-family="Times,serif" font-size="14.00">fnv</text>
 <text text-anchor="middle" x="134.36" y="-7284.62" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1168,7 +1168,7 @@
 <!-- mtq -->
 <g id="node59" class="node">
 <title>mtq</title>
-<ellipse fill="none" stroke="black" cx="196.36" cy="-7475.3" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="196.36" cy="-7475.3" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="196.36" y="-7479.1" font-family="Times,serif" font-size="14.00">mtq</text>
 <text text-anchor="middle" x="196.36" y="-7464.1" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1181,7 +1181,7 @@
 <!-- z03 -->
 <g id="node114" class="node">
 <title>z03</title>
-<ellipse fill="none" stroke="black" cx="407.36" cy="-7385.56" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="407.36" cy="-7385.56" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="407.36" y="-7389.36" font-family="Times,serif" font-size="14.00">z03</text>
 <text text-anchor="middle" x="407.36" y="-7374.36" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1194,7 +1194,7 @@
 <!-- tkj -->
 <g id="node60" class="node">
 <title>tkj</title>
-<ellipse fill="none" stroke="black" cx="341.36" cy="-7475.3" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="341.36" cy="-7475.3" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="341.36" y="-7479.1" font-family="Times,serif" font-size="14.00">tkj</text>
 <text text-anchor="middle" x="341.36" y="-7464.1" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1219,14 +1219,14 @@
 <!-- fmg -->
 <g id="node62" class="node">
 <title>fmg</title>
-<ellipse fill="none" stroke="black" cx="1042.36" cy="-2629.33" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1042.36" cy="-2629.33" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1042.36" y="-2633.13" font-family="Times,serif" font-size="14.00">fmg</text>
 <text text-anchor="middle" x="1042.36" y="-2618.13" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- mbp -->
 <g id="node110" class="node">
 <title>mbp</title>
-<ellipse fill="none" stroke="black" cx="958.36" cy="-2539.59" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="958.36" cy="-2539.59" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="958.36" y="-2543.39" font-family="Times,serif" font-size="14.00">mbp</text>
 <text text-anchor="middle" x="958.36" y="-2528.39" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1239,7 +1239,7 @@
 <!-- z30 -->
 <g id="node296" class="node">
 <title>z30</title>
-<ellipse fill="none" stroke="black" cx="1045.36" cy="-2539.59" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1045.36" cy="-2539.59" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1045.36" y="-2543.39" font-family="Times,serif" font-size="14.00">z30</text>
 <text text-anchor="middle" x="1045.36" y="-2528.39" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1252,7 +1252,7 @@
 <!-- y30 -->
 <g id="node63" class="node">
 <title>y30</title>
-<ellipse fill="none" stroke="black" cx="1126.36" cy="-2719.07" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1126.36" cy="-2719.07" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1126.36" y="-2715.37" font-family="Times,serif" font-size="14.00">y30</text>
 </g>
 <!-- y30&#45;&gt;fmg -->
@@ -1264,7 +1264,7 @@
 <!-- ttv -->
 <g id="node109" class="node">
 <title>ttv</title>
-<ellipse fill="none" stroke="black" cx="1129.36" cy="-2629.33" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1129.36" cy="-2629.33" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1129.36" y="-2633.13" font-family="Times,serif" font-size="14.00">ttv</text>
 <text text-anchor="middle" x="1129.36" y="-2618.13" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1277,7 +1277,7 @@
 <!-- x30 -->
 <g id="node64" class="node">
 <title>x30</title>
-<ellipse fill="none" stroke="black" cx="1046.36" cy="-2719.07" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1046.36" cy="-2719.07" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1046.36" y="-2715.37" font-family="Times,serif" font-size="14.00">x30</text>
 </g>
 <!-- x30&#45;&gt;fmg -->
@@ -1295,7 +1295,7 @@
 <!-- ccs -->
 <g id="node65" class="node">
 <title>ccs</title>
-<ellipse fill="none" stroke="black" cx="1184.36" cy="-2001.15" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1184.36" cy="-2001.15" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1184.36" y="-2004.95" font-family="Times,serif" font-size="14.00">ccs</text>
 <text text-anchor="middle" x="1184.36" y="-1989.95" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1308,7 +1308,7 @@
 <!-- x34 -->
 <g id="node66" class="node">
 <title>x34</title>
-<ellipse fill="none" stroke="black" cx="1188.36" cy="-2090.89" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1188.36" cy="-2090.89" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1188.36" y="-2087.19" font-family="Times,serif" font-size="14.00">x34</text>
 </g>
 <!-- x34&#45;&gt;mgc -->
@@ -1326,7 +1326,7 @@
 <!-- y34 -->
 <g id="node67" class="node">
 <title>y34</title>
-<ellipse fill="none" stroke="black" cx="1265.36" cy="-2090.89" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1265.36" cy="-2090.89" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1265.36" y="-2087.19" font-family="Times,serif" font-size="14.00">y34</text>
 </g>
 <!-- y34&#45;&gt;mgc -->
@@ -1350,7 +1350,7 @@
 <!-- jgr -->
 <g id="node86" class="node">
 <title>jgr</title>
-<ellipse fill="none" stroke="black" cx="1493.36" cy="-2001.15" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1493.36" cy="-2001.15" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1493.36" y="-2004.95" font-family="Times,serif" font-size="14.00">jgr</text>
 <text text-anchor="middle" x="1493.36" y="-1989.95" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1363,7 +1363,7 @@
 <!-- bmh -->
 <g id="node69" class="node">
 <title>bmh</title>
-<ellipse fill="none" stroke="black" cx="1427.36" cy="-2270.37" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1427.36" cy="-2270.37" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1427.36" y="-2274.17" font-family="Times,serif" font-size="14.00">bmh</text>
 <text text-anchor="middle" x="1427.36" y="-2259.17" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1376,14 +1376,14 @@
 <!-- wcj -->
 <g id="node71" class="node">
 <title>wcj</title>
-<ellipse fill="none" stroke="black" cx="1393.36" cy="-206.35" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1393.36" cy="-206.35" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1393.36" y="-210.15" font-family="Times,serif" font-size="14.00">wcj</text>
 <text text-anchor="middle" x="1393.36" y="-195.15" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- kvm -->
 <g id="node207" class="node">
 <title>kvm</title>
-<ellipse fill="none" stroke="black" cx="1398.36" cy="-116.61" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1398.36" cy="-116.61" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1398.36" y="-120.41" font-family="Times,serif" font-size="14.00">kvm</text>
 <text text-anchor="middle" x="1398.36" y="-105.41" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1396,7 +1396,7 @@
 <!-- z44 -->
 <g id="node291" class="node">
 <title>z44</title>
-<ellipse fill="none" stroke="black" cx="1311.36" cy="-116.61" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1311.36" cy="-116.61" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1311.36" y="-120.41" font-family="Times,serif" font-size="14.00">z44</text>
 <text text-anchor="middle" x="1311.36" y="-105.41" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1409,7 +1409,7 @@
 <!-- y44 -->
 <g id="node72" class="node">
 <title>y44</title>
-<ellipse fill="none" stroke="black" cx="1553.36" cy="-296.09" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1553.36" cy="-296.09" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1553.36" y="-292.39" font-family="Times,serif" font-size="14.00">y44</text>
 </g>
 <!-- y44&#45;&gt;wcj -->
@@ -1421,7 +1421,7 @@
 <!-- svd -->
 <g id="node208" class="node">
 <title>svd</title>
-<ellipse fill="none" stroke="black" cx="1480.36" cy="-206.35" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1480.36" cy="-206.35" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1480.36" y="-210.15" font-family="Times,serif" font-size="14.00">svd</text>
 <text text-anchor="middle" x="1480.36" y="-195.15" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1434,7 +1434,7 @@
 <!-- x44 -->
 <g id="node73" class="node">
 <title>x44</title>
-<ellipse fill="none" stroke="black" cx="1393.36" cy="-296.09" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1393.36" cy="-296.09" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1393.36" y="-292.39" font-family="Times,serif" font-size="14.00">x44</text>
 </g>
 <!-- x44&#45;&gt;wcj -->
@@ -1452,14 +1452,14 @@
 <!-- rkg -->
 <g id="node74" class="node">
 <title>rkg</title>
-<ellipse fill="none" stroke="black" cx="577.36" cy="-3706.21" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="577.36" cy="-3706.21" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="577.36" y="-3710.01" font-family="Times,serif" font-size="14.00">rkg</text>
 <text text-anchor="middle" x="577.36" y="-3695.01" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- dnv -->
 <g id="node227" class="node">
 <title>dnv</title>
-<ellipse fill="none" stroke="black" cx="601.36" cy="-3616.47" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="601.36" cy="-3616.47" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="601.36" y="-3620.27" font-family="Times,serif" font-size="14.00">dnv</text>
 <text text-anchor="middle" x="601.36" y="-3605.27" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1472,7 +1472,7 @@
 <!-- z24 -->
 <g id="node307" class="node">
 <title>z24</title>
-<ellipse fill="none" stroke="black" cx="366.36" cy="-3616.47" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="366.36" cy="-3616.47" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="366.36" y="-3620.27" font-family="Times,serif" font-size="14.00">z24</text>
 <text text-anchor="middle" x="366.36" y="-3605.27" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1485,7 +1485,7 @@
 <!-- x24 -->
 <g id="node75" class="node">
 <title>x24</title>
-<ellipse fill="none" stroke="black" cx="658.36" cy="-3795.95" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="658.36" cy="-3795.95" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="658.36" y="-3792.25" font-family="Times,serif" font-size="14.00">x24</text>
 </g>
 <!-- x24&#45;&gt;rkg -->
@@ -1497,7 +1497,7 @@
 <!-- pbd -->
 <g id="node153" class="node">
 <title>pbd</title>
-<ellipse fill="none" stroke="black" cx="664.36" cy="-3706.21" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="664.36" cy="-3706.21" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="664.36" y="-3710.01" font-family="Times,serif" font-size="14.00">pbd</text>
 <text text-anchor="middle" x="664.36" y="-3695.01" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1510,7 +1510,7 @@
 <!-- y24 -->
 <g id="node76" class="node">
 <title>y24</title>
-<ellipse fill="none" stroke="black" cx="584.36" cy="-3795.95" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="584.36" cy="-3795.95" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="584.36" y="-3792.25" font-family="Times,serif" font-size="14.00">y24</text>
 </g>
 <!-- y24&#45;&gt;rkg -->
@@ -1528,14 +1528,14 @@
 <!-- z17 -->
 <g id="node77" class="node">
 <title>z17</title>
-<ellipse fill="none" stroke="black" cx="357.36" cy="-4872.84" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="357.36" cy="-4872.84" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="357.36" y="-4876.64" font-family="Times,serif" font-size="14.00">z17</text>
 <text text-anchor="middle" x="357.36" y="-4861.64" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- fmr -->
 <g id="node78" class="node">
 <title>fmr</title>
-<ellipse fill="none" stroke="black" cx="592.36" cy="-4962.58" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="592.36" cy="-4962.58" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="592.36" y="-4966.38" font-family="Times,serif" font-size="14.00">fmr</text>
 <text text-anchor="middle" x="592.36" y="-4951.38" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1548,7 +1548,7 @@
 <!-- jkg -->
 <g id="node152" class="node">
 <title>jkg</title>
-<ellipse fill="none" stroke="black" cx="592.36" cy="-4872.84" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="592.36" cy="-4872.84" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="592.36" y="-4876.64" font-family="Times,serif" font-size="14.00">jkg</text>
 <text text-anchor="middle" x="592.36" y="-4861.64" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1561,7 +1561,7 @@
 <!-- vtd -->
 <g id="node79" class="node">
 <title>vtd</title>
-<ellipse fill="none" stroke="black" cx="422.36" cy="-4962.58" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="422.36" cy="-4962.58" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="422.36" y="-4966.38" font-family="Times,serif" font-size="14.00">vtd</text>
 <text text-anchor="middle" x="422.36" y="-4951.38" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1580,14 +1580,14 @@
 <!-- svt -->
 <g id="node80" class="node">
 <title>svt</title>
-<ellipse fill="none" stroke="black" cx="1393.36" cy="-924.27" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1393.36" cy="-924.27" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="1393.36" y="-928.07" font-family="Times,serif" font-size="14.00">svt</text>
 <text text-anchor="middle" x="1393.36" y="-913.07" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
 <!-- jjg -->
 <g id="node148" class="node">
 <title>jjg</title>
-<ellipse fill="none" stroke="black" cx="1266.36" cy="-834.53" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1266.36" cy="-834.53" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1266.36" y="-838.33" font-family="Times,serif" font-size="14.00">jjg</text>
 <text text-anchor="middle" x="1266.36" y="-823.33" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1600,7 +1600,7 @@
 <!-- z40 -->
 <g id="node247" class="node">
 <title>z40</title>
-<ellipse fill="none" stroke="black" cx="1427.36" cy="-834.53" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1427.36" cy="-834.53" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1427.36" y="-838.33" font-family="Times,serif" font-size="14.00">z40</text>
 <text text-anchor="middle" x="1427.36" y="-823.33" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1613,7 +1613,7 @@
 <!-- chr -->
 <g id="node81" class="node">
 <title>chr</title>
-<ellipse fill="none" stroke="black" cx="1428.36" cy="-1103.75" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1428.36" cy="-1103.75" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1428.36" y="-1107.55" font-family="Times,serif" font-size="14.00">chr</text>
 <text text-anchor="middle" x="1428.36" y="-1092.55" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1626,7 +1626,7 @@
 <!-- nps -->
 <g id="node82" class="node">
 <title>nps</title>
-<ellipse fill="none" stroke="black" cx="1365.36" cy="-1014.01" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1365.36" cy="-1014.01" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1365.36" y="-1017.81" font-family="Times,serif" font-size="14.00">nps</text>
 <text text-anchor="middle" x="1365.36" y="-1002.81" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1639,14 +1639,14 @@
 <!-- qrh -->
 <g id="node83" class="node">
 <title>qrh</title>
-<ellipse fill="none" stroke="black" cx="1328.36" cy="-1821.67" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1328.36" cy="-1821.67" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1328.36" y="-1825.47" font-family="Times,serif" font-size="14.00">qrh</text>
 <text text-anchor="middle" x="1328.36" y="-1810.47" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- z35 -->
 <g id="node189" class="node">
 <title>z35</title>
-<ellipse fill="none" stroke="black" cx="1335.36" cy="-1731.93" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1335.36" cy="-1731.93" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1335.36" y="-1735.73" font-family="Times,serif" font-size="14.00">z35</text>
 <text text-anchor="middle" x="1335.36" y="-1720.73" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1659,7 +1659,7 @@
 <!-- qmw -->
 <g id="node248" class="node">
 <title>qmw</title>
-<ellipse fill="none" stroke="black" cx="1247.36" cy="-1731.93" rx="36.12" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1247.36" cy="-1731.93" rx="36.12" ry="26.74"/>
 <text text-anchor="middle" x="1247.36" y="-1735.73" font-family="Times,serif" font-size="14.00">qmw</text>
 <text text-anchor="middle" x="1247.36" y="-1720.73" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1672,7 +1672,7 @@
 <!-- x35 -->
 <g id="node84" class="node">
 <title>x35</title>
-<ellipse fill="none" stroke="black" cx="1328.36" cy="-1911.41" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1328.36" cy="-1911.41" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1328.36" y="-1907.71" font-family="Times,serif" font-size="14.00">x35</text>
 </g>
 <!-- x35&#45;&gt;qrh -->
@@ -1684,7 +1684,7 @@
 <!-- fjg -->
 <g id="node258" class="node">
 <title>fjg</title>
-<ellipse fill="none" stroke="black" cx="1415.36" cy="-1821.67" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1415.36" cy="-1821.67" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1415.36" y="-1825.47" font-family="Times,serif" font-size="14.00">fjg</text>
 <text text-anchor="middle" x="1415.36" y="-1810.47" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1697,7 +1697,7 @@
 <!-- y35 -->
 <g id="node85" class="node">
 <title>y35</title>
-<ellipse fill="none" stroke="black" cx="1488.36" cy="-1911.41" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1488.36" cy="-1911.41" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1488.36" y="-1907.71" font-family="Times,serif" font-size="14.00">y35</text>
 </g>
 <!-- y35&#45;&gt;qrh -->
@@ -1715,7 +1715,7 @@
 <!-- z33 -->
 <g id="node287" class="node">
 <title>z33</title>
-<ellipse fill="none" stroke="black" cx="1569.36" cy="-1911.41" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1569.36" cy="-1911.41" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="1569.36" y="-1915.21" font-family="Times,serif" font-size="14.00">z33</text>
 <text text-anchor="middle" x="1569.36" y="-1900.21" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1728,7 +1728,7 @@
 <!-- smf -->
 <g id="node87" class="node">
 <title>smf</title>
-<ellipse fill="none" stroke="black" cx="1485.36" cy="-2090.89" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1485.36" cy="-2090.89" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1485.36" y="-2094.69" font-family="Times,serif" font-size="14.00">smf</text>
 <text text-anchor="middle" x="1485.36" y="-2079.69" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1747,14 +1747,14 @@
 <!-- z26 -->
 <g id="node88" class="node">
 <title>z26</title>
-<ellipse fill="none" stroke="black" cx="589.36" cy="-3257.51" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="589.36" cy="-3257.51" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="589.36" y="-3261.31" font-family="Times,serif" font-size="14.00">z26</text>
 <text text-anchor="middle" x="589.36" y="-3246.31" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- qwr -->
 <g id="node89" class="node">
 <title>qwr</title>
-<ellipse fill="none" stroke="black" cx="583.36" cy="-3347.25" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="583.36" cy="-3347.25" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="583.36" y="-3351.05" font-family="Times,serif" font-size="14.00">qwr</text>
 <text text-anchor="middle" x="583.36" y="-3336.05" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1767,7 +1767,7 @@
 <!-- ggw -->
 <g id="node279" class="node">
 <title>ggw</title>
-<ellipse fill="none" stroke="black" cx="502.36" cy="-3257.51" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="502.36" cy="-3257.51" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="502.36" y="-3261.31" font-family="Times,serif" font-size="14.00">ggw</text>
 <text text-anchor="middle" x="502.36" y="-3246.31" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1780,7 +1780,7 @@
 <!-- pbf -->
 <g id="node90" class="node">
 <title>pbf</title>
-<ellipse fill="none" stroke="black" cx="502.36" cy="-3347.25" rx="28.07" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="502.36" cy="-3347.25" rx="28.07" ry="26.74"/>
 <text text-anchor="middle" x="502.36" y="-3351.05" font-family="Times,serif" font-size="14.00">pbf</text>
 <text text-anchor="middle" x="502.36" y="-3336.05" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1799,7 +1799,7 @@
 <!-- ndj -->
 <g id="node124" class="node">
 <title>ndj</title>
-<ellipse fill="none" stroke="black" cx="675.36" cy="-5052.32" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="675.36" cy="-5052.32" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="675.36" y="-5056.12" font-family="Times,serif" font-size="14.00">ndj</text>
 <text text-anchor="middle" x="675.36" y="-5041.12" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1812,7 +1812,7 @@
 <!-- hmk -->
 <g id="node128" class="node">
 <title>hmk</title>
-<ellipse fill="none" stroke="black" cx="588.36" cy="-5052.32" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="588.36" cy="-5052.32" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="588.36" y="-5056.12" font-family="Times,serif" font-size="14.00">hmk</text>
 <text text-anchor="middle" x="588.36" y="-5041.12" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1825,7 +1825,7 @@
 <!-- cdn -->
 <g id="node92" class="node">
 <title>cdn</title>
-<ellipse fill="none" stroke="black" cx="591.36" cy="-5231.8" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="591.36" cy="-5231.8" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="591.36" y="-5235.6" font-family="Times,serif" font-size="14.00">cdn</text>
 <text text-anchor="middle" x="591.36" y="-5220.6" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1838,14 +1838,14 @@
 <!-- gvf -->
 <g id="node93" class="node">
 <title>gvf</title>
-<ellipse fill="none" stroke="black" cx="1245.36" cy="-1462.71" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1245.36" cy="-1462.71" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1245.36" y="-1466.51" font-family="Times,serif" font-size="14.00">gvf</text>
 <text text-anchor="middle" x="1245.36" y="-1451.51" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- dvq -->
 <g id="node145" class="node">
 <title>dvq</title>
-<ellipse fill="none" stroke="black" cx="1305.36" cy="-1372.97" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1305.36" cy="-1372.97" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1305.36" y="-1376.77" font-family="Times,serif" font-size="14.00">dvq</text>
 <text text-anchor="middle" x="1305.36" y="-1361.77" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1858,7 +1858,7 @@
 <!-- z37 -->
 <g id="node162" class="node">
 <title>z37</title>
-<ellipse fill="none" stroke="black" cx="1070.36" cy="-1372.97" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1070.36" cy="-1372.97" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1070.36" y="-1376.77" font-family="Times,serif" font-size="14.00">z37</text>
 <text text-anchor="middle" x="1070.36" y="-1361.77" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1871,7 +1871,7 @@
 <!-- x37 -->
 <g id="node94" class="node">
 <title>x37</title>
-<ellipse fill="none" stroke="black" cx="1227.36" cy="-1552.45" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1227.36" cy="-1552.45" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1227.36" y="-1548.75" font-family="Times,serif" font-size="14.00">x37</text>
 </g>
 <!-- x37&#45;&gt;gvf -->
@@ -1883,7 +1883,7 @@
 <!-- ssp -->
 <g id="node146" class="node">
 <title>ssp</title>
-<ellipse fill="none" stroke="black" cx="1368.36" cy="-1462.71" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1368.36" cy="-1462.71" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1368.36" y="-1466.51" font-family="Times,serif" font-size="14.00">ssp</text>
 <text text-anchor="middle" x="1368.36" y="-1451.51" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1896,7 +1896,7 @@
 <!-- y37 -->
 <g id="node95" class="node">
 <title>y37</title>
-<ellipse fill="none" stroke="black" cx="1387.36" cy="-1552.45" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1387.36" cy="-1552.45" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1387.36" y="-1548.75" font-family="Times,serif" font-size="14.00">y37</text>
 </g>
 <!-- y37&#45;&gt;gvf -->
@@ -1914,7 +1914,7 @@
 <!-- nsc -->
 <g id="node142" class="node">
 <title>nsc</title>
-<ellipse fill="none" stroke="black" cx="724.36" cy="-5321.54" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="724.36" cy="-5321.54" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="724.36" y="-5325.34" font-family="Times,serif" font-size="14.00">nsc</text>
 <text text-anchor="middle" x="724.36" y="-5310.34" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -1927,7 +1927,7 @@
 <!-- djk -->
 <g id="node97" class="node">
 <title>djk</title>
-<ellipse fill="none" stroke="black" cx="795.36" cy="-5501.02" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="795.36" cy="-5501.02" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="795.36" y="-5504.82" font-family="Times,serif" font-size="14.00">djk</text>
 <text text-anchor="middle" x="795.36" y="-5489.82" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1946,14 +1946,14 @@
 <!-- chf -->
 <g id="node98" class="node">
 <title>chf</title>
-<ellipse fill="none" stroke="black" cx="544.36" cy="-4603.62" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="544.36" cy="-4603.62" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="544.36" y="-4607.42" font-family="Times,serif" font-size="14.00">chf</text>
 <text text-anchor="middle" x="544.36" y="-4592.42" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
 <!-- z19 -->
 <g id="node168" class="node">
 <title>z19</title>
-<ellipse fill="none" stroke="black" cx="648.36" cy="-4513.88" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="648.36" cy="-4513.88" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="648.36" y="-4517.68" font-family="Times,serif" font-size="14.00">z19</text>
 <text text-anchor="middle" x="648.36" y="-4502.68" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -1966,7 +1966,7 @@
 <!-- qpp -->
 <g id="node265" class="node">
 <title>qpp</title>
-<ellipse fill="none" stroke="black" cx="561.36" cy="-4513.88" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="561.36" cy="-4513.88" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="561.36" y="-4517.68" font-family="Times,serif" font-size="14.00">qpp</text>
 <text text-anchor="middle" x="561.36" y="-4502.68" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1979,7 +1979,7 @@
 <!-- nrf -->
 <g id="node99" class="node">
 <title>nrf</title>
-<ellipse fill="none" stroke="black" cx="511.36" cy="-4693.36" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="511.36" cy="-4693.36" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="511.36" y="-4697.16" font-family="Times,serif" font-size="14.00">nrf</text>
 <text text-anchor="middle" x="511.36" y="-4682.16" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -1992,7 +1992,7 @@
 <!-- jkk -->
 <g id="node100" class="node">
 <title>jkk</title>
-<ellipse fill="none" stroke="black" cx="431.36" cy="-4783.1" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="431.36" cy="-4783.1" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="431.36" y="-4786.9" font-family="Times,serif" font-size="14.00">jkk</text>
 <text text-anchor="middle" x="431.36" y="-4771.9" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2005,14 +2005,14 @@
 <!-- vvd -->
 <g id="node101" class="node">
 <title>vvd</title>
-<ellipse fill="none" stroke="black" cx="1146.36" cy="-1552.45" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1146.36" cy="-1552.45" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1146.36" y="-1556.25" font-family="Times,serif" font-size="14.00">vvd</text>
 <text text-anchor="middle" x="1146.36" y="-1541.25" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- cqv -->
 <g id="node163" class="node">
 <title>cqv</title>
-<ellipse fill="none" stroke="black" cx="1114.36" cy="-1462.71" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1114.36" cy="-1462.71" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="1114.36" y="-1466.51" font-family="Times,serif" font-size="14.00">cqv</text>
 <text text-anchor="middle" x="1114.36" y="-1451.51" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2025,7 +2025,7 @@
 <!-- rtc -->
 <g id="node102" class="node">
 <title>rtc</title>
-<ellipse fill="none" stroke="black" cx="1278.36" cy="-1642.19" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1278.36" cy="-1642.19" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="1278.36" y="-1645.99" font-family="Times,serif" font-size="14.00">rtc</text>
 <text text-anchor="middle" x="1278.36" y="-1630.99" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2038,7 +2038,7 @@
 <!-- z36 -->
 <g id="node310" class="node">
 <title>z36</title>
-<ellipse fill="none" stroke="black" cx="1307.36" cy="-1552.45" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1307.36" cy="-1552.45" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1307.36" y="-1556.25" font-family="Times,serif" font-size="14.00">z36</text>
 <text text-anchor="middle" x="1307.36" y="-1541.25" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2051,7 +2051,7 @@
 <!-- rhc -->
 <g id="node103" class="node">
 <title>rhc</title>
-<ellipse fill="none" stroke="black" cx="1170.36" cy="-1642.19" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1170.36" cy="-1642.19" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1170.36" y="-1645.99" font-family="Times,serif" font-size="14.00">rhc</text>
 <text text-anchor="middle" x="1170.36" y="-1630.99" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2070,7 +2070,7 @@
 <!-- tqw -->
 <g id="node104" class="node">
 <title>tqw</title>
-<ellipse fill="none" stroke="black" cx="628.36" cy="-5859.98" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="628.36" cy="-5859.98" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="628.36" y="-5863.78" font-family="Times,serif" font-size="14.00">tqw</text>
 <text text-anchor="middle" x="628.36" y="-5848.78" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2089,7 +2089,7 @@
 <!-- y12 -->
 <g id="node105" class="node">
 <title>y12</title>
-<ellipse fill="none" stroke="black" cx="478.36" cy="-5949.72" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="478.36" cy="-5949.72" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="478.36" y="-5946.02" font-family="Times,serif" font-size="14.00">y12</text>
 </g>
 <!-- y12&#45;&gt;tqw -->
@@ -2101,7 +2101,7 @@
 <!-- fdg -->
 <g id="node255" class="node">
 <title>fdg</title>
-<ellipse fill="none" stroke="black" cx="505.36" cy="-5859.98" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="505.36" cy="-5859.98" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="505.36" y="-5863.78" font-family="Times,serif" font-size="14.00">fdg</text>
 <text text-anchor="middle" x="505.36" y="-5848.78" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2114,7 +2114,7 @@
 <!-- x12 -->
 <g id="node106" class="node">
 <title>x12</title>
-<ellipse fill="none" stroke="black" cx="638.36" cy="-5949.72" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="638.36" cy="-5949.72" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="638.36" y="-5946.02" font-family="Times,serif" font-size="14.00">x12</text>
 </g>
 <!-- x12&#45;&gt;tqw -->
@@ -2144,7 +2144,7 @@
 <!-- cmk -->
 <g id="node108" class="node">
 <title>cmk</title>
-<ellipse fill="none" stroke="black" cx="503.36" cy="-3795.95" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="503.36" cy="-3795.95" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="503.36" y="-3799.75" font-family="Times,serif" font-size="14.00">cmk</text>
 <text text-anchor="middle" x="503.36" y="-3784.75" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2169,7 +2169,7 @@
 <!-- mvn -->
 <g id="node111" class="node">
 <title>mvn</title>
-<ellipse fill="none" stroke="black" cx="518.36" cy="-4783.1" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="518.36" cy="-4783.1" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="518.36" y="-4786.9" font-family="Times,serif" font-size="14.00">mvn</text>
 <text text-anchor="middle" x="518.36" y="-4771.9" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2182,7 +2182,7 @@
 <!-- z18 -->
 <g id="node264" class="node">
 <title>z18</title>
-<ellipse fill="none" stroke="black" cx="598.36" cy="-4693.36" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="598.36" cy="-4693.36" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="598.36" y="-4697.16" font-family="Times,serif" font-size="14.00">z18</text>
 <text text-anchor="middle" x="598.36" y="-4682.16" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2195,7 +2195,7 @@
 <!-- x18 -->
 <g id="node112" class="node">
 <title>x18</title>
-<ellipse fill="none" stroke="black" cx="437.36" cy="-4872.84" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="437.36" cy="-4872.84" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="437.36" y="-4869.14" font-family="Times,serif" font-size="14.00">x18</text>
 </g>
 <!-- x18&#45;&gt;jkk -->
@@ -2213,7 +2213,7 @@
 <!-- y18 -->
 <g id="node113" class="node">
 <title>y18</title>
-<ellipse fill="none" stroke="black" cx="511.36" cy="-4872.84" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="511.36" cy="-4872.84" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="511.36" y="-4869.14" font-family="Times,serif" font-size="14.00">y18</text>
 </g>
 <!-- y18&#45;&gt;jkk -->
@@ -2231,7 +2231,7 @@
 <!-- vcj -->
 <g id="node115" class="node">
 <title>vcj</title>
-<ellipse fill="none" stroke="black" cx="458.36" cy="-4154.92" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="458.36" cy="-4154.92" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="458.36" y="-4158.72" font-family="Times,serif" font-size="14.00">vcj</text>
 <text text-anchor="middle" x="458.36" y="-4143.72" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2250,7 +2250,7 @@
 <!-- z21 -->
 <g id="node175" class="node">
 <title>z21</title>
-<ellipse fill="none" stroke="black" cx="545.36" cy="-4154.92" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="545.36" cy="-4154.92" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="545.36" y="-4158.72" font-family="Times,serif" font-size="14.00">z21</text>
 <text text-anchor="middle" x="545.36" y="-4143.72" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2263,7 +2263,7 @@
 <!-- vnk -->
 <g id="node117" class="node">
 <title>vnk</title>
-<ellipse fill="none" stroke="black" cx="458.36" cy="-4244.66" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="458.36" cy="-4244.66" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="458.36" y="-4248.46" font-family="Times,serif" font-size="14.00">vnk</text>
 <text text-anchor="middle" x="458.36" y="-4233.46" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2282,7 +2282,7 @@
 <!-- trg -->
 <g id="node118" class="node">
 <title>trg</title>
-<ellipse fill="none" stroke="black" cx="439.36" cy="-3526.73" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="439.36" cy="-3526.73" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="439.36" y="-3530.53" font-family="Times,serif" font-size="14.00">trg</text>
 <text text-anchor="middle" x="439.36" y="-3515.53" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2295,7 +2295,7 @@
 <!-- y25 -->
 <g id="node119" class="node">
 <title>y25</title>
-<ellipse fill="none" stroke="black" cx="446.36" cy="-3616.47" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="446.36" cy="-3616.47" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="446.36" y="-3612.77" font-family="Times,serif" font-size="14.00">y25</text>
 </g>
 <!-- y25&#45;&gt;trg -->
@@ -2307,7 +2307,7 @@
 <!-- cfr -->
 <g id="node192" class="node">
 <title>cfr</title>
-<ellipse fill="none" stroke="black" cx="526.36" cy="-3526.73" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="526.36" cy="-3526.73" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="526.36" y="-3530.53" font-family="Times,serif" font-size="14.00">cfr</text>
 <text text-anchor="middle" x="526.36" y="-3515.53" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2320,7 +2320,7 @@
 <!-- x25 -->
 <g id="node120" class="node">
 <title>x25</title>
-<ellipse fill="none" stroke="black" cx="520.36" cy="-3616.47" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="520.36" cy="-3616.47" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="520.36" y="-3612.77" font-family="Times,serif" font-size="14.00">x25</text>
 </g>
 <!-- x25&#45;&gt;trg -->
@@ -2338,7 +2338,7 @@
 <!-- fhp -->
 <g id="node121" class="node">
 <title>fhp</title>
-<ellipse fill="none" stroke="black" cx="459.36" cy="-4334.4" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="459.36" cy="-4334.4" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="459.36" y="-4338.2" font-family="Times,serif" font-size="14.00">fhp</text>
 <text text-anchor="middle" x="459.36" y="-4323.2" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2351,7 +2351,7 @@
 <!-- tsc -->
 <g id="node122" class="node">
 <title>tsc</title>
-<ellipse fill="none" stroke="black" cx="591.36" cy="-4424.14" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="591.36" cy="-4424.14" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="591.36" y="-4427.94" font-family="Times,serif" font-size="14.00">tsc</text>
 <text text-anchor="middle" x="591.36" y="-4412.94" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2364,7 +2364,7 @@
 <!-- z20 -->
 <g id="node302" class="node">
 <title>z20</title>
-<ellipse fill="none" stroke="black" cx="620.36" cy="-4334.4" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="620.36" cy="-4334.4" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="620.36" y="-4338.2" font-family="Times,serif" font-size="14.00">z20</text>
 <text text-anchor="middle" x="620.36" y="-4323.2" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2377,7 +2377,7 @@
 <!-- pns -->
 <g id="node123" class="node">
 <title>pns</title>
-<ellipse fill="none" stroke="black" cx="484.36" cy="-4424.14" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="484.36" cy="-4424.14" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="484.36" y="-4427.94" font-family="Times,serif" font-size="14.00">pns</text>
 <text text-anchor="middle" x="484.36" y="-4412.94" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2402,7 +2402,7 @@
 <!-- vmr -->
 <g id="node125" class="node">
 <title>vmr</title>
-<ellipse fill="none" stroke="black" cx="673.36" cy="-5142.06" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="673.36" cy="-5142.06" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="673.36" y="-5145.86" font-family="Times,serif" font-size="14.00">vmr</text>
 <text text-anchor="middle" x="673.36" y="-5130.86" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2421,7 +2421,7 @@
 <!-- x33 -->
 <g id="node126" class="node">
 <title>x33</title>
-<ellipse fill="none" stroke="black" cx="1569.36" cy="-2180.63" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1569.36" cy="-2180.63" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1569.36" y="-2176.93" font-family="Times,serif" font-size="14.00">x33</text>
 </g>
 <!-- x33&#45;&gt;smf -->
@@ -2433,7 +2433,7 @@
 <!-- wkw -->
 <g id="node288" class="node">
 <title>wkw</title>
-<ellipse fill="none" stroke="black" cx="1572.36" cy="-2090.89" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1572.36" cy="-2090.89" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1572.36" y="-2094.69" font-family="Times,serif" font-size="14.00">wkw</text>
 <text text-anchor="middle" x="1572.36" y="-2079.69" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2446,7 +2446,7 @@
 <!-- y33 -->
 <g id="node127" class="node">
 <title>y33</title>
-<ellipse fill="none" stroke="black" cx="1489.36" cy="-2180.63" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1489.36" cy="-2180.63" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1489.36" y="-2176.93" font-family="Times,serif" font-size="14.00">y33</text>
 </g>
 <!-- y33&#45;&gt;smf -->
@@ -2470,14 +2470,14 @@
 <!-- njd -->
 <g id="node129" class="node">
 <title>njd</title>
-<ellipse fill="none" stroke="black" cx="1438.36" cy="-744.79" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1438.36" cy="-744.79" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1438.36" y="-748.59" font-family="Times,serif" font-size="14.00">njd</text>
 <text text-anchor="middle" x="1438.36" y="-733.59" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- hdc -->
 <g id="node170" class="node">
 <title>hdc</title>
-<ellipse fill="none" stroke="black" cx="1415.36" cy="-565.31" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1415.36" cy="-565.31" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="1415.36" y="-569.11" font-family="Times,serif" font-size="14.00">hdc</text>
 <text text-anchor="middle" x="1415.36" y="-554.11" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2490,7 +2490,7 @@
 <!-- y41 -->
 <g id="node130" class="node">
 <title>y41</title>
-<ellipse fill="none" stroke="black" cx="1347.36" cy="-834.53" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1347.36" cy="-834.53" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1347.36" y="-830.83" font-family="Times,serif" font-size="14.00">y41</text>
 </g>
 <!-- y41&#45;&gt;njd -->
@@ -2502,7 +2502,7 @@
 <!-- hmm -->
 <g id="node238" class="node">
 <title>hmm</title>
-<ellipse fill="none" stroke="black" cx="1347.36" cy="-744.79" rx="37.45" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1347.36" cy="-744.79" rx="37.45" ry="26.74"/>
 <text text-anchor="middle" x="1347.36" y="-748.59" font-family="Times,serif" font-size="14.00">hmm</text>
 <text text-anchor="middle" x="1347.36" y="-733.59" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2515,7 +2515,7 @@
 <!-- x41 -->
 <g id="node131" class="node">
 <title>x41</title>
-<ellipse fill="none" stroke="black" cx="1507.36" cy="-834.53" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1507.36" cy="-834.53" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1507.36" y="-830.83" font-family="Times,serif" font-size="14.00">x41</text>
 </g>
 <!-- x41&#45;&gt;njd -->
@@ -2533,7 +2533,7 @@
 <!-- mch -->
 <g id="node133" class="node">
 <title>mch</title>
-<ellipse fill="none" stroke="black" cx="309.36" cy="-7116.34" rx="33.47" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="309.36" cy="-7116.34" rx="33.47" ry="26.74"/>
 <text text-anchor="middle" x="309.36" y="-7120.14" font-family="Times,serif" font-size="14.00">mch</text>
 <text text-anchor="middle" x="309.36" y="-7105.14" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2552,14 +2552,14 @@
 <!-- z16 -->
 <g id="node135" class="node">
 <title>z16</title>
-<ellipse fill="none" stroke="black" cx="796.36" cy="-5142.06" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="796.36" cy="-5142.06" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="796.36" y="-5145.86" font-family="Times,serif" font-size="14.00">z16</text>
 <text text-anchor="middle" x="796.36" y="-5130.86" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
 <!-- y16 -->
 <g id="node136" class="node">
 <title>y16</title>
-<ellipse fill="none" stroke="black" cx="672.36" cy="-5231.8" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="672.36" cy="-5231.8" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="672.36" y="-5228.1" font-family="Times,serif" font-size="14.00">y16</text>
 </g>
 <!-- y16&#45;&gt;vmr -->
@@ -2577,7 +2577,7 @@
 <!-- x16 -->
 <g id="node137" class="node">
 <title>x16</title>
-<ellipse fill="none" stroke="black" cx="832.36" cy="-5231.8" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="832.36" cy="-5231.8" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="832.36" y="-5228.1" font-family="Times,serif" font-size="14.00">x16</text>
 </g>
 <!-- x16&#45;&gt;vmr -->
@@ -2595,7 +2595,7 @@
 <!-- wbg -->
 <g id="node138" class="node">
 <title>wbg</title>
-<ellipse fill="none" stroke="black" cx="882.36" cy="-5501.02" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="882.36" cy="-5501.02" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="882.36" y="-5504.82" font-family="Times,serif" font-size="14.00">wbg</text>
 <text text-anchor="middle" x="882.36" y="-5489.82" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2608,7 +2608,7 @@
 <!-- y14 -->
 <g id="node139" class="node">
 <title>y14</title>
-<ellipse fill="none" stroke="black" cx="799.36" cy="-5590.76" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="799.36" cy="-5590.76" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="799.36" y="-5587.06" font-family="Times,serif" font-size="14.00">y14</text>
 </g>
 <!-- y14&#45;&gt;djk -->
@@ -2626,7 +2626,7 @@
 <!-- x14 -->
 <g id="node140" class="node">
 <title>x14</title>
-<ellipse fill="none" stroke="black" cx="879.36" cy="-5590.76" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="879.36" cy="-5590.76" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="879.36" y="-5587.06" font-family="Times,serif" font-size="14.00">x14</text>
 </g>
 <!-- x14&#45;&gt;djk -->
@@ -2650,7 +2650,7 @@
 <!-- z15 -->
 <g id="node223" class="node">
 <title>z15</title>
-<ellipse fill="none" stroke="black" cx="752.36" cy="-5231.8" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="752.36" cy="-5231.8" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="752.36" y="-5235.6" font-family="Times,serif" font-size="14.00">z15</text>
 <text text-anchor="middle" x="752.36" y="-5220.6" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2681,7 +2681,7 @@
 <!-- z23 -->
 <g id="node311" class="node">
 <title>z23</title>
-<ellipse fill="none" stroke="black" cx="738.36" cy="-3795.95" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="738.36" cy="-3795.95" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="738.36" y="-3799.75" font-family="Times,serif" font-size="14.00">z23</text>
 <text text-anchor="middle" x="738.36" y="-3784.75" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2694,7 +2694,7 @@
 <!-- njv -->
 <g id="node159" class="node">
 <title>njv</title>
-<ellipse fill="none" stroke="black" cx="564.36" cy="-5680.5" rx="27" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="564.36" cy="-5680.5" rx="27" ry="26.74"/>
 <text text-anchor="middle" x="564.36" y="-5684.3" font-family="Times,serif" font-size="14.00">njv</text>
 <text text-anchor="middle" x="564.36" y="-5669.3" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2719,7 +2719,7 @@
 <!-- gkk -->
 <g id="node171" class="node">
 <title>gkk</title>
-<ellipse fill="none" stroke="black" cx="1265.36" cy="-655.05" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1265.36" cy="-655.05" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1265.36" y="-658.85" font-family="Times,serif" font-size="14.00">gkk</text>
 <text text-anchor="middle" x="1265.36" y="-643.85" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2732,7 +2732,7 @@
 <!-- z41 -->
 <g id="node308" class="node">
 <title>z41</title>
-<ellipse fill="none" stroke="black" cx="1352.36" cy="-655.05" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1352.36" cy="-655.05" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1352.36" y="-658.85" font-family="Times,serif" font-size="14.00">z41</text>
 <text text-anchor="middle" x="1352.36" y="-643.85" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2751,14 +2751,14 @@
 <!-- z08 -->
 <g id="node149" class="node">
 <title>z08</title>
-<ellipse fill="none" stroke="black" cx="257.36" cy="-6488.16" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="257.36" cy="-6488.16" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="257.36" y="-6491.96" font-family="Times,serif" font-size="14.00">z08</text>
 <text text-anchor="middle" x="257.36" y="-6476.96" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- tbw -->
 <g id="node150" class="node">
 <title>tbw</title>
-<ellipse fill="none" stroke="black" cx="252.36" cy="-6577.9" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="252.36" cy="-6577.9" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="252.36" y="-6581.7" font-family="Times,serif" font-size="14.00">tbw</text>
 <text text-anchor="middle" x="252.36" y="-6566.7" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2789,7 +2789,7 @@
 <!-- wjt -->
 <g id="node234" class="node">
 <title>wjt</title>
-<ellipse fill="none" stroke="black" cx="598.36" cy="-4783.1" rx="27.65" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="598.36" cy="-4783.1" rx="27.65" ry="26.74"/>
 <text text-anchor="middle" x="598.36" y="-4786.9" font-family="Times,serif" font-size="14.00">wjt</text>
 <text text-anchor="middle" x="598.36" y="-4771.9" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2802,7 +2802,7 @@
 <!-- mgm -->
 <g id="node205" class="node">
 <title>mgm</title>
-<ellipse fill="none" stroke="black" cx="639.36" cy="-3526.73" rx="37.45" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="639.36" cy="-3526.73" rx="37.45" ry="26.74"/>
 <text text-anchor="middle" x="639.36" y="-3530.53" font-family="Times,serif" font-size="14.00">mgm</text>
 <text text-anchor="middle" x="639.36" y="-3515.53" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -2815,7 +2815,7 @@
 <!-- dsw -->
 <g id="node154" class="node">
 <title>dsw</title>
-<ellipse fill="none" stroke="black" cx="333.36" cy="-6936.86" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="333.36" cy="-6936.86" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="333.36" y="-6940.66" font-family="Times,serif" font-size="14.00">dsw</text>
 <text text-anchor="middle" x="333.36" y="-6925.66" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2828,7 +2828,7 @@
 <!-- x06 -->
 <g id="node155" class="node">
 <title>x06</title>
-<ellipse fill="none" stroke="black" cx="252.36" cy="-7026.6" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="252.36" cy="-7026.6" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="252.36" y="-7022.9" font-family="Times,serif" font-size="14.00">x06</text>
 </g>
 <!-- x06&#45;&gt;dsw -->
@@ -2840,7 +2840,7 @@
 <!-- thj -->
 <g id="node216" class="node">
 <title>thj</title>
-<ellipse fill="none" stroke="black" cx="246.36" cy="-6936.86" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="246.36" cy="-6936.86" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="246.36" y="-6940.66" font-family="Times,serif" font-size="14.00">thj</text>
 <text text-anchor="middle" x="246.36" y="-6925.66" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2853,7 +2853,7 @@
 <!-- y06 -->
 <g id="node156" class="node">
 <title>y06</title>
-<ellipse fill="none" stroke="black" cx="326.36" cy="-7026.6" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="326.36" cy="-7026.6" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="326.36" y="-7022.9" font-family="Times,serif" font-size="14.00">y06</text>
 </g>
 <!-- y06&#45;&gt;dsw -->
@@ -2871,14 +2871,14 @@
 <!-- z13 -->
 <g id="node157" class="node">
 <title>z13</title>
-<ellipse fill="none" stroke="black" cx="651.36" cy="-5590.76" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="651.36" cy="-5590.76" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="651.36" y="-5594.56" font-family="Times,serif" font-size="14.00">z13</text>
 <text text-anchor="middle" x="651.36" y="-5579.56" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- shm -->
 <g id="node158" class="node">
 <title>shm</title>
-<ellipse fill="none" stroke="black" cx="643.36" cy="-5680.5" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="643.36" cy="-5680.5" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="643.36" y="-5684.3" font-family="Times,serif" font-size="14.00">shm</text>
 <text text-anchor="middle" x="643.36" y="-5669.3" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -2909,7 +2909,7 @@
 <!-- x38 -->
 <g id="node160" class="node">
 <title>x38</title>
-<ellipse fill="none" stroke="black" cx="1224.36" cy="-1372.97" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1224.36" cy="-1372.97" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1224.36" y="-1369.27" font-family="Times,serif" font-size="14.00">x38</text>
 </g>
 <!-- x38&#45;&gt;tnp -->
@@ -2921,7 +2921,7 @@
 <!-- sfs -->
 <g id="node188" class="node">
 <title>sfs</title>
-<ellipse fill="none" stroke="black" cx="1143.36" cy="-1283.23" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1143.36" cy="-1283.23" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1143.36" y="-1287.03" font-family="Times,serif" font-size="14.00">sfs</text>
 <text text-anchor="middle" x="1143.36" y="-1272.03" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2934,7 +2934,7 @@
 <!-- y38 -->
 <g id="node161" class="node">
 <title>y38</title>
-<ellipse fill="none" stroke="black" cx="1150.36" cy="-1372.97" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1150.36" cy="-1372.97" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1150.36" y="-1369.27" font-family="Times,serif" font-size="14.00">y38</text>
 </g>
 <!-- y38&#45;&gt;tnp -->
@@ -2964,7 +2964,7 @@
 <!-- gjj -->
 <g id="node164" class="node">
 <title>gjj</title>
-<ellipse fill="none" stroke="black" cx="270.36" cy="-6847.12" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="270.36" cy="-6847.12" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="270.36" y="-6850.92" font-family="Times,serif" font-size="14.00">gjj</text>
 <text text-anchor="middle" x="270.36" y="-6835.92" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -2977,7 +2977,7 @@
 <!-- x32 -->
 <g id="node165" class="node">
 <title>x32</title>
-<ellipse fill="none" stroke="black" cx="1424.36" cy="-2360.11" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1424.36" cy="-2360.11" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1424.36" y="-2356.41" font-family="Times,serif" font-size="14.00">x32</text>
 </g>
 <!-- x32&#45;&gt;hhc -->
@@ -2995,7 +2995,7 @@
 <!-- y32 -->
 <g id="node166" class="node">
 <title>y32</title>
-<ellipse fill="none" stroke="black" cx="1344.36" cy="-2360.11" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1344.36" cy="-2360.11" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1344.36" y="-2356.41" font-family="Times,serif" font-size="14.00">y32</text>
 </g>
 <!-- y32&#45;&gt;hhc -->
@@ -3013,7 +3013,7 @@
 <!-- tmq -->
 <g id="node167" class="node">
 <title>tmq</title>
-<ellipse fill="none" stroke="black" cx="958.36" cy="-2629.33" rx="31.64" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="958.36" cy="-2629.33" rx="31.64" ry="26.74"/>
 <text text-anchor="middle" x="958.36" y="-2633.13" font-family="Times,serif" font-size="14.00">tmq</text>
 <text text-anchor="middle" x="958.36" y="-2618.13" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3032,7 +3032,7 @@
 <!-- gdq -->
 <g id="node169" class="node">
 <title>gdq</title>
-<ellipse fill="none" stroke="black" cx="648.36" cy="-4603.62" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="648.36" cy="-4603.62" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="648.36" y="-4607.42" font-family="Times,serif" font-size="14.00">gdq</text>
 <text text-anchor="middle" x="648.36" y="-4592.42" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3051,7 +3051,7 @@
 <!-- wdk -->
 <g id="node268" class="node">
 <title>wdk</title>
-<ellipse fill="none" stroke="black" cx="1415.36" cy="-475.57" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1415.36" cy="-475.57" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1415.36" y="-479.37" font-family="Times,serif" font-size="14.00">wdk</text>
 <text text-anchor="middle" x="1415.36" y="-464.37" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3064,7 +3064,7 @@
 <!-- z42 -->
 <g id="node312" class="node">
 <title>z42</title>
-<ellipse fill="none" stroke="black" cx="1502.36" cy="-475.57" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1502.36" cy="-475.57" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1502.36" y="-479.37" font-family="Times,serif" font-size="14.00">z42</text>
 <text text-anchor="middle" x="1502.36" y="-464.37" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3083,7 +3083,7 @@
 <!-- wsm -->
 <g id="node172" class="node">
 <title>wsm</title>
-<ellipse fill="none" stroke="black" cx="664.36" cy="-2898.55" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="664.36" cy="-2898.55" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="664.36" y="-2902.35" font-family="Times,serif" font-size="14.00">wsm</text>
 <text text-anchor="middle" x="664.36" y="-2887.35" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3102,7 +3102,7 @@
 <!-- z28 -->
 <g id="node273" class="node">
 <title>z28</title>
-<ellipse fill="none" stroke="black" cx="751.36" cy="-2898.55" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="751.36" cy="-2898.55" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="751.36" y="-2902.35" font-family="Times,serif" font-size="14.00">z28</text>
 <text text-anchor="middle" x="751.36" y="-2887.35" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3115,7 +3115,7 @@
 <!-- dtn -->
 <g id="node174" class="node">
 <title>dtn</title>
-<ellipse fill="none" stroke="black" cx="745.36" cy="-2988.29" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="745.36" cy="-2988.29" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="745.36" y="-2992.09" font-family="Times,serif" font-size="14.00">dtn</text>
 <text text-anchor="middle" x="745.36" y="-2977.09" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3134,7 +3134,7 @@
 <!-- fnw -->
 <g id="node224" class="node">
 <title>fnw</title>
-<ellipse fill="none" stroke="black" cx="1311.36" cy="-206.35" rx="30.31" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1311.36" cy="-206.35" rx="30.31" ry="26.74"/>
 <text text-anchor="middle" x="1311.36" y="-210.15" font-family="Times,serif" font-size="14.00">fnw</text>
 <text text-anchor="middle" x="1311.36" y="-195.15" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3147,7 +3147,7 @@
 <!-- y08 -->
 <g id="node177" class="node">
 <title>y08</title>
-<ellipse fill="none" stroke="black" cx="412.36" cy="-6667.64" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="412.36" cy="-6667.64" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="412.36" y="-6663.94" font-family="Times,serif" font-size="14.00">y08</text>
 </g>
 <!-- y08&#45;&gt;nbj -->
@@ -3165,7 +3165,7 @@
 <!-- x08 -->
 <g id="node178" class="node">
 <title>x08</title>
-<ellipse fill="none" stroke="black" cx="252.36" cy="-6667.64" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="252.36" cy="-6667.64" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="252.36" y="-6663.94" font-family="Times,serif" font-size="14.00">x08</text>
 </g>
 <!-- x08&#45;&gt;nbj -->
@@ -3183,14 +3183,14 @@
 <!-- wfr -->
 <g id="node179" class="node">
 <title>wfr</title>
-<ellipse fill="none" stroke="black" cx="246.36" cy="-7295.82" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="246.36" cy="-7295.82" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="246.36" y="-7299.62" font-family="Times,serif" font-size="14.00">wfr</text>
 <text text-anchor="middle" x="246.36" y="-7284.62" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- z04 -->
 <g id="node194" class="node">
 <title>z04</title>
-<ellipse fill="none" stroke="black" cx="35.36" cy="-7206.08" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="35.36" cy="-7206.08" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="35.36" y="-7209.88" font-family="Times,serif" font-size="14.00">z04</text>
 <text text-anchor="middle" x="35.36" y="-7194.88" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3203,7 +3203,7 @@
 <!-- sjc -->
 <g id="node220" class="node">
 <title>sjc</title>
-<ellipse fill="none" stroke="black" cx="270.36" cy="-7206.08" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="270.36" cy="-7206.08" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="270.36" y="-7209.88" font-family="Times,serif" font-size="14.00">sjc</text>
 <text text-anchor="middle" x="270.36" y="-7194.88" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3216,7 +3216,7 @@
 <!-- x04 -->
 <g id="node180" class="node">
 <title>x04</title>
-<ellipse fill="none" stroke="black" cx="327.36" cy="-7385.56" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="327.36" cy="-7385.56" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="327.36" y="-7381.86" font-family="Times,serif" font-size="14.00">x04</text>
 </g>
 <!-- x04&#45;&gt;wfr -->
@@ -3228,7 +3228,7 @@
 <!-- jhb -->
 <g id="node221" class="node">
 <title>jhb</title>
-<ellipse fill="none" stroke="black" cx="333.36" cy="-7295.82" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="333.36" cy="-7295.82" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="333.36" y="-7299.62" font-family="Times,serif" font-size="14.00">jhb</text>
 <text text-anchor="middle" x="333.36" y="-7284.62" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3241,7 +3241,7 @@
 <!-- y04 -->
 <g id="node181" class="node">
 <title>y04</title>
-<ellipse fill="none" stroke="black" cx="253.36" cy="-7385.56" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="253.36" cy="-7385.56" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="253.36" y="-7381.86" font-family="Times,serif" font-size="14.00">y04</text>
 </g>
 <!-- y04&#45;&gt;wfr -->
@@ -3265,7 +3265,7 @@
 <!-- dhq -->
 <g id="node183" class="node">
 <title>dhq</title>
-<ellipse fill="none" stroke="black" cx="1276.36" cy="-2449.85" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1276.36" cy="-2449.85" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1276.36" y="-2453.65" font-family="Times,serif" font-size="14.00">dhq</text>
 <text text-anchor="middle" x="1276.36" y="-2438.65" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3278,7 +3278,7 @@
 <!-- z39 -->
 <g id="node184" class="node">
 <title>z39</title>
-<ellipse fill="none" stroke="black" cx="1130.36" cy="-1014.01" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1130.36" cy="-1014.01" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1130.36" y="-1017.81" font-family="Times,serif" font-size="14.00">z39</text>
 <text text-anchor="middle" x="1130.36" y="-1002.81" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3297,7 +3297,7 @@
 <!-- bwj -->
 <g id="node186" class="node">
 <title>bwj</title>
-<ellipse fill="none" stroke="black" cx="1305.36" cy="-1103.75" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1305.36" cy="-1103.75" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1305.36" y="-1107.55" font-family="Times,serif" font-size="14.00">bwj</text>
 <text text-anchor="middle" x="1305.36" y="-1092.55" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3340,7 +3340,7 @@
 <!-- dqh -->
 <g id="node191" class="node">
 <title>dqh</title>
-<ellipse fill="none" stroke="black" cx="1083.36" cy="-1642.19" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1083.36" cy="-1642.19" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1083.36" y="-1645.99" font-family="Times,serif" font-size="14.00">dqh</text>
 <text text-anchor="middle" x="1083.36" y="-1630.99" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3353,7 +3353,7 @@
 <!-- z25 -->
 <g id="node204" class="node">
 <title>z25</title>
-<ellipse fill="none" stroke="black" cx="663.36" cy="-3436.99" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="663.36" cy="-3436.99" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="663.36" y="-3440.79" font-family="Times,serif" font-size="14.00">z25</text>
 <text text-anchor="middle" x="663.36" y="-3425.79" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3366,7 +3366,7 @@
 <!-- kkp -->
 <g id="node246" class="node">
 <title>kkp</title>
-<ellipse fill="none" stroke="black" cx="502.36" cy="-3436.99" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="502.36" cy="-3436.99" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="502.36" y="-3440.79" font-family="Times,serif" font-size="14.00">kkp</text>
 <text text-anchor="middle" x="502.36" y="-3425.79" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3391,7 +3391,7 @@
 <!-- pjh -->
 <g id="node196" class="node">
 <title>pjh</title>
-<ellipse fill="none" stroke="black" cx="587.36" cy="-6039.46" rx="27.65" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="587.36" cy="-6039.46" rx="27.65" ry="26.74"/>
 <text text-anchor="middle" x="587.36" y="-6043.26" font-family="Times,serif" font-size="14.00">pjh</text>
 <text text-anchor="middle" x="587.36" y="-6028.26" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3410,14 +3410,14 @@
 <!-- tck -->
 <g id="node197" class="node">
 <title>tck</title>
-<ellipse fill="none" stroke="black" cx="549.36" cy="-6218.94" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="549.36" cy="-6218.94" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="549.36" y="-6222.74" font-family="Times,serif" font-size="14.00">tck</text>
 <text text-anchor="middle" x="549.36" y="-6207.74" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- z10 -->
 <g id="node209" class="node">
 <title>z10</title>
-<ellipse fill="none" stroke="black" cx="553.36" cy="-6129.2" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="553.36" cy="-6129.2" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="553.36" y="-6133" font-family="Times,serif" font-size="14.00">z10</text>
 <text text-anchor="middle" x="553.36" y="-6118" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3430,7 +3430,7 @@
 <!-- cdj -->
 <g id="node245" class="node">
 <title>cdj</title>
-<ellipse fill="none" stroke="black" cx="466.36" cy="-6129.2" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="466.36" cy="-6129.2" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="466.36" y="-6133" font-family="Times,serif" font-size="14.00">cdj</text>
 <text text-anchor="middle" x="466.36" y="-6118" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3443,7 +3443,7 @@
 <!-- x10 -->
 <g id="node198" class="node">
 <title>x10</title>
-<ellipse fill="none" stroke="black" cx="553.36" cy="-6308.68" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="553.36" cy="-6308.68" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="553.36" y="-6304.98" font-family="Times,serif" font-size="14.00">x10</text>
 </g>
 <!-- x10&#45;&gt;tck -->
@@ -3455,7 +3455,7 @@
 <!-- bqd -->
 <g id="node304" class="node">
 <title>bqd</title>
-<ellipse fill="none" stroke="black" cx="636.36" cy="-6218.94" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="636.36" cy="-6218.94" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="636.36" y="-6222.74" font-family="Times,serif" font-size="14.00">bqd</text>
 <text text-anchor="middle" x="636.36" y="-6207.74" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3468,7 +3468,7 @@
 <!-- y10 -->
 <g id="node199" class="node">
 <title>y10</title>
-<ellipse fill="none" stroke="black" cx="633.36" cy="-6308.68" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="633.36" cy="-6308.68" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="633.36" y="-6304.98" font-family="Times,serif" font-size="14.00">y10</text>
 </g>
 <!-- y10&#45;&gt;tck -->
@@ -3486,7 +3486,7 @@
 <!-- kgb -->
 <g id="node200" class="node">
 <title>kgb</title>
-<ellipse fill="none" stroke="black" cx="509.36" cy="-4962.58" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="509.36" cy="-4962.58" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="509.36" y="-4966.38" font-family="Times,serif" font-size="14.00">kgb</text>
 <text text-anchor="middle" x="509.36" y="-4951.38" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3499,7 +3499,7 @@
 <!-- x17 -->
 <g id="node201" class="node">
 <title>x17</title>
-<ellipse fill="none" stroke="black" cx="505.36" cy="-5052.32" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="505.36" cy="-5052.32" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="505.36" y="-5048.62" font-family="Times,serif" font-size="14.00">x17</text>
 </g>
 <!-- x17&#45;&gt;vtd -->
@@ -3517,7 +3517,7 @@
 <!-- y17 -->
 <g id="node202" class="node">
 <title>y17</title>
-<ellipse fill="none" stroke="black" cx="428.36" cy="-5052.32" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="428.36" cy="-5052.32" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="428.36" y="-5048.62" font-family="Times,serif" font-size="14.00">y17</text>
 </g>
 <!-- y17&#45;&gt;vtd -->
@@ -3535,7 +3535,7 @@
 <!-- rnq -->
 <g id="node299" class="node">
 <title>rnq</title>
-<ellipse fill="none" stroke="black" cx="673.36" cy="-3885.7" rx="28.98" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="673.36" cy="-3885.7" rx="28.98" ry="26.74"/>
 <text text-anchor="middle" x="673.36" y="-3889.5" font-family="Times,serif" font-size="14.00">rnq</text>
 <text text-anchor="middle" x="673.36" y="-3874.5" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3560,7 +3560,7 @@
 <!-- z45 -->
 <g id="node206" class="node">
 <title>z45</title>
-<ellipse fill="none" stroke="black" cx="1434.36" cy="-26.87" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="1434.36" cy="-26.87" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="1434.36" y="-30.67" font-family="Times,serif" font-size="14.00">z45</text>
 <text text-anchor="middle" x="1434.36" y="-15.67" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3579,7 +3579,7 @@
 <!-- ddg -->
 <g id="node210" class="node">
 <title>ddg</title>
-<ellipse fill="none" stroke="black" cx="466.36" cy="-6218.94" rx="31.23" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="466.36" cy="-6218.94" rx="31.23" ry="26.74"/>
 <text text-anchor="middle" x="466.36" y="-6222.74" font-family="Times,serif" font-size="14.00">ddg</text>
 <text text-anchor="middle" x="466.36" y="-6207.74" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3598,7 +3598,7 @@
 <!-- tpc -->
 <g id="node211" class="node">
 <title>tpc</title>
-<ellipse fill="none" stroke="black" cx="832.36" cy="-3167.77" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="832.36" cy="-3167.77" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="832.36" y="-3171.57" font-family="Times,serif" font-size="14.00">tpc</text>
 <text text-anchor="middle" x="832.36" y="-3156.57" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3611,7 +3611,7 @@
 <!-- y27 -->
 <g id="node212" class="node">
 <title>y27</title>
-<ellipse fill="none" stroke="black" cx="749.36" cy="-3257.51" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="749.36" cy="-3257.51" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="749.36" y="-3253.81" font-family="Times,serif" font-size="14.00">y27</text>
 </g>
 <!-- y27&#45;&gt;rvf -->
@@ -3629,7 +3629,7 @@
 <!-- x27 -->
 <g id="node213" class="node">
 <title>x27</title>
-<ellipse fill="none" stroke="black" cx="829.36" cy="-3257.51" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="829.36" cy="-3257.51" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="829.36" y="-3253.81" font-family="Times,serif" font-size="14.00">x27</text>
 </g>
 <!-- x27&#45;&gt;rvf -->
@@ -3647,14 +3647,14 @@
 <!-- z06 -->
 <g id="node214" class="node">
 <title>z06</title>
-<ellipse fill="none" stroke="black" cx="35.36" cy="-6847.12" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="35.36" cy="-6847.12" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="35.36" y="-6850.92" font-family="Times,serif" font-size="14.00">z06</text>
 <text text-anchor="middle" x="35.36" y="-6835.92" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- wjq -->
 <g id="node215" class="node">
 <title>wjq</title>
-<ellipse fill="none" stroke="black" cx="139.36" cy="-6936.86" rx="29.9" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="139.36" cy="-6936.86" rx="29.9" ry="26.74"/>
 <text text-anchor="middle" x="139.36" y="-6940.66" font-family="Times,serif" font-size="14.00">wjq</text>
 <text text-anchor="middle" x="139.36" y="-6925.66" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3685,7 +3685,7 @@
 <!-- cpf -->
 <g id="node217" class="node">
 <title>cpf</title>
-<ellipse fill="none" stroke="black" cx="440.36" cy="-7654.78" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="440.36" cy="-7654.78" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="440.36" y="-7658.58" font-family="Times,serif" font-size="14.00">cpf</text>
 <text text-anchor="middle" x="440.36" y="-7643.58" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3698,7 +3698,7 @@
 <!-- y02 -->
 <g id="node218" class="node">
 <title>y02</title>
-<ellipse fill="none" stroke="black" cx="437.36" cy="-7744.52" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="437.36" cy="-7744.52" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="437.36" y="-7740.82" font-family="Times,serif" font-size="14.00">y02</text>
 </g>
 <!-- y02&#45;&gt;cpf -->
@@ -3710,7 +3710,7 @@
 <!-- vjn -->
 <g id="node266" class="node">
 <title>vjn</title>
-<ellipse fill="none" stroke="black" cx="353.36" cy="-7654.78" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="353.36" cy="-7654.78" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="353.36" y="-7658.58" font-family="Times,serif" font-size="14.00">vjn</text>
 <text text-anchor="middle" x="353.36" y="-7643.58" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3723,7 +3723,7 @@
 <!-- x02 -->
 <g id="node219" class="node">
 <title>x02</title>
-<ellipse fill="none" stroke="black" cx="357.36" cy="-7744.52" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="357.36" cy="-7744.52" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="357.36" y="-7740.82" font-family="Times,serif" font-size="14.00">x02</text>
 </g>
 <!-- x02&#45;&gt;cpf -->
@@ -3753,7 +3753,7 @@
 <!-- gms -->
 <g id="node222" class="node">
 <title>gms</title>
-<ellipse fill="none" stroke="black" cx="273.36" cy="-7565.04" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="273.36" cy="-7565.04" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="273.36" y="-7568.84" font-family="Times,serif" font-size="14.00">gms</text>
 <text text-anchor="middle" x="273.36" y="-7553.84" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3796,7 +3796,7 @@
 <!-- qgq -->
 <g id="node228" class="node">
 <title>qgq</title>
-<ellipse fill="none" stroke="black" cx="735.36" cy="-4603.62" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="735.36" cy="-4603.62" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="735.36" y="-4607.42" font-family="Times,serif" font-size="14.00">qgq</text>
 <text text-anchor="middle" x="735.36" y="-4592.42" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3809,7 +3809,7 @@
 <!-- y19 -->
 <g id="node229" class="node">
 <title>y19</title>
-<ellipse fill="none" stroke="black" cx="678.36" cy="-4693.36" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="678.36" cy="-4693.36" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="678.36" y="-4689.66" font-family="Times,serif" font-size="14.00">y19</text>
 </g>
 <!-- y19&#45;&gt;gdq -->
@@ -3827,7 +3827,7 @@
 <!-- x19 -->
 <g id="node230" class="node">
 <title>x19</title>
-<ellipse fill="none" stroke="black" cx="752.36" cy="-4693.36" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="752.36" cy="-4693.36" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="752.36" y="-4689.66" font-family="Times,serif" font-size="14.00">x19</text>
 </g>
 <!-- x19&#45;&gt;gdq -->
@@ -3845,7 +3845,7 @@
 <!-- spt -->
 <g id="node231" class="node">
 <title>spt</title>
-<ellipse fill="none" stroke="black" cx="273.36" cy="-7654.78" rx="27.65" ry="26.74"/>
+<ellipse fill="green" stroke="green" cx="273.36" cy="-7654.78" rx="27.65" ry="26.74"/>
 <text text-anchor="middle" x="273.36" y="-7658.58" font-family="Times,serif" font-size="14.00">spt</text>
 <text text-anchor="middle" x="273.36" y="-7643.58" font-family="Times,serif" font-size="14.00">OR</text>
 </g>
@@ -3858,7 +3858,7 @@
 <!-- z02 -->
 <g id="node309" class="node">
 <title>z02</title>
-<ellipse fill="none" stroke="black" cx="360.36" cy="-7565.04" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="360.36" cy="-7565.04" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="360.36" y="-7568.84" font-family="Times,serif" font-size="14.00">z02</text>
 <text text-anchor="middle" x="360.36" y="-7553.84" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -3871,7 +3871,7 @@
 <!-- jnh -->
 <g id="node232" class="node">
 <title>jnh</title>
-<ellipse fill="none" stroke="black" cx="208.36" cy="-7744.52" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="208.36" cy="-7744.52" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="208.36" y="-7748.32" font-family="Times,serif" font-size="14.00">jnh</text>
 <text text-anchor="middle" x="208.36" y="-7733.32" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3884,7 +3884,7 @@
 <!-- qkj -->
 <g id="node233" class="node">
 <title>qkj</title>
-<ellipse fill="none" stroke="black" cx="295.36" cy="-7834.26" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="295.36" cy="-7834.26" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="295.36" y="-7838.06" font-family="Times,serif" font-size="14.00">qkj</text>
 <text text-anchor="middle" x="295.36" y="-7823.06" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3909,7 +3909,7 @@
 <!-- wnk -->
 <g id="node235" class="node">
 <title>wnk</title>
-<ellipse fill="none" stroke="black" cx="776.36" cy="-4065.18" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="776.36" cy="-4065.18" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="776.36" y="-4068.98" font-family="Times,serif" font-size="14.00">wnk</text>
 <text text-anchor="middle" x="776.36" y="-4053.98" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3922,7 +3922,7 @@
 <!-- y22 -->
 <g id="node236" class="node">
 <title>y22</title>
-<ellipse fill="none" stroke="black" cx="773.36" cy="-4154.92" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="773.36" cy="-4154.92" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="773.36" y="-4151.22" font-family="Times,serif" font-size="14.00">y22</text>
 </g>
 <!-- y22&#45;&gt;prd -->
@@ -3940,7 +3940,7 @@
 <!-- x22 -->
 <g id="node237" class="node">
 <title>x22</title>
-<ellipse fill="none" stroke="black" cx="693.36" cy="-4154.92" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="693.36" cy="-4154.92" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="693.36" y="-4151.22" font-family="Times,serif" font-size="14.00">x22</text>
 </g>
 <!-- x22&#45;&gt;prd -->
@@ -3970,7 +3970,7 @@
 <!-- x20 -->
 <g id="node239" class="node">
 <title>x20</title>
-<ellipse fill="none" stroke="black" cx="479.36" cy="-4513.88" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="479.36" cy="-4513.88" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="479.36" y="-4510.18" font-family="Times,serif" font-size="14.00">x20</text>
 </g>
 <!-- x20&#45;&gt;pns -->
@@ -3982,7 +3982,7 @@
 <!-- rwm -->
 <g id="node289" class="node">
 <title>rwm</title>
-<ellipse fill="none" stroke="black" cx="397.36" cy="-4424.14" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="397.36" cy="-4424.14" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="397.36" y="-4427.94" font-family="Times,serif" font-size="14.00">rwm</text>
 <text text-anchor="middle" x="397.36" y="-4412.94" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -3995,7 +3995,7 @@
 <!-- y20 -->
 <g id="node240" class="node">
 <title>y20</title>
-<ellipse fill="none" stroke="black" cx="402.36" cy="-4513.88" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="402.36" cy="-4513.88" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="402.36" y="-4510.18" font-family="Times,serif" font-size="14.00">y20</text>
 </g>
 <!-- y20&#45;&gt;pns -->
@@ -4025,7 +4025,7 @@
 <!-- pgp -->
 <g id="node242" class="node">
 <title>pgp</title>
-<ellipse fill="none" stroke="black" cx="980.36" cy="-2808.81" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="980.36" cy="-2808.81" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="980.36" y="-2812.61" font-family="Times,serif" font-size="14.00">pgp</text>
 <text text-anchor="middle" x="980.36" y="-2797.61" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4038,7 +4038,7 @@
 <!-- x29 -->
 <g id="node243" class="node">
 <title>x29</title>
-<ellipse fill="none" stroke="black" cx="977.36" cy="-2898.55" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="977.36" cy="-2898.55" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="977.36" y="-2894.85" font-family="Times,serif" font-size="14.00">x29</text>
 </g>
 <!-- x29&#45;&gt;scf -->
@@ -4056,7 +4056,7 @@
 <!-- y29 -->
 <g id="node244" class="node">
 <title>y29</title>
-<ellipse fill="none" stroke="black" cx="897.36" cy="-2898.55" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="897.36" cy="-2898.55" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="897.36" y="-2894.85" font-family="Times,serif" font-size="14.00">y29</text>
 </g>
 <!-- y29&#45;&gt;scf -->
@@ -4092,7 +4092,7 @@
 <!-- y03 -->
 <g id="node249" class="node">
 <title>y03</title>
-<ellipse fill="none" stroke="black" cx="114.36" cy="-7565.04" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="114.36" cy="-7565.04" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="114.36" y="-7561.34" font-family="Times,serif" font-size="14.00">y03</text>
 </g>
 <!-- y03&#45;&gt;mtq -->
@@ -4104,7 +4104,7 @@
 <!-- qkp -->
 <g id="node251" class="node">
 <title>qkp</title>
-<ellipse fill="none" stroke="black" cx="109.36" cy="-7475.3" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="109.36" cy="-7475.3" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="109.36" y="-7479.1" font-family="Times,serif" font-size="14.00">qkp</text>
 <text text-anchor="middle" x="109.36" y="-7464.1" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4117,7 +4117,7 @@
 <!-- x03 -->
 <g id="node250" class="node">
 <title>x03</title>
-<ellipse fill="none" stroke="black" cx="191.36" cy="-7565.04" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="191.36" cy="-7565.04" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="191.36" y="-7561.34" font-family="Times,serif" font-size="14.00">x03</text>
 </g>
 <!-- x03&#45;&gt;mtq -->
@@ -4141,7 +4141,7 @@
 <!-- ttw -->
 <g id="node252" class="node">
 <title>ttw</title>
-<ellipse fill="none" stroke="black" cx="670.36" cy="-3347.25" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="670.36" cy="-3347.25" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="670.36" y="-3351.05" font-family="Times,serif" font-size="14.00">ttw</text>
 <text text-anchor="middle" x="670.36" y="-3336.05" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4154,7 +4154,7 @@
 <!-- y26 -->
 <g id="node253" class="node">
 <title>y26</title>
-<ellipse fill="none" stroke="black" cx="743.36" cy="-3436.99" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="743.36" cy="-3436.99" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="743.36" y="-3433.29" font-family="Times,serif" font-size="14.00">y26</text>
 </g>
 <!-- y26&#45;&gt;qwr -->
@@ -4172,7 +4172,7 @@
 <!-- x26 -->
 <g id="node254" class="node">
 <title>x26</title>
-<ellipse fill="none" stroke="black" cx="583.36" cy="-3436.99" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="583.36" cy="-3436.99" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="583.36" y="-3433.29" font-family="Times,serif" font-size="14.00">x26</text>
 </g>
 <!-- x26&#45;&gt;qwr -->
@@ -4202,7 +4202,7 @@
 <!-- bcs -->
 <g id="node257" class="node">
 <title>bcs</title>
-<ellipse fill="none" stroke="black" cx="488.36" cy="-6398.42" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="488.36" cy="-6398.42" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="488.36" y="-6402.22" font-family="Times,serif" font-size="14.00">bcs</text>
 <text text-anchor="middle" x="488.36" y="-6387.22" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4221,7 +4221,7 @@
 <!-- rsq -->
 <g id="node259" class="node">
 <title>rsq</title>
-<ellipse fill="none" stroke="black" cx="208.36" cy="-7834.26" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="208.36" cy="-7834.26" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="208.36" y="-7838.06" font-family="Times,serif" font-size="14.00">rsq</text>
 <text text-anchor="middle" x="208.36" y="-7823.06" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -4234,7 +4234,7 @@
 <!-- z01 -->
 <g id="node306" class="node">
 <title>z01</title>
-<ellipse fill="none" stroke="black" cx="78.36" cy="-7744.52" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="78.36" cy="-7744.52" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="78.36" y="-7748.32" font-family="Times,serif" font-size="14.00">z01</text>
 <text text-anchor="middle" x="78.36" y="-7733.32" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -4247,7 +4247,7 @@
 <!-- y01 -->
 <g id="node260" class="node">
 <title>y01</title>
-<ellipse fill="none" stroke="black" cx="291.36" cy="-7915.13" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="291.36" cy="-7915.13" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="291.36" y="-7911.43" font-family="Times,serif" font-size="14.00">y01</text>
 </g>
 <!-- y01&#45;&gt;qkj -->
@@ -4265,7 +4265,7 @@
 <!-- x01 -->
 <g id="node261" class="node">
 <title>x01</title>
-<ellipse fill="none" stroke="black" cx="211.36" cy="-7915.13" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="211.36" cy="-7915.13" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="211.36" y="-7911.43" font-family="Times,serif" font-size="14.00">x01</text>
 </g>
 <!-- x01&#45;&gt;qkj -->
@@ -4283,7 +4283,7 @@
 <!-- x09 -->
 <g id="node262" class="node">
 <title>x09</title>
-<ellipse fill="none" stroke="black" cx="485.36" cy="-6488.16" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="485.36" cy="-6488.16" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="485.36" y="-6484.46" font-family="Times,serif" font-size="14.00">x09</text>
 </g>
 <!-- x09&#45;&gt;bcs -->
@@ -4295,7 +4295,7 @@
 <!-- sqm -->
 <g id="node275" class="node">
 <title>sqm</title>
-<ellipse fill="none" stroke="black" cx="401.36" cy="-6398.42" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="401.36" cy="-6398.42" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="401.36" y="-6402.22" font-family="Times,serif" font-size="14.00">sqm</text>
 <text text-anchor="middle" x="401.36" y="-6387.22" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -4308,7 +4308,7 @@
 <!-- y09 -->
 <g id="node263" class="node">
 <title>y09</title>
-<ellipse fill="none" stroke="black" cx="405.36" cy="-6488.16" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="405.36" cy="-6488.16" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="405.36" y="-6484.46" font-family="Times,serif" font-size="14.00">y09</text>
 </g>
 <!-- y09&#45;&gt;bcs -->
@@ -4344,7 +4344,7 @@
 <!-- nmd -->
 <g id="node267" class="node">
 <title>nmd</title>
-<ellipse fill="none" stroke="black" cx="1584.36" cy="-565.31" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1584.36" cy="-565.31" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1584.36" y="-569.11" font-family="Times,serif" font-size="14.00">nmd</text>
 <text text-anchor="middle" x="1584.36" y="-554.11" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4363,7 +4363,7 @@
 <!-- x31 -->
 <g id="node269" class="node">
 <title>x31</title>
-<ellipse fill="none" stroke="black" cx="1273.36" cy="-2539.59" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1273.36" cy="-2539.59" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1273.36" y="-2535.89" font-family="Times,serif" font-size="14.00">x31</text>
 </g>
 <!-- x31&#45;&gt;hbc -->
@@ -4381,7 +4381,7 @@
 <!-- y31 -->
 <g id="node270" class="node">
 <title>y31</title>
-<ellipse fill="none" stroke="black" cx="1193.36" cy="-2539.59" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1193.36" cy="-2539.59" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1193.36" y="-2535.89" font-family="Times,serif" font-size="14.00">y31</text>
 </g>
 <!-- y31&#45;&gt;hbc -->
@@ -4399,7 +4399,7 @@
 <!-- y42 -->
 <g id="node271" class="node">
 <title>y42</title>
-<ellipse fill="none" stroke="black" cx="1581.36" cy="-655.05" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1581.36" cy="-655.05" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1581.36" y="-651.35" font-family="Times,serif" font-size="14.00">y42</text>
 </g>
 <!-- y42&#45;&gt;nmd -->
@@ -4411,7 +4411,7 @@
 <!-- kbt -->
 <g id="node283" class="node">
 <title>kbt</title>
-<ellipse fill="none" stroke="black" cx="1497.36" cy="-565.31" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="1497.36" cy="-565.31" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="1497.36" y="-569.11" font-family="Times,serif" font-size="14.00">kbt</text>
 <text text-anchor="middle" x="1497.36" y="-554.11" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
@@ -4424,7 +4424,7 @@
 <!-- x42 -->
 <g id="node272" class="node">
 <title>x42</title>
-<ellipse fill="none" stroke="black" cx="1501.36" cy="-655.05" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1501.36" cy="-655.05" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1501.36" y="-651.35" font-family="Times,serif" font-size="14.00">x42</text>
 </g>
 <!-- x42&#45;&gt;nmd -->
@@ -4442,7 +4442,7 @@
 <!-- ftg -->
 <g id="node274" class="node">
 <title>ftg</title>
-<ellipse fill="none" stroke="black" cx="1249.36" cy="-385.83" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="1249.36" cy="-385.83" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="1249.36" y="-389.63" font-family="Times,serif" font-size="14.00">ftg</text>
 <text text-anchor="middle" x="1249.36" y="-374.63" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4467,7 +4467,7 @@
 <!-- fnj -->
 <g id="node276" class="node">
 <title>fnj</title>
-<ellipse fill="none" stroke="black" cx="832.36" cy="-2988.29" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="832.36" cy="-2988.29" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="832.36" y="-2992.09" font-family="Times,serif" font-size="14.00">fnj</text>
 <text text-anchor="middle" x="832.36" y="-2977.09" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4480,7 +4480,7 @@
 <!-- x28 -->
 <g id="node277" class="node">
 <title>x28</title>
-<ellipse fill="none" stroke="black" cx="888.36" cy="-3078.03" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="888.36" cy="-3078.03" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="888.36" y="-3074.33" font-family="Times,serif" font-size="14.00">x28</text>
 </g>
 <!-- x28&#45;&gt;dtn -->
@@ -4498,7 +4498,7 @@
 <!-- y28 -->
 <g id="node278" class="node">
 <title>y28</title>
-<ellipse fill="none" stroke="black" cx="690.36" cy="-3078.03" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="690.36" cy="-3078.03" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="690.36" y="-3074.33" font-family="Times,serif" font-size="14.00">y28</text>
 </g>
 <!-- y28&#45;&gt;dtn -->
@@ -4522,14 +4522,14 @@
 <!-- z00 -->
 <g id="node280" class="node">
 <title>z00</title>
-<ellipse fill="none" stroke="black" cx="122.36" cy="-7834.26" rx="33.88" ry="26.74"/>
+<ellipse fill="red" stroke="red" cx="122.36" cy="-7834.26" rx="33.88" ry="26.74"/>
 <text text-anchor="middle" x="122.36" y="-7838.06" font-family="Times,serif" font-size="14.00">z00</text>
 <text text-anchor="middle" x="122.36" y="-7823.06" font-family="Times,serif" font-size="14.00">XOR</text>
 </g>
 <!-- y00 -->
 <g id="node281" class="node">
 <title>y00</title>
-<ellipse fill="none" stroke="black" cx="39.36" cy="-7915.13" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="39.36" cy="-7915.13" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="39.36" y="-7911.43" font-family="Times,serif" font-size="14.00">y00</text>
 </g>
 <!-- y00&#45;&gt;z00 -->
@@ -4541,7 +4541,7 @@
 <!-- bdk -->
 <g id="node284" class="node">
 <title>bdk</title>
-<ellipse fill="none" stroke="black" cx="35.36" cy="-7834.26" rx="35.21" ry="26.74"/>
+<ellipse fill="orange" stroke="orange" cx="35.36" cy="-7834.26" rx="35.21" ry="26.74"/>
 <text text-anchor="middle" x="35.36" y="-7838.06" font-family="Times,serif" font-size="14.00">bdk</text>
 <text text-anchor="middle" x="35.36" y="-7823.06" font-family="Times,serif" font-size="14.00">AND</text>
 </g>
@@ -4554,7 +4554,7 @@
 <!-- x00 -->
 <g id="node282" class="node">
 <title>x00</title>
-<ellipse fill="none" stroke="black" cx="116.36" cy="-7915.13" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="116.36" cy="-7915.13" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="116.36" y="-7911.43" font-family="Times,serif" font-size="14.00">x00</text>
 </g>
 <!-- x00&#45;&gt;z00 -->
@@ -4596,7 +4596,7 @@
 <!-- x36 -->
 <g id="node285" class="node">
 <title>x36</title>
-<ellipse fill="none" stroke="black" cx="1164.36" cy="-1731.93" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1164.36" cy="-1731.93" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1164.36" y="-1728.23" font-family="Times,serif" font-size="14.00">x36</text>
 </g>
 <!-- x36&#45;&gt;rhc -->
@@ -4614,7 +4614,7 @@
 <!-- y36 -->
 <g id="node286" class="node">
 <title>y36</title>
-<ellipse fill="none" stroke="black" cx="1088.36" cy="-1731.93" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1088.36" cy="-1731.93" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1088.36" y="-1728.23" font-family="Times,serif" font-size="14.00">y36</text>
 </g>
 <!-- y36&#45;&gt;rhc -->
@@ -4644,7 +4644,7 @@
 <!-- y13 -->
 <g id="node292" class="node">
 <title>y13</title>
-<ellipse fill="none" stroke="black" cx="725.36" cy="-5770.24" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="725.36" cy="-5770.24" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="725.36" y="-5766.54" font-family="Times,serif" font-size="14.00">y13</text>
 </g>
 <!-- y13&#45;&gt;rnb -->
@@ -4662,7 +4662,7 @@
 <!-- x13 -->
 <g id="node293" class="node">
 <title>x13</title>
-<ellipse fill="none" stroke="black" cx="651.36" cy="-5770.24" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="651.36" cy="-5770.24" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="651.36" y="-5766.54" font-family="Times,serif" font-size="14.00">x13</text>
 </g>
 <!-- x13&#45;&gt;rnb -->
@@ -4680,7 +4680,7 @@
 <!-- y43 -->
 <g id="node294" class="node">
 <title>y43</title>
-<ellipse fill="none" stroke="black" cx="1255.36" cy="-475.57" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1255.36" cy="-475.57" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1255.36" y="-471.87" font-family="Times,serif" font-size="14.00">y43</text>
 </g>
 <!-- y43&#45;&gt;vbv -->
@@ -4698,7 +4698,7 @@
 <!-- x43 -->
 <g id="node295" class="node">
 <title>x43</title>
-<ellipse fill="none" stroke="black" cx="1332.36" cy="-475.57" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1332.36" cy="-475.57" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1332.36" y="-471.87" font-family="Times,serif" font-size="14.00">x43</text>
 </g>
 <!-- x43&#45;&gt;vbv -->
@@ -4728,7 +4728,7 @@
 <!-- x39 -->
 <g id="node300" class="node">
 <title>x39</title>
-<ellipse fill="none" stroke="black" cx="1447.36" cy="-1193.49" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1447.36" cy="-1193.49" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1447.36" y="-1189.79" font-family="Times,serif" font-size="14.00">x39</text>
 </g>
 <!-- x39&#45;&gt;chr -->
@@ -4746,7 +4746,7 @@
 <!-- y39 -->
 <g id="node301" class="node">
 <title>y39</title>
-<ellipse fill="none" stroke="black" cx="1287.36" cy="-1193.49" rx="27.9" ry="18"/>
+<ellipse fill="lightgrey" stroke="black" cx="1287.36" cy="-1193.49" rx="27.9" ry="18"/>
 <text text-anchor="middle" x="1287.36" y="-1189.79" font-family="Times,serif" font-size="14.00">y39</text>
 </g>
 <!-- y39&#45;&gt;chr -->
