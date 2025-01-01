@@ -90,7 +90,15 @@ let read_circuit ?(prefix = "z") { values; _ } =
 
 let get_output c =
   run_circuit c |> read_circuit ~prefix:"z"
-    
+
+let mismatched_bits x y =
+  let rec aux i n mismatches =
+    if n = 0 then mismatches
+    else
+      aux (i + 1) (n lsr 1) (if n land 1 = 0 then mismatches else (i :: mismatches))
+  in
+  aux 0 (x lxor y) []
+
 let run () =                   
   let circuit = Io.read_file "./input/24.txt" |> of_string in
   Printf.printf "Day 24: Crossed Wires\n";
