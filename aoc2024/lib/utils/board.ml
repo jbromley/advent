@@ -1,10 +1,11 @@
 type 'a t = 'a array array
 
 let of_string s =
-  List.fold_left
-    (fun acc line -> (String.to_seq line |> Array.of_seq) :: acc)
-    []
-    (String.trim s |> String.split_on_char '\n') |> List.rev |> Array.of_list
+  String.trim s
+  |> String.split_on_char '\n'
+  |> List.fold_left (fun acc line -> (String.to_seq line |> Array.of_seq) :: acc) []
+  |> List.rev
+  |> Array.of_list
 
 let size b =
   (Array.length b.(0), Array.length b)
@@ -21,6 +22,11 @@ let at_opt b (x, y) =
   else None
 
 let set b (x, y) data = b.(y).(x) <- data
+
+let neighbors b pos =
+  List.filter
+    (fun cell -> contains b cell)
+    (Coord.neighbors pos)
 
 let find_first b data =
   let y_size = Array.length b in

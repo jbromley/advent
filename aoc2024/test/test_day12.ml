@@ -1,18 +1,18 @@
 open OUnit2
+open Utils
 open Aoc
 open Day12
 
-let map = [ "RRRRIICCFF";
-            "RRRRIICCCF";
-            "VVRRRCCFFF";
-            "VVRCCCJFFF";
-            "VVVVCJJCFE";
-            "VVIVCCJJEE";
-            "VVIIICJJEE";
-            "MIIIIIJJEE";
-            "MIIISIJEEE";
-            "MMMISSJEEE" ] |> parse_map
-
+let map = {|RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE|} |> Board.of_string
     
 let test_calculate_fence_cost _ = assert_equal 1930 (calculate_fence_cost map)
 
