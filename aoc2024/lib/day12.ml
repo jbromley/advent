@@ -3,11 +3,11 @@ open Utils
     
 let generate_neighbors map cell group =
   List.partition
-    (fun c -> Board.at map c = group)
-    (Board.neighbors map cell)
+    (fun c -> Grid.at map c = group)
+    (Grid.neighbors map cell)
   
 let explore_region map ((x, y) as pos) visited =
-  let this_group = Board.at map pos in
+  let this_group = Grid.at map pos in
   let rec loop q discovered area perimeter outside_nodes =
     match Queue.take_opt q with 
     | None -> (area * perimeter, Coord.Set.to_list outside_nodes)
@@ -40,13 +40,13 @@ let calculate_fence_cost map =
           others;
         loop q visited (total_cost + cost)
   in
-  let width, height = Board.size map in
+  let width, height = Grid.size map in
   let visited = Array.make_matrix height width false in 
   let q = Queue.create () in Queue.push (0, 0) q;
   loop q visited 0
 
 let run () =                   
-  let map = Io.read_file "./input/12.txt" |> Board.of_string in
+  let map = Io.read_file "./input/12.txt" |> Grid.of_string in
   Printf.printf "Day 12: Garden Groups\n";
   Printf.printf "calculate fence cost = %d\n" (calculate_fence_cost map) ;
   (* Printf.printf "count stones (part 2) = %d\n" (count_stones input 75) *)

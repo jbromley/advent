@@ -1,12 +1,12 @@
 (* Day 20: Race Condition *)
 open Utils
     
-type track = {board: char Board.t; start: Coord.t; finish: Coord.t}
+type track = {board: char Grid.t; start: Coord.t; finish: Coord.t}
 
 let of_string s =
-  let board = Board.of_string s in
-  let start = Board.find_first board 'S' in
-  let finish = Board.find_first board 'E' in
+  let board = Grid.of_string s in
+  let start = Grid.find_first board 'S' in
+  let finish = Grid.find_first board 'E' in
   {board; start; finish}
 
 let mark_path {board; start; finish} =
@@ -16,7 +16,7 @@ let mark_path {board; start; finish} =
     else
       let next_cell =
         Coord.neighbors pos
-        |> List.filter (fun pos -> Board.at board pos <> '#' && pos <> last_pos)
+        |> List.filter (fun pos -> Grid.at board pos <> '#' && pos <> last_pos)
         |> List.hd
       in
       aux next_cell pos (distance + 1) path'

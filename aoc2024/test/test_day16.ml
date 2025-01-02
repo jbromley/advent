@@ -19,7 +19,7 @@ let input_small =
 #.###.#.#.#.#.#
 #S..#.....#...#
 ###############
-|} |> Board.of_string
+|} |> Grid.of_string
                   
 let input_large =
   {|#################
@@ -39,7 +39,7 @@ let input_large =
 #.#.#.#########.#
 #S#.............#
 #################
-|} |> Board.of_string
+|} |> Grid.of_string
 
 let test_lowest_score_small _ = assert_equal 7036 (find_lowest_score_path input_small)
 let test_lowest_score_large _ = assert_equal 11048 (find_lowest_score_path input_large)

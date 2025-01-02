@@ -4,7 +4,7 @@ open Utils
 type tile = Empty | Box | Wall
 
 module Warehouse = struct
-  type t = { board : tile Board.t; pos : Coord.t }
+  type t = { board : tile Grid.t; pos : Coord.t }
 
   let find_robot b =
     let rec aux y robot_pos =
@@ -15,7 +15,7 @@ module Warehouse = struct
     aux 0 None
     
   let of_string s =
-    let board = Board.of_string s in
+    let board = Grid.of_string s in
     let start_pos = find_robot board in
     let warehouse =
       Array.map
@@ -44,8 +44,8 @@ module Warehouse = struct
     match find_empty_cell board next_pos with
     | None -> t
     | Some empty_cell ->
-      Board.set board next_pos Empty;
-      Board.set board empty_cell Box;
+      Grid.set board next_pos Empty;
+      Grid.set board empty_cell Box;
       { board; pos = next_pos }
 
   let step ({ board; pos } as t) dir =
@@ -151,15 +151,15 @@ module Warehouse2 = struct
       Coord.Set.fold (fun (x, y) (xmin, ymin) -> (max x xmin, max y ymin)) walls (min_int, min_int)
     in
     let board = Array.make_matrix (ymax + 1) (xmax + 1) '.' in
-    Board.set board pos '@';
-    Coord.Set.iter (fun (x, y) -> Board.set board (x, y) '#') walls;
+    Grid.set board pos '@';
+    Coord.Set.iter (fun (x, y) -> Grid.set board (x, y) '#') walls;
     Coord.Map.iter
       (fun (x, y) (xn, _) ->
          let xleft = if x < xn then x else xn in
-         Board.set board (xleft, y) '[';
-         Board.set board (xleft + 1, y) ']')
+         Grid.set board (xleft, y) '[';
+         Grid.set board (xleft + 1, y) ']')
       boxes;
-    Board.to_string board
+    Grid.to_string board
 
   let update_boxes boxes moved_cells dir =
     if Coord.Set.cardinal moved_cells = 0 then boxes

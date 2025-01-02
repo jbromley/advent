@@ -57,7 +57,7 @@ let dijkstra maze starts ?(ends = Coord.Set.empty) () =
           let pq =
             List.fold_left
               (fun pq (pos, dir, score) ->
-                 match Board.at maze pos with
+                 match Grid.at maze pos with
                  | '#' -> pq
                  | _ ->
                    if Coord2Hashtbl.mem visited (pos, dir) then pq
@@ -71,8 +71,8 @@ let dijkstra maze starts ?(ends = Coord.Set.empty) () =
   visited
     
 let find_lowest_score_path maze =
-  let start_pos = Board.find_first maze 'S' in
-  let end_pos = Board.find_first maze 'E' in
+  let start_pos = Grid.find_first maze 'S' in
+  let end_pos = Grid.find_first maze 'E' in
   let distances = dijkstra maze [(start_pos, (1, 0))] ~ends:(Coord.Set.singleton end_pos) () in
   List.find_map
     (fun dir -> Coord2Hashtbl.find_opt distances (end_pos, dir))
@@ -80,12 +80,12 @@ let find_lowest_score_path maze =
   |> Option.value ~default:max_int
 
 let count_path_tiles maze =
-  let start_pos = Board.find_first maze 'S' in
-  let end_pos = Board.find_first maze 'E' in
+  let start_pos = Grid.find_first maze 'S' in
+  let end_pos = Grid.find_first maze 'E' in
   let distances_start = dijkstra maze [(start_pos, (1, 0))] () in
   let distances_end = dijkstra maze (List.map (fun dir -> (end_pos, dir)) Coord.offsets) () in
   let best_score = Coord2Hashtbl.find distances_end (start_pos, (-1, 0)) in
-  Board.counti
+  Grid.counti
     maze
     (fun pos ch ->
        if ch = '#' then false
@@ -98,7 +98,7 @@ let count_path_tiles maze =
            (Coord.offsets |> Coord.Set.of_list)) 
     
 let run () =
-  let maze = Io.read_file "./input/16.txt" |> Board.of_string in
+  let maze = Io.read_file "./input/16.txt" |> Grid.of_string in
   Printf.printf "Day 16: Reindeer Maze\n";
   Printf.printf "lowest score (part 1) = %d\n" (find_lowest_score_path maze);
   Printf.printf "tiles on best path = %d\n" (count_path_tiles maze)
